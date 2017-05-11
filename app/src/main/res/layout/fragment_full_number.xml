@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="in.hbb20.countrycodepickerproject.FullNumberFragment">
+    tools:context="com.rilixtech.countrycodepicker.FullNumberFragment">
 
     <android.support.v7.widget.CardView style="@style/parentCard">
 
@@ -50,7 +50,7 @@
                     style="@style/pointText"
                     android:text="\u2022 To load full number, use setFullNumber() method. In this method you need to pass the full number. " />
 
-                <EditText
+                <android.support.v7.widget.AppCompatEditText
                     android:id="@+id/editText_loadFullNumber"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -88,13 +88,13 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical">
-                            <com.hbb20.CountryCodePicker
+                            <com.rilixtech.CountryCodePicker
                                 android:id="@+id/ccp_loadFullNumber"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                app:countryPreference="us,in"
+                                app:ccp_countryPreference="us,in"
                                 />
-                            <EditText
+                            <android.support.v7.widget.AppCompatEditText
                                 android:id="@+id/editText_loadCarrierNumber"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -153,12 +153,12 @@
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical">
 
-                            <com.hbb20.CountryCodePicker
+                            <com.rilixtech.CountryCodePicker
                                 android:id="@+id/ccp_getFullNumber"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content" />
 
-                            <EditText
+                            <android.support.v7.widget.AppCompatEditText
                                 android:id="@+id/editText_getCarrierNumber"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -195,7 +195,7 @@
                         android:text="Get full number with + from CCP" />
                 </LinearLayout>
 
-                <EditText
+                <android.support.v7.widget.AppCompatEditText
                     android:id="@+id/editText_getFullNumber"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

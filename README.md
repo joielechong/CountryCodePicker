@@ -18,18 +18,29 @@ Introduction
 How to add to your project
 --------------
 
-   1. Add this to your gradle file and sync
+   1. Add jitpack.io to your root build.gradle file
+
+     ````groovy
+         allprojects {
+          repositories {
+             jcenter()
+             maven { url "https://jitpack.io" }
+          }
+         }
+     ````
+
+   2. Add library to your app build.gradle file then sync
 
       ````groovy
         dependencies {
-          compile 'com.hbb20:ccp:1.7.4'
+          compile 'com.github.joielechong:countrycodepicker:1.7.7'
         }
       ````
 
    2. Add ccp view to xml layout
    
       ````xml
-        <com.hbb20.CountryCodePicker
+        <com.rilixtech.CountryCodePicker
           android:id="@+id/ccp"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content" />
@@ -62,28 +73,28 @@ Features
       #### A. Through xml
        
         ##### Using country code name
-        - Add app:defaultNameCode="US" (replace "US" with your default country name code) to xml layout. Refer <a href="https://goo.gl/FQjUjA">List of countries</a> for name codes.
+        - Add app:ccp_defaultNameCode="US" (replace "US" with your default country name code) to xml layout. Refer <a href="https://goo.gl/FQjUjA">List of countries</a> for name codes.
 
 	       ````xml
-	        <com.hbb20.CountryCodePicker
+	        <com.rilixtech.CountryCodePicker
 	         android:id="@+id/ccp"
 	         android:layout_width="wrap_content"
 	         android:layout_height="wrap_content"
-	         app:defaultNameCode="US"  />
+	         app:ccp_defaultNameCode="US"  />
 	      ```` 
 	      
        ##### Using phone code
-        - add app:defaultCode="81" (replace 81 with your default country code) to xml layout.Refer <a href="https://goo.gl/FQjUjA">List of countries</a> for country codes.
-        - Setting default country using phone code is not recommended. There are few cases where more than one countries have same phone code. Say US and Canada have +1. Putting '1' will result in Canada even if you were intended  for US.  Use app:defaultNameCode or app:countryPreference to overcome issue.
+        - add app:ccp_defaultCode="81" (replace 81 with your default country code) to xml layout.Refer <a href="https://goo.gl/FQjUjA">List of countries</a> for country codes.
+        - Setting default country using phone code is not recommended. There are few cases where more than one countries have same phone code. Say US and Canada have +1. Putting '1' will result in Canada even if you were intended  for US.  Use app:defaultNameCode or app:mCountryPreference to overcome issue.
 	
 	       ````xml
-	        <com.hbb20.CountryCodePicker
+	        <com.rilixtech.CountryCodePicker
 	         android:id="@+id/ccp"
 	         android:layout_width="wrap_content"
 	         android:layout_height="wrap_content"
-	         app:defaultCode="81" />
+	         app:ccp_defaultCode="81" />
 	      ````
-  			_app:defaultNameCode has higher priority than app:defaultCode._
+  			_app:ccp_defaultNameCode has higher priority than app:ccp_defaultCode._
   
    		####  B. Programmatically
        	##### Using country name code
@@ -138,14 +149,14 @@ Features
     - Any number of countries can be set in preference.
    
   - #### Set through xml
-        - Add app:countryPreference="US,IN,NZ" (replace "US,IN,NZ" with your preference) to xml layout. Refer <a href="https://goo.gl/FQjUjA">List of countries</a> for name codes.
+        - Add app:mCountryPreference="US,IN,NZ" (replace "US,IN,NZ" with your preference) to xml layout. Refer <a href="https://goo.gl/FQjUjA">List of countries</a> for name codes.
 
 	       ````xml
-	        <com.hbb20.CountryCodePicker
+	        <com.rilixtech.CountryCodePicker
 	         android:id="@+id/ccp"
 	         android:layout_width="wrap_content"
 	         android:layout_height="wrap_content"
-	         app:countryPreference="US,IN,NZ"  />
+	         app:ccp_mCountryPreference="US,IN,NZ"  />
 	      ````
   
    - #### Programmatically
@@ -201,10 +212,10 @@ Features
     - Add app:contentColor property to xml layout
    
 	      ````xml
-	      <com.hbb20.CountryCodePicker
+	      <com.rilixtech.CountryCodePicker
 	            android:layout_width="wrap_content"
 	          android:layout_height="wrap_content"
-	          app:contentColor="@color/custom_color"/>                        
+	          app:ccp_contentColor="@color/custom_color"/>
 	      ````
     
     - <img src="https://farm6.staticflickr.com/5590/30736274540_b156916b98_z.jpg" width="300">
@@ -222,10 +233,10 @@ Features
     - Add app:contentColor property to xml layout
   
 	      ````xml
-	      	<com.hbb20.CountryCodePicker
+	      	<com.rilixtech.CountryCodePicker
 	         android:layout_width="wrap_content"
 	         android:layout_height="wrap_content"
-	         app:textSize="26sp"/>                        
+	         app:ccp_textSize="26sp"/>
 	      ````
 
     #### Programmatically
@@ -238,26 +249,26 @@ Features
     - Add app:contentColor property to xml layout
 	      
 	````xml
-	      <com.hbb20.CountryCodePicker
+	      <com.rilixtech.CountryCodePicker
 	       android:layout_width="wrap_content"
 	       android:layout_height="wrap_content"
-	       app:arrowSize="26sp"/>                        
+	       app:ccp_arrowSize="26sp"/>
 	  ````
 
     #### Programmatically
     - To set textSize programmatically, use ```` setArrowSize() ```` method.
     
  ### 9. Hide country name code
-  - By default, text of CCP contains coutry's name code. i.e "(US) +1". Coutnry name code can be removed if required. 
+  - By default, text of CCP contains country's name code. i.e "(US) +1". Country name code can be removed if required.
     
     #### Using XML
-    - Add app:hideCodeName property to xml layout
+    - Add app:ccp_hideCodeName property to xml layout
 	      
 	````xml
-	      <com.hbb20.CountryCodePicker
+	      <com.rilixtech.CountryCodePicker
 	       android:layout_width="wrap_content"
 	       android:layout_height="wrap_content"
-	       app:hideNameCode="true"/>                        
+	       app:ccp_hideNameCode="true"/>
 	  ````
 
     #### Programmatically
@@ -273,14 +284,14 @@ Features
     - Preferred country list will be a subset of custom master list. If some xyz country is not in custom master list, it won't be added to preferred country list.
    
   - #### Set through xml
-        - add app:customMasterCountries="US,IN,NZ,BD,PL,RO,ZW" (replace "US,IN,NZ,BD,PL,RO,ZW" by your own country code names) to xml layout. Refer <a href="https://goo.gl/FQjUjA">List of countries</a> for name codes.
+        - add app:ccp_customMasterCountries="US,IN,NZ,BD,PL,RO,ZW" (replace "US,IN,NZ,BD,PL,RO,ZW" by your own country code names) to xml layout. Refer <a href="https://goo.gl/FQjUjA">List of countries</a> for name codes.
 
 	       ````xml
-	        <com.hbb20.CountryCodePicker
+	        <com.rilixtech.CountryCodePicker
 	         android:id="@+id/ccp"
 	         android:layout_width="wrap_content"
 	         android:layout_height="wrap_content"
-	         app:customMasterCountries="US,IN,NZ,BD,PL,RO,ZW"  />
+	         app:ccp_customMasterCountries="US,IN,NZ,BD,PL,RO,ZW"  />
 	      ````
   
    - #### Programmatically 
@@ -308,7 +319,7 @@ Features
     - <img src="https://farm6.staticflickr.com/5738/30736274420_213808d03b_z.jpg" width="300"> 
    
   - #### Set through xml
-        - add app:ccpLanguage="JAPANESE" to xml layout
+        - add app:ccp_ccpLanguage="JAPANESE" to xml layout
 
 	       ````xml
 	        <com.hbb20.CountryCodePicker
@@ -326,15 +337,15 @@ Features
      - More thumbnail packs can be added
      - By default flag will be added to the ccp view
    - #### Set through xml
-           - add app:showFlag="false" to remove flag using xml layout
+           - add app:ccp_showFlag="false" to remove flag using xml layout
 
    	       ````xml
-   	        <com.hbb20.CountryCodePicker
+   	        <com.rilixtech.CountryCodePicker
    	         android:id="@+id/ccp"
    	         android:layout_width="wrap_content"
    	         android:layout_height="wrap_content"
-   	         app:showFlag="false"
-   	         app:ccpLanguage="JAPANESE"  />
+   	         app:ccp_showFlag="false"
+   	         app:ccp_ccpLanguage="JAPANESE"  />
    	      ````
 
      - #### Programmatically
@@ -351,12 +362,12 @@ Features
 	     
 
       	       ````xml
-      	        <com.hbb20.CountryCodePicker
+      	        <com.rilixtech.CountryCodePicker
       	         android:id="@+id/ccp"
       	         android:layout_width="wrap_content"
       	         android:layout_height="wrap_content"
-      	         app:showFullName="true"
-      	         app:ccpLanguage="JAPANESE"  />
+      	         app:ccp_showFullName="true"
+      	         app:ccp_ccpLanguage="JAPANESE"  />
       	      ````
 
    - #### Programmatically
@@ -370,13 +381,13 @@ Features
               - add app:showFullName="true" to show full nameinstead of name code
 	    
       	       ````xml
-      	        <com.hbb20.CountryCodePicker
+      	        <com.rilixtech.CountryCodePicker
       	         android:id="@+id/ccp"
       	         android:layout_width="wrap_content"
       	         android:layout_height="wrap_content"
-      	         app:showFullName="true"
-      	         app:ccpLanguage="JAPANESE" 
-		 app:ccpClickable="false"/>
+      	         app:ccp_showFullName="true"
+      	         app:ccp_ccpLanguage="JAPANESE"
+		             app:ccp_ccpClickable="false"/>
       	      ````
 
    - #### Programmatically
@@ -427,6 +438,11 @@ Change log
 ##### version 1.7.4
     - Adds French Guyana, Martinique and Réunion to country list
 
+##### version 1.7.7
+    - Change code totally. Fully deviate from original fork.
+    - Refactoring code
+    - Remove country string from code to values resources.
+
 ## Credits
 Hebrew translation by [David Brownstone](https://github.com/dfbrownstone)
 Chinese translation by [KENNETH2008](https://github.com/kenneth2008)
@@ -434,6 +450,8 @@ Chinese translation by [KENNETH2008](https://github.com/kenneth2008)
 ## License
 
 [Apache Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html)
+
+    Copyright (C) 2017 Joielechong
 
     Copyright (C) 2016 Harsh Bhakta
 

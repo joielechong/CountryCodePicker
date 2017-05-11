@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CountryCodePicker">
+        <attr name="ccp_defaultCode" format="integer" />
+        <attr name="ccp_contentColor" format="color"/>
+        <attr name="ccp_textSize" format="dimension"/>
+        <attr name="ccp_arrowSize" format="dimension"/>
+        <attr name="ccp_countryPreference" format="string"/>
+        <attr name="ccp_defaultNameCode" format="string" />
+        <attr name="ccp_hideNameCode" format="boolean"/>
+        <attr name="ccp_keyboardAutoPopOnSearch" format="boolean"/>
+        <attr name="ccp_customMasterCountries" format="string" />
+        <attr name="ccp_showFlag" format="boolean" />
+        <attr name="ccp_showFullName" format="boolean" />
+        <attr name="ccp_selectionDialogShowSearch" format="boolean" />
+        <attr name="ccp_ccpClickable" format="boolean" />
+    </declare-styleable>
+</resources>

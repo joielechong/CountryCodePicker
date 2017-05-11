@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="in.hbb20.countrycodepickerproject">
+    package="com.rilixtech.countrycodepicker">
 
     <application
         android:allowBackup="true"
@@ -9,9 +9,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ExampleActivity"
+            android:name="com.rilixtech.countrycodepicker.ExampleActivity"
             android:windowSoftInputMode="stateHidden"></activity>
-        <activity android:name=".HomeActivity">
+        <activity android:name="com.rilixtech.countrycodepicker.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

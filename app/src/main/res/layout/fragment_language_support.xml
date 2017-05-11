@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="in.hbb20.countrycodepickerproject.CustomSizeFragment">
+    tools:context="com.rilixtech.countrycodepicker.CustomSizeFragment">
 
     <android.support.v7.widget.CardView style="@style/parentCard">
 
@@ -48,7 +48,7 @@
                     <TextView
                         style="@style/pointText"
                         android:paddingLeft="32dp"
-                        android:text='add app:ccpLanguage="RUSSIAN" to xml layout.' />
+                        android:text='add app:ccp_ccpLanguage="RUSSIAN" to xml layout.' />
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -69,12 +69,11 @@
                                 android:layout_height="wrap_content"
                                 android:gravity="center_vertical">
 
-                                <com.hbb20.CountryCodePicker
+                                <com.rilixtech.CountryCodePicker
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    app:ccpLanguage="ARABIC"
-                                    app:contentColor="@android:color/white"
-                                    app:defaultNameCode="sa" />
+                                    app:ccp_contentColor="@android:color/white"
+                                    app:ccp_defaultNameCode="sa" />
 
                                 <TextView
                                     android:layout_width="match_parent"
@@ -91,12 +90,11 @@
                                 android:layout_height="wrap_content"
                                 android:gravity="center_vertical">
 
-                                <com.hbb20.CountryCodePicker
+                                <com.rilixtech.CountryCodePicker
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    app:ccpLanguage="CHINESE_TRADITIONAL"
-                                    app:contentColor="@android:color/white"
-                                    app:defaultNameCode="cn" />
+                                    app:ccp_contentColor="@android:color/white"
+                                    app:ccp_defaultNameCode="cn" />
 
                                 <TextView
                                     android:layout_width="match_parent"
@@ -113,12 +111,11 @@
                                 android:layout_height="wrap_content"
                                 android:gravity="center_vertical">
 
-                                <com.hbb20.CountryCodePicker
+                                <com.rilixtech.CountryCodePicker
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    app:ccpLanguage="ENGLISH"
-                                    app:contentColor="@android:color/white"
-                                    app:defaultNameCode="us" />
+                                    app:ccp_contentColor="@android:color/white"
+                                    app:ccp_defaultNameCode="us" />
 
                                 <TextView
                                     android:layout_width="match_parent"
@@ -135,11 +132,10 @@
                                 android:layout_height="wrap_content"
                                 android:gravity="center_vertical">
 
-                                <com.hbb20.CountryCodePicker
+                                <com.rilixtech.CountryCodePicker
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    app:ccpLanguage="HINDI"
-                                    app:contentColor="@android:color/white" />
+                                    app:ccp_contentColor="@android:color/white" />
 
                                 <TextView
                                     android:layout_width="match_parent"
@@ -156,12 +152,11 @@
                                 android:layout_height="wrap_content"
                                 android:gravity="center_vertical">
 
-                                <com.hbb20.CountryCodePicker
+                                <com.rilixtech.CountryCodePicker
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    app:ccpLanguage="GERMAN"
-                                    app:contentColor="@android:color/white"
-                                    app:defaultNameCode="de" />
+                                    app:ccp_contentColor="@android:color/white"
+                                    app:ccp_defaultNameCode="de" />
 
                                 <TextView
                                     android:layout_width="match_parent"
@@ -178,12 +173,11 @@
                                 android:layout_height="wrap_content"
                                 android:gravity="center_vertical">
 
-                                <com.hbb20.CountryCodePicker
+                                <com.rilixtech.CountryCodePicker
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    app:ccpLanguage="RUSSIAN"
-                                    app:contentColor="@android:color/white"
-                                    app:defaultNameCode="ru" />
+                                    app:ccp_contentColor="@android:color/white"
+                                    app:ccp_defaultNameCode="ru" />
 
                                 <TextView
                                     android:layout_width="match_parent"
@@ -270,12 +264,12 @@
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical">
 
-                            <com.hbb20.CountryCodePicker
+                            <com.rilixtech.CountryCodePicker
                                 android:id="@+id/ccp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                app:contentColor="@color/card_background"
-                                app:defaultNameCode="IN" />
+                                app:ccp_contentColor="@color/card_background"
+                                app:ccp_defaultNameCode="IN" />
 
                             <EditText
                                 android:layout_width="match_parent"

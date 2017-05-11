@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="in.hbb20.countrycodepickerproject.CustomSizeFragment">
+    tools:context="com.rilixtech.countrycodepicker.CustomSizeFragment">
 
     <android.support.v7.widget.CardView style="@style/parentCard">
 
@@ -40,7 +40,7 @@
                     <TextView
                         style="@style/pointText"
                         android:paddingLeft="32dp"
-                        android:text='add app:textSize="14sp" to xml layout.' />
+                        android:text='add app:ccp_textSize="14sp" to xml layout.' />
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -61,11 +61,11 @@
                                 android:layout_height="wrap_content"
                                 android:gravity="center_vertical">
 
-                                <com.hbb20.CountryCodePicker
+                                <com.rilixtech.CountryCodePicker
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    app:contentColor="@android:color/white"
-                                    app:textSize="14sp" />
+                                    app:ccp_contentColor="@android:color/white"
+                                    app:ccp_textSize="14sp" />
 
                                 <TextView
                                     android:layout_width="match_parent"
@@ -82,11 +82,11 @@
                                 android:layout_height="wrap_content"
                                 android:gravity="center_vertical">
 
-                                <com.hbb20.CountryCodePicker
+                                <com.rilixtech.CountryCodePicker
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    app:contentColor="@android:color/white"
-                                    app:textSize="16sp" />
+                                    app:ccp_contentColor="@android:color/white"
+                                    app:ccp_textSize="16sp" />
 
                                 <TextView
                                     android:layout_width="match_parent"
@@ -103,10 +103,10 @@
                                 android:layout_height="wrap_content"
                                 android:gravity="center_vertical">
 
-                                <com.hbb20.CountryCodePicker
+                                <com.rilixtech.CountryCodePicker
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    app:contentColor="@android:color/white" />
+                                    app:ccp_contentColor="@android:color/white" />
 
                                 <TextView
                                     android:layout_width="match_parent"
@@ -124,11 +124,11 @@
                                 android:layout_height="wrap_content"
                                 android:gravity="center_vertical">
 
-                                <com.hbb20.CountryCodePicker
+                                <com.rilixtech.CountryCodePicker
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    app:contentColor="@android:color/white"
-                                    app:textSize="20sp" />
+                                    app:ccp_contentColor="@android:color/white"
+                                    app:ccp_textSize="20sp" />
 
                                 <TextView
                                     android:layout_width="match_parent"
@@ -145,12 +145,12 @@
                                 android:layout_height="wrap_content"
                                 android:gravity="center_vertical">
 
-                                <com.hbb20.CountryCodePicker
+                                <com.rilixtech.CountryCodePicker
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    app:contentColor="@android:color/white"
+                                    app:ccp_contentColor="@android:color/white"
 
-                                    app:textSize="22sp" />
+                                    app:ccp_textSize="22sp" />
 
                                 <TextView
                                     android:layout_width="match_parent"
@@ -167,11 +167,11 @@
                                 android:layout_height="wrap_content"
                                 android:gravity="center_vertical">
 
-                                <com.hbb20.CountryCodePicker
+                                <com.rilixtech.CountryCodePicker
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    app:contentColor="@android:color/white"
-                                    app:textSize="24sp" />
+                                    app:ccp_contentColor="@android:color/white"
+                                    app:ccp_textSize="24sp" />
 
                                 <TextView
                                     android:layout_width="match_parent"
@@ -188,7 +188,7 @@
                     <TextView
                         style="@style/pointText"
                         android:paddingLeft="32dp"
-                        android:text='*add app:textSize will update the size of downFace arrow accordingly. To specify arrow size explicitly, use app:arrowSize' />
+                        android:text='*add app:ccp_textSize will update the size of downFace arrow accordingly. To specify arrow size explicitly, use app:ccp_arrowSize' />
                 </LinearLayout>
 
                 <TextView

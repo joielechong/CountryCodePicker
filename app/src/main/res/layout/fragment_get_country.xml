@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="in.hbb20.countrycodepickerproject.GetCountryFragment">
+    tools:context="com.rilixtech.countrycodepicker.GetCountryFragment">
 
     <android.support.v7.widget.CardView style="@style/parentCard">
 
@@ -55,12 +55,12 @@
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical">
 
-                            <com.hbb20.CountryCodePicker
+                            <com.rilixtech.CountryCodePicker
                                 android:id="@+id/ccp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                app:defaultNameCode="IN"
-                                app:keyboardAutoPopOnSearch="false" />
+                                app:ccp_defaultNameCode="IN"
+                                app:ccp_keyboardAutoPopOnSearch="false" />
 
                             <EditText
                                 android:layout_width="match_parent"

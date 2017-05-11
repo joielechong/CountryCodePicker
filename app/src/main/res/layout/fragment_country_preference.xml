@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="in.hbb20.countrycodepickerproject.CountryPreferenceFragment">
+    tools:context="com.rilixtech.countrycodepicker.CountryPreferenceFragment">
 
     <android.support.v7.widget.CardView style="@style/parentCard">
 
@@ -83,14 +83,14 @@
                         <TextView
                             style="@style/pointText"
                             android:paddingLeft="32dp"
-                            android:text='add app:countryPreference="US,IN,NZ" (replace "US,IN,NZ" by your preference) to xml layout.' />
+                            android:text='add app:ccp_mCountryPreference="US,IN,NZ" (replace "US,IN,NZ" by your preference) to xml layout.' />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="8dp"
                             android:layout_marginLeft="32dp"
-                            android:text='&#60;com.hbb20.CountryCodePicker \n android:id="@+id/ccp" \n android:layout_width="wrap_content" \n android:layout_height="wrap_content" \n app:defaultNameCode="US" \n app:countryPreference="US,IN,NZ"/&#62;' />
+                            android:text='&#60;com.rilixtech.CountryCodePicker \n android:id="@+id/ccp" \n android:layout_width="wrap_content" \n android:layout_height="wrap_content" \n app:ccp_defaultNameCode="US" \n app:ccp_mCountryPreference="US,IN,NZ"/&#62;' />
 
                         <RelativeLayout
                             android:layout_width="match_parent"
@@ -117,11 +117,11 @@
                                     android:layout_height="wrap_content"
                                     android:gravity="center_vertical">
 
-                                    <com.hbb20.CountryCodePicker
+                                    <com.rilixtech.CountryCodePicker
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        app:countryPreference="US,IN,NZ"
-                                        app:defaultNameCode="US" />
+                                        app:ccp_countryPreference="US,IN,NZ"
+                                        app:ccp_defaultNameCode="US" />
 
                                     <EditText
                                         android:layout_width="match_parent"
@@ -203,7 +203,7 @@
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical">
 
-                            <com.hbb20.CountryCodePicker
+                            <com.rilixtech.CountryCodePicker
                                 android:id="@+id/ccp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content" />

@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name" translatable="false">CountryCodePicker</string>
+    <string name="phone_code" translatable="false">+%s</string>
+    <string name="country_name_and_code" translatable="false">%1$s (%2$s)</string>
+    <string name="search_hint">Search&#8230;</string>
+    <string name="no_result_found">No result found</string>
+    <string name="select_country">Select county</string>
+</resources>
