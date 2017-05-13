@@ -20,7 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
-        android:src="@drawable/flag_india"
+        android:src="@drawable/flag_indonesia"
         />
   </LinearLayout>
 
@@ -34,7 +34,7 @@
       android:layout_toRightOf="@+id/flag_holder_lly"
       android:layout_toStartOf="@+id/code_tv"
       android:gravity="center_vertical"
-      android:text="India (IN)"
+      android:text="Indonesia (ID)"
       android:textColor="@android:color/secondary_text_light"
       />
 

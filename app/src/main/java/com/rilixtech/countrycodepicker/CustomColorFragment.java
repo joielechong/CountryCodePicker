@@ -19,11 +19,11 @@ import com.rilixtech.CountryCodePicker;
  */
 public class CustomColorFragment extends Fragment {
 
-    Button buttonNext;
-    TextView textViewTitle;
-    EditText editTextPhone;
-    CountryCodePicker ccp;
-    RelativeLayout relativeColor1,relativeColor2,relativeColor3;
+    private Button buttonNext;
+    private TextView textViewTitle;
+    private EditText editTextPhone;
+    private CountryCodePicker ccp;
+    private RelativeLayout relativeColor1,relativeColor2,relativeColor3;
 
     public CustomColorFragment() {
     }
@@ -38,8 +38,18 @@ public class CustomColorFragment extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        assignViews();
+        assignViews(view);
         setClickListener();
+    }
+
+    private void assignViews(View view) {
+        textViewTitle =(TextView)view.findViewById(R.id.textView_title);
+        editTextPhone =(EditText)view.findViewById(R.id.editText_phone);
+        ccp=(CountryCodePicker)view.findViewById(R.id.ccp);
+        relativeColor1=(RelativeLayout)view.findViewById(R.id.relative_color1);
+        relativeColor2=(RelativeLayout)view.findViewById(R.id.relative_color2);
+        relativeColor3=(RelativeLayout)view.findViewById(R.id.relative_color3);
+        buttonNext = (Button) view.findViewById(R.id.button_next);
     }
 
     private void setClickListener() {
@@ -106,13 +116,4 @@ public class CustomColorFragment extends Fragment {
         relativeColor3.setBackgroundColor(getActivity().getResources().getColor(R.color.dullBG));
     }
 
-    private void assignViews() {
-        textViewTitle =(TextView)getView().findViewById(R.id.title_tv);
-        editTextPhone =(EditText)getView().findViewById(R.id.editText_phone);
-        ccp=(CountryCodePicker)getView().findViewById(R.id.ccp);
-        relativeColor1=(RelativeLayout)getView().findViewById(R.id.relative_color1);
-        relativeColor2=(RelativeLayout)getView().findViewById(R.id.relative_color2);
-        relativeColor3=(RelativeLayout)getView().findViewById(R.id.relative_color3);
-        buttonNext = (Button) getView().findViewById(R.id.button_next);
-    }
 }

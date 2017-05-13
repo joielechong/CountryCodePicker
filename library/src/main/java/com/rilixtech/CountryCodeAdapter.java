@@ -26,14 +26,12 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
   private List<Country> masterCountries = null;
   private AppCompatTextView mTvNoResult;
   private CountryCodePicker mCountryCodePicker;
-  //private LayoutInflater mInflater;
   private AppCompatEditText mEdtSearch;
   private Dialog mDialog;
   private InputMethodManager mInputMethodManager;
 
   CountryCodeAdapter(List<Country> countries, CountryCodePicker codePicker,
       final AppCompatEditText edtSearch, AppCompatTextView tvNoResult, Dialog dialog) {
-    //this.context = context;
     this.masterCountries = countries;
     this.mCountryCodePicker = codePicker;
     this.mDialog = dialog;
@@ -143,8 +141,6 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
       @Override public void onClick(View view) {
         mCountryCodePicker.setSelectedCountry(filteredCountries.get(position));
         if (view != null && filteredCountries.get(position) != null) {
-          //InputMethodManager imm = (InputMethodManager) mCountryCodePicker.getContext()
-          //    .getSystemService(Context.INPUT_METHOD_SERVICE);
           mInputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
           mDialog.dismiss();
         }
@@ -184,7 +180,11 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
                 country.getNameCode().toUpperCase());
         tvName.setText(countryNameAndCode);
         tvCode.setText(tvCode.getContext().getString(R.string.phone_code, country.getPhoneCode()));
-        imvFlag.setImageResource(country.getFlagID());
+        if(mCountryCodePicker.getTypeFace() != null) {
+          tvCode.setTypeface(mCountryCodePicker.getTypeFace());
+          tvName.setTypeface(mCountryCodePicker.getTypeFace());
+        }
+        imvFlag.setImageResource(country.getFlagDrawableResId());
       } else {
         viewDivider.setVisibility(View.VISIBLE);
         tvName.setVisibility(View.GONE);

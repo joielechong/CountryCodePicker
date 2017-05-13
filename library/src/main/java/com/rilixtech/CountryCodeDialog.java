@@ -1,6 +1,7 @@
 package com.rilixtech;
 
 import android.app.Dialog;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.AppCompatTextView;
@@ -43,12 +44,18 @@ public class CountryCodeDialog extends Dialog {
     mEdtSearch.setHint(R.string.search_hint);
     mTvNoResult = (AppCompatTextView) this.findViewById(R.id.no_result_tv);
     mTvNoResult.setText(R.string.no_result_found);
+    if(mCountryCodePicker.getTypeFace() != null) {
+      Typeface typeface = mCountryCodePicker.getTypeFace();
+      mTvTitle.setTypeface(typeface);
+      mEdtSearch.setTypeface(typeface);
+      mTvNoResult.setTypeface(typeface);
+    }
   }
 
   private void setupData() {
     mCountryCodePicker.refreshCustomMasterList();
     mCountryCodePicker.refreshPreferredCountries();
-    List<Country> masterCountries = Country.getCustomMasterCountryList(mCountryCodePicker);
+    List<Country> masterCountries = mCountryCodePicker.getCustomCountries(mCountryCodePicker);
     final CountryCodeAdapter cca = new CountryCodeAdapter(masterCountries, mCountryCodePicker, mEdtSearch,
             mTvNoResult, this);
     if (!mCountryCodePicker.isSelectionDialogShowSearch()) {

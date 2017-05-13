@@ -21,12 +21,12 @@ How to add to your project
    1. Add jitpack.io to your root build.gradle file
 
      ````groovy
-         allprojects {
+        allprojects {
           repositories {
              jcenter()
              maven { url "https://jitpack.io" }
           }
-         }
+        }
      ````
 
    2. Add library to your app build.gradle file then sync
@@ -241,7 +241,8 @@ Features
 
     #### Programmatically
     - To set textSize programmatically, use ```` setTextSize() ```` method.
-    
+
+
  ### 8. Custom arrow size
   - Size if Down arrow of CCP view can be modified in order to match rest of the view of form.
     
@@ -303,37 +304,28 @@ Features
   - FontFamily of CCP content can be changed in order to match rest of the view of form.
   - Font can be set programmatically only.  
   - <img src="https://farm6.staticflickr.com/5334/31103136905_1f0dc0b535_z.jpg" width="300">  
-   
-    #### Programmatically
+
     - Step 1: create a folder named 'assets' under 'app/src/main/' folder. If you already have 'app/src/main/assets' then jump to next step.
     - Step 2: put your font's .ttf file in assets folder. For example if file name is 'myfonts.ttf', it should be 'app/src/main/assets/myfonts.ttf'. Make sure that the extension '.ttf' have contain small letters only. '.TTF' might not work.
-    - Step 3: now prepare typeFace using ```` Typeface typeFace=Typeface.createFromAsset(getContext().getAssets(),"myfonts.ttf"); ````
-    - Step 4: finally apply the type face on ccp ```` ccp.setTypeFace(typeFace); ```` OR ```` ccp.setTypeFace(typeFace,customStyle); ````
-   
- ### 12. Language support
-    - Supported languages: Arabic, Bengali, Chinese Traditional, Chinese Simplified, English, French, German, Gujarati, Hindi, Japanese, Javanese, Portuguese, Russian, Spanish
-    - <img src="https://farm6.staticflickr.com/5444/30960801252_34b573e938_z.jpg" width="300"> 
-    - More languages can be added in the future.
-    - Language will be applied in country selection dialog.
-    - Google translator was used to tranlate. So there is possibility of translation error, if you find any mistake please report issue to correct it or send pull request.
-    - <img src="https://farm6.staticflickr.com/5738/30736274420_213808d03b_z.jpg" width="300"> 
-   
-  - #### Set through xml
-        - add app:ccp_ccpLanguage="JAPANESE" to xml layout
 
-	       ````xml
-	        <com.hbb20.CountryCodePicker
-	         android:id="@+id/ccp"
-	         android:layout_width="wrap_content"
-	         android:layout_height="wrap_content"
-	         app:ccpLanguage="JAPANESE"  />
-	      ````
-  
-  - #### Programmatically
-        - Use ```` changeLanguage()```` method.
+    #### Programmatically
+    - Step 1: now prepare typeFace using ```` Typeface typeFace=Typeface.createFromAsset(getContext().getAssets(),"myfonts.ttf"); ````
+    - Step 2: finally apply the type face on ccp ```` ccp.setTypeFace(typeFace); ```` OR ```` ccp.setTypeFace(typeFace,customStyle); ````
 
- ### 13. National Flag Thumbnail
-     - Added flag thambnail to cpp and selector dialog
+    #### Set through xml
+
+        - add app:ccp_textFont="myfonts.ttf" to use the font
+
+       	 ````xml
+       	  <com.rilixtech.CountryCodePicker
+       	     android:id="@+id/ccp"
+       	     android:layout_width="wrap_content"
+       	     android:layout_height="wrap_content"
+       	     app:ccp_textFont="myfonts.ttf" />
+       	  ````
+
+ ### 12. National Flag Thumbnail
+     - Added flag thumbnail to cpp and selector dialog
      - More thumbnail packs can be added
      - By default flag will be added to the ccp view
    - #### Set through xml
@@ -344,14 +336,13 @@ Features
    	         android:id="@+id/ccp"
    	         android:layout_width="wrap_content"
    	         android:layout_height="wrap_content"
-   	         app:ccp_showFlag="false"
-   	         app:ccp_ccpLanguage="JAPANESE"  />
+   	         app:ccp_showFlag="false" />
    	      ````
 
      - #### Programmatically
            - Use ```` showFlag(false)```` method to hide the flag.
 
- ### 14. Show Full Country Name
+ ### 13. Show Full Country Name
    - Developer might wish to show full country name instead of only code name
    - `showFullName` will replace name code with full name.
    - If name code was hidden using app:hideNameCode="true" then this will not work.
@@ -374,11 +365,11 @@ Features
 
        - Use ```` showFullName(true)```` or ```` showFullName(false)```` method to show / hide the full name.
         
- ### 15. Enable / Disable click
+ ### 14. Enable / Disable click
 
    - Developer can toggle click lister of ccp
    - #### Set through xml
-              - add app:showFullName="true" to show full nameinstead of name code
+              - add app:ccp_showFullName="true" to show full name instead of name code
 	    
       	       ````xml
       	        <com.rilixtech.CountryCodePicker
@@ -386,8 +377,7 @@ Features
       	         android:layout_width="wrap_content"
       	         android:layout_height="wrap_content"
       	         app:ccp_showFullName="true"
-      	         app:ccp_ccpLanguage="JAPANESE"
-		             app:ccp_ccpClickable="false"/>
+		         app:ccp_Clickable="false"/>
       	      ````
 
    - #### Programmatically
@@ -443,9 +433,13 @@ Change log
     - Refactoring code
     - Remove country string from code to values resources.
 
+##### version 1.7.8
+    - Further code clean up.
+    - Add ccp_textFont for text TypeFace
+
 ## Credits
-Hebrew translation by [David Brownstone](https://github.com/dfbrownstone)
-Chinese translation by [KENNETH2008](https://github.com/kenneth2008)
+
+This project is a fork from [CountryCodePickerProject](https://github.com/hbb20/CountryCodePickerProject)
 
 ## License
 

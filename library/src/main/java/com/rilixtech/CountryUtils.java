@@ -1,23 +1,25 @@
 package com.rilixtech;
 
 import android.content.Context;
-import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by rio on 5/11/17.
+ * Util to get all country and the flags.
+ * Created by joielechong 11 May 2017.
  */
 
-public class CountryUtils {
-
-  private static final String TAG = CountryUtils.class.getSimpleName();
+class CountryUtils {
 
   private static List<Country> countries;
+
   /**
    * Returns image res based on country name code
+   * @param country selected country
+   * @return drawable resource id of country flag.
    */
-  static int getFlagResID(Country country) {
+  static int getFlagDrawableResId(Country country) {
     switch (country.getNameCode()) {
       case "af": //afghanistan
         return R.drawable.flag_afghanistan;
@@ -476,9 +478,14 @@ public class CountryUtils {
     }
   }
 
-  static List<Country> getLibraryMasterCountries(Context context) {
+  /**
+   * Get all countries
+   * @param context caller context
+   * @return List of Country
+   */
+  static List<Country> getAllCountries(Context context) {
     if(countries != null) {
-      Log.d(TAG, "Countries not null");
+//      Log.d(TAG, "Countries not null");
       return countries;
     }
 
@@ -1386,5 +1393,140 @@ public class CountryUtils {
         context.getString(R.string.country_zimbabwe_number),
         context.getString(R.string.country_zimbabwe_name)));
     return countries;
+  }
+
+//  /**
+//   * Get custom country by preference
+//   * @param codePicker
+//   * @return
+//   */
+//  private static List<Country> getCustomCountries(CountryCodePicker codePicker) {
+//    codePicker.refreshCustomMasterList();
+//    if (codePicker.getCustomCountries() != null
+//            && codePicker.getCustomCountries().size() > 0) {
+//      return codePicker.getCustomCountries();
+//    } else {
+//      return CountryUtils.getAllCountries(codePicker.getContext());
+//    }
+//  }
+
+  /**
+   * Finds country code by matching substring from left to right from full number.
+   * For example. if full number is +819017901357
+   * function will ignore "+" and try to find match for first character "8"
+   * if any country found for code "8", will return that country. If not, then it will
+   * try to find country for "81". and so on till first 3 characters ( maximum number of characters
+   * in country code is 3).
+   *
+   * @param preferredCountries countries of preference
+   * @param fullNumber full number ( "+" (optional)+ country code + carrier number) i.e.
+   * +819017901357 / 819017901357 / 918866667722
+   * @return Country JP +81(Japan) for +819017901357 or 819017901357
+   * Country IN +91(India) for  918866667722
+   * null for 2956635321 ( as neither of "2", "29" and "295" matches any country code)
+   */
+  static Country getCountryByNumber(Context context, List<Country> preferredCountries, String fullNumber) {
+    int firstDigit;
+    if (fullNumber.length() != 0) {
+      if (fullNumber.charAt(0) == '+') {
+        firstDigit = 1;
+      } else {
+        firstDigit = 0;
+      }
+      Country country;
+      for (int i = firstDigit; i < firstDigit + 4; i++) {
+        String code = fullNumber.substring(firstDigit, i);
+        country = getCountryByCode(context, preferredCountries, code);
+        if (country != null) {
+          return country;
+        }
+      }
+    }
+    return null;
+  }
+
+
+  /**
+   * Search a country which matches @param code.
+   *
+   * @param preferredCountries list of country with priority,
+   * @param code phone code. i.e 91 or 1
+   * @return Country that has phone code as @param code.
+   * or returns null if no country matches given code.
+   */
+  static Country getCountryByCode(Context context, List<Country> preferredCountries, int code) {
+    return getCountryByCode(context, preferredCountries, code + "");
+  }
+
+  /**
+   * Search a country which matches @param code.
+   *
+   * @param preferredCountries is list of preference countries.
+   * @param code phone code. i.e "91" or "1"
+   * @return Country that has phone code as @param code.
+   * or returns null if no country matches given code.
+   * if same code (e.g. +1) available for more than one country ( US, canada) , this function will
+   * return preferred country.
+   */
+  private static Country getCountryByCode(Context context, List<Country> preferredCountries,
+                                  String code) {
+
+    /**
+     * check in preferred countries
+     */
+    if (preferredCountries != null && !preferredCountries.isEmpty()) {
+      for (Country country : preferredCountries) {
+        if (country.getPhoneCode().equals(code)) {
+          return country;
+        }
+      }
+    }
+
+    for (Country country : CountryUtils.getAllCountries(context)) {
+      if (country.getPhoneCode().equals(code)) {
+        return country;
+      }
+    }
+    return null;
+  }
+
+
+  /**
+   * Search a country which matches @param nameCode.
+   *
+   * @param nameCode country name code. i.e US or us or Au. See countries.xml for all code names.
+   * @return Country that has phone code as @param code.
+   * or returns null if no country matches given code.
+   */
+  static Country getCountryByNameCodeFromCustomCountries(Context context,
+                                                         List<Country> customCountries,
+                                                         String nameCode) {
+    if (customCountries == null || customCountries.size() == 0) {
+      return getCountryByNameCodeFromAllCountries(context, nameCode);
+    } else {
+      for (Country country : customCountries) {
+        if (country.getNameCode().equalsIgnoreCase(nameCode)) {
+          return country;
+        }
+      }
+    }
+    return null;
+  }
+
+  /**
+   * Search a country which matches @param nameCode.
+   *
+   * @param nameCode country name code. i.e US or us or Au. See countries.xml for all code names.
+   * @return Country that has phone code as @param code.
+   * or returns null if no country matches given code.
+   */
+  static Country getCountryByNameCodeFromAllCountries(Context context, String nameCode) {
+    List<Country> countries = CountryUtils.getAllCountries(context);
+    for (Country country : countries) {
+      if (country.getNameCode().equalsIgnoreCase(nameCode)) {
+        return country;
+      }
+    }
+    return null;
   }
 }

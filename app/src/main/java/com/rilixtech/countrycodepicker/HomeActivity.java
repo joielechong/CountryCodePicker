@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 public class HomeActivity extends AppCompatActivity {
 
-    TextView textIntro, textDefaultCountry, textPreference, textCustomMaster, textsetCountry, textGetCountry, textFullNumber, textCustomColor, textCustomSize, textCustomFont, textCustomLanguage;
+    TextView textIntro, textDefaultCountry, textPreference, textCustomMaster, textsetCountry, textGetCountry, textFullNumber, textCustomColor, textCustomSize, textCustomFont;
     Button startDemo;
 
     @Override
@@ -49,9 +49,6 @@ public class HomeActivity extends AppCompatActivity {
 
         textCustomFont = (TextView) findViewById(R.id.textCustomFont);
         setclick(textCustomFont, 9);
-
-        textCustomLanguage = (TextView) findViewById(R.id.textCustomLanguage);
-        setclick(textCustomLanguage, 10);
 
         startDemo = (Button) findViewById(R.id.buttonGo);
         startDemo.setOnClickListener(new View.OnClickListener() {

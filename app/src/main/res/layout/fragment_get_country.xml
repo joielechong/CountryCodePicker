@@ -59,7 +59,7 @@
                                 android:id="@+id/ccp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                app:ccp_defaultNameCode="IN"
+                                app:ccp_defaultNameCode="ID"
                                 app:ccp_keyboardAutoPopOnSearch="false" />
 
                             <EditText
@@ -168,7 +168,7 @@
                     android:text="Read selected country name code"/>
                 <TextView
                     style="@style/pointText"
-                    android:text="\u2022 To get selected country’s name code, use getSelectedCountryNameCode(); => “IN”"/>
+                    android:text="\u2022 To get selected country’s name code, use getSelectedCountryNameCode(); => “ID”"/>
                 <Button
                     android:id="@+id/button_next"
                     style="@style/Widget.AppCompat.Button.Colored"

@@ -14,6 +14,7 @@ public class ExampleActivity extends AppCompatActivity {
     PagerAdapter pagerAdapter;
     int init = 0;
     boolean initLoaded = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,15 +74,13 @@ public class ExampleActivity extends AppCompatActivity {
                     return new CustomSizeFragment();
                 case 9:
                     return new CustomFontFragment();
-                case 10:
-                    return new LanguageSupportFragment();
             }
             return null;
         }
 
         @Override
         public int getCount() {
-            return 11;
+            return 10;
         }
     }
 }

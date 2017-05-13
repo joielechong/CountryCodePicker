@@ -43,7 +43,7 @@ public class CustomFontFragment extends Fragment {
     }
 
     private void applyCustomFonts() {
-        setTTFfont(ccp2,"bookos.ttf");
+//        setTTFfont(ccp2,"bookos.ttf");
         setTTFfont(ccp3,"hack.ttf");
         setTTFfont(ccp4,"playfair.ttf");
         setTTFfont(ccp5,"raleway.ttf");
@@ -60,7 +60,7 @@ public class CustomFontFragment extends Fragment {
         buttonNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((ExampleActivity) getActivity()).viewPager.setCurrentItem(((ExampleActivity) getActivity()).viewPager.getCurrentItem() + 1);
+                ((ExampleActivity) getActivity()).finish();
             }
         });
     }
@@ -72,6 +72,6 @@ public class CustomFontFragment extends Fragment {
         ccp4=(CountryCodePicker)rootView.findViewById(R.id.ccp4);
         ccp5=(CountryCodePicker)rootView.findViewById(R.id.ccp5);
         ccp6=(CountryCodePicker)rootView.findViewById(R.id.ccp6);
-        buttonNext = (Button) getView().findViewById(R.id.button_next);
+        buttonNext = (Button) rootView.findViewById(R.id.button_next);
     }
 }
