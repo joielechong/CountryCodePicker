@@ -9,7 +9,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Window;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 import java.util.List;
 
 /**
@@ -59,7 +58,6 @@ public class CountryCodeDialog extends Dialog {
     final CountryCodeAdapter cca = new CountryCodeAdapter(masterCountries, mCountryCodePicker, mEdtSearch,
             mTvNoResult, this);
     if (!mCountryCodePicker.isSelectionDialogShowSearch()) {
-      Toast.makeText(getContext(), "Found not to show search", Toast.LENGTH_SHORT).show();
       RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) mRvCountryDialog.getLayoutParams();
       params.height = RecyclerView.LayoutParams.WRAP_CONTENT;
       mRvCountryDialog.setLayoutParams(params);

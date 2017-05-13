@@ -21,6 +21,7 @@
         android:layout_below="@+id/title_tv"
         android:hint="@string/search_hint"
         android:singleLine="true"
+        android:imeOptions="flagNoExtractUi"
         android:maxLines="1"
         android:textColor="@android:color/primary_text_light_nodisable" />
 

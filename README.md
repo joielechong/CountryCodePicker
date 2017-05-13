@@ -20,20 +20,20 @@ How to add to your project
 
    1. Add jitpack.io to your root build.gradle file
 
-     ````groovy
+   ````groovy
         allprojects {
           repositories {
              jcenter()
              maven { url "https://jitpack.io" }
           }
         }
-     ````
+   ````
 
    2. Add library to your app build.gradle file then sync
 
       ````groovy
         dependencies {
-          compile 'com.github.joielechong:countrycodepicker:1.7.7'
+          compile 'com.github.joielechong:countrycodepicker:1.7.8'
         }
       ````
 
@@ -127,17 +127,18 @@ Features
       **Using phone code**  
 		- Country in CCP can be using ```` setCountryForCode() ```` method.
 	
-	- If specified country code / name code does not match with any country, default country will be set in to CCP.
+	    - If specified country code / name code does not match with any country, default country will be set in to CCP.
       
      **How to listen change in selection?**
      	- To get call back when country is changed, you need to add OnCountryChangeListener from code.
-	```java 
+
+	   ```java
 	   ccp.setOnCountryChangeListener(new CountryCodePicker.OnCountryChangeListener() {
-		@Override 
-		public void onCountrySelected() {
-			 Toast.makeText(getContext(), "Updated " + ccp.getSelectedCountryName(), Toast.LENGTH_SHORT).show();
-           	 }
-       	   });
+		    @Override
+		    public void onCountrySelected() {
+		       Toast.makeText(getContext(), "Updated " + ccp.getSelectedCountryName(), Toast.LENGTH_SHORT).show();
+            }
+       	});
 	   ```
 
   ### 3. Country preference
@@ -149,15 +150,15 @@ Features
     - Any number of countries can be set in preference.
    
   - #### Set through xml
-        - Add app:mCountryPreference="US,IN,NZ" (replace "US,IN,NZ" with your preference) to xml layout. Refer <a href="https://goo.gl/FQjUjA">List of countries</a> for name codes.
 
-	       ````xml
+        - Add app:mCountryPreference="US,IN,NZ" (replace "US,IN,NZ" with your preference) to xml layout. Refer <a href="https://goo.gl/FQjUjA">List of countries</a> for name codes.
+	   ````xml
 	        <com.rilixtech.CountryCodePicker
 	         android:id="@+id/ccp"
 	         android:layout_width="wrap_content"
 	         android:layout_height="wrap_content"
 	         app:ccp_mCountryPreference="US,IN,NZ"  />
-	      ````
+	   ````
   
    - #### Programmatically
         - Use ```` setCountryPreference()```` method.
@@ -211,12 +212,12 @@ Features
     #### Using XML
     - Add app:contentColor property to xml layout
    
-	      ````xml
+	     ````xml
 	      <com.rilixtech.CountryCodePicker
 	            android:layout_width="wrap_content"
 	          android:layout_height="wrap_content"
 	          app:ccp_contentColor="@color/custom_color"/>
-	      ````
+	     ````
     
     - <img src="https://farm6.staticflickr.com/5590/30736274540_b156916b98_z.jpg" width="300">
 
@@ -229,15 +230,17 @@ Features
   - Text size of CCP content can be changed in order to match rest of the view of form.
   - Everytime when textSize is updated, arrowsize will be updated itself. 
   - <img src="https://farm6.staticflickr.com/5743/30296515043_78d70ff6ba_z.jpg" width="300">  
+
     #### Using XML
+
     - Add app:contentColor property to xml layout
-  
-	      ````xml
-	      	<com.rilixtech.CountryCodePicker
-	         android:layout_width="wrap_content"
-	         android:layout_height="wrap_content"
-	         app:ccp_textSize="26sp"/>
-	      ````
+
+	     ````xml
+	     <com.rilixtech.CountryCodePicker
+	          android:layout_width="wrap_content"
+	          android:layout_height="wrap_content"
+	          app:ccp_textSize="26sp"/>
+	     ````
 
     #### Programmatically
     - To set textSize programmatically, use ```` setTextSize() ```` method.
@@ -251,9 +254,9 @@ Features
 	      
 	````xml
 	      <com.rilixtech.CountryCodePicker
-	       android:layout_width="wrap_content"
-	       android:layout_height="wrap_content"
-	       app:ccp_arrowSize="26sp"/>
+	           android:layout_width="wrap_content"
+	           android:layout_height="wrap_content"
+	           app:ccp_arrowSize="26sp"/>
 	  ````
 
     #### Programmatically
@@ -287,13 +290,13 @@ Features
   - #### Set through xml
         - add app:ccp_customMasterCountries="US,IN,NZ,BD,PL,RO,ZW" (replace "US,IN,NZ,BD,PL,RO,ZW" by your own country code names) to xml layout. Refer <a href="https://goo.gl/FQjUjA">List of countries</a> for name codes.
 
-	       ````xml
-	        <com.rilixtech.CountryCodePicker
-	         android:id="@+id/ccp"
-	         android:layout_width="wrap_content"
-	         android:layout_height="wrap_content"
-	         app:ccp_customMasterCountries="US,IN,NZ,BD,PL,RO,ZW"  />
-	      ````
+	   ````xml
+	     <com.rilixtech.CountryCodePicker
+	          android:id="@+id/ccp"
+	          android:layout_width="wrap_content"
+	          android:layout_height="wrap_content"
+	          app:ccp_customMasterCountries="US,IN,NZ,BD,PL,RO,ZW"  />
+	   ````
   
    - #### Programmatically 
         - Use ```` setCustomMasterCountries()```` method. 
@@ -305,6 +308,8 @@ Features
   - Font can be set programmatically only.  
   - <img src="https://farm6.staticflickr.com/5334/31103136905_1f0dc0b535_z.jpg" width="300">  
 
+    #### For programmatically and xml
+    Do the following step first:
     - Step 1: create a folder named 'assets' under 'app/src/main/' folder. If you already have 'app/src/main/assets' then jump to next step.
     - Step 2: put your font's .ttf file in assets folder. For example if file name is 'myfonts.ttf', it should be 'app/src/main/assets/myfonts.ttf'. Make sure that the extension '.ttf' have contain small letters only. '.TTF' might not work.
 
@@ -316,13 +321,13 @@ Features
 
         - add app:ccp_textFont="myfonts.ttf" to use the font
 
-       	 ````xml
-       	  <com.rilixtech.CountryCodePicker
-       	     android:id="@+id/ccp"
-       	     android:layout_width="wrap_content"
-       	     android:layout_height="wrap_content"
-       	     app:ccp_textFont="myfonts.ttf" />
-       	  ````
+       ````xml
+       <com.rilixtech.CountryCodePicker
+       	    android:id="@+id/ccp"
+       	    android:layout_width="wrap_content"
+       	    android:layout_height="wrap_content"
+       	    app:ccp_textFont="myfonts.ttf" />
+       ````
 
  ### 12. National Flag Thumbnail
      - Added flag thumbnail to cpp and selector dialog
@@ -331,13 +336,13 @@ Features
    - #### Set through xml
            - add app:ccp_showFlag="false" to remove flag using xml layout
 
-   	       ````xml
+   	    ````xml
    	        <com.rilixtech.CountryCodePicker
    	         android:id="@+id/ccp"
    	         android:layout_width="wrap_content"
    	         android:layout_height="wrap_content"
    	         app:ccp_showFlag="false" />
-   	      ````
+   	    ````
 
      - #### Programmatically
            - Use ```` showFlag(false)```` method to hide the flag.
@@ -348,18 +353,19 @@ Features
    - If name code was hidden using app:hideNameCode="true" then this will not work.
    - Some country names are real long so go for this option only if your UI has dedicated enough space for it.
    - <img src="https://farm6.staticflickr.com/5514/31103136845_1abdfcfe81_z.jpg" width="300"> 
-   - #### Set through xml####
-              - add app:showFullName="true" to show full nameinstead of name code
-	     
 
-      	       ````xml
-      	        <com.rilixtech.CountryCodePicker
+   - #### Set through xml
+
+      - add app:showFullName="true" to show full nameinstead of name code
+
+        ````xml
+        <com.rilixtech.CountryCodePicker
       	         android:id="@+id/ccp"
       	         android:layout_width="wrap_content"
       	         android:layout_height="wrap_content"
       	         app:ccp_showFullName="true"
       	         app:ccp_ccpLanguage="JAPANESE"  />
-      	      ````
+        ````
 
    - #### Programmatically
 
@@ -369,20 +375,20 @@ Features
 
    - Developer can toggle click lister of ccp
    - #### Set through xml
-              - add app:ccp_showFullName="true" to show full name instead of name code
-	    
-      	       ````xml
-      	        <com.rilixtech.CountryCodePicker
-      	         android:id="@+id/ccp"
-      	         android:layout_width="wrap_content"
-      	         android:layout_height="wrap_content"
-      	         app:ccp_showFullName="true"
-		         app:ccp_Clickable="false"/>
-      	      ````
+        - add `app:ccp_showFullName="true"` to show full name instead of name code
+
+     ````xml
+     <com.rilixtech.CountryCodePicker
+      	  android:id="@+id/ccp"
+      	  android:layout_width="wrap_content"
+      	  android:layout_height="wrap_content"
+      	  app:ccp_showFullName="true"
+		  app:ccp_Clickable="false"/>
+     ````
 
    - #### Programmatically
 
-       - Use ```` setCcpClickable(true)```` or ```` setCcpClickable(false)```` method to enable / disable the click.
+       - Use ` setClickable(true)` or ` setClickable(false)` method to enable / disable the click.
         
 	
 Change log
