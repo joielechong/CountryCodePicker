@@ -53,8 +53,9 @@ public class CountryPreferenceFragment extends Fragment {
                 String countryPreference;
                 try {
                     countryPreference = editTextCountryPreference.getText().toString();
-                    ccp.setmCountryPreference(countryPreference);
-                    Toast.makeText(getActivity(), "Country preference list has been changed, click on CCP to see them at top of list.", Toast.LENGTH_LONG).show();
+                    ccp.setCountryPreference(countryPreference);
+                    Toast.makeText(getActivity(), "Country preference list has been changed, " +
+                            "click on CCP to see them at top of list.", Toast.LENGTH_LONG).show();
                 } catch (Exception ex) {
 
                 }

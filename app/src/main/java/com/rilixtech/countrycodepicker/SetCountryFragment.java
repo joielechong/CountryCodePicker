@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.rilixtech.Country;
 import com.rilixtech.CountryCodePicker;
 
 
@@ -112,8 +113,10 @@ public class SetCountryFragment extends Fragment {
 
         ccp.setOnCountryChangeListener(new CountryCodePicker.OnCountryChangeListener() {
             @Override
-            public void onCountrySelected() {
-                Toast.makeText(getContext(), "This is from OnCountryChangeListener. \n Country updated to " + ccp.getSelectedCountryName() + "(" + ccp.getSelectedCountryCodeWithPlus() + ")", Toast.LENGTH_SHORT).show();
+            public void onCountrySelected(Country selectedCountry) {
+                Toast.makeText(getContext(), "This is from OnCountryChangeListener. " +
+                        "\n Country updated to " + selectedCountry.getName()
+                        + "(" + ccp.getSelectedCountryCodeWithPlus() + ")", Toast.LENGTH_SHORT).show();
             }
         });
     }

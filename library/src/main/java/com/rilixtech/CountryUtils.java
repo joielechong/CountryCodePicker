@@ -1395,21 +1395,6 @@ class CountryUtils {
     return countries;
   }
 
-//  /**
-//   * Get custom country by preference
-//   * @param codePicker
-//   * @return
-//   */
-//  private static List<Country> getCustomCountries(CountryCodePicker codePicker) {
-//    codePicker.refreshCustomMasterList();
-//    if (codePicker.getCustomCountries() != null
-//            && codePicker.getCustomCountries().size() > 0) {
-//      return codePicker.getCustomCountries();
-//    } else {
-//      return CountryUtils.getAllCountries(codePicker.getContext());
-//    }
-//  }
-
   /**
    * Finds country code by matching substring from left to right from full number.
    * For example. if full number is +819017901357
@@ -1445,7 +1430,6 @@ class CountryUtils {
     return null;
   }
 
-
   /**
    * Search a country which matches @param code.
    *
@@ -1471,9 +1455,7 @@ class CountryUtils {
   private static Country getCountryByCode(Context context, List<Country> preferredCountries,
                                   String code) {
 
-    /**
-     * check in preferred countries
-     */
+    //check in preferred countries first
     if (preferredCountries != null && !preferredCountries.isEmpty()) {
       for (Country country : preferredCountries) {
         if (country.getPhoneCode().equals(code)) {

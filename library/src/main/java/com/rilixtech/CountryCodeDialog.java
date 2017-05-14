@@ -12,7 +12,9 @@ import android.widget.RelativeLayout;
 import java.util.List;
 
 /**
- * Created by rio on 5/11/17.
+ * Dialog for selecting Country.
+ *
+ * Created by Joielechong on 11 May 2017.
  */
 
 public class CountryCodeDialog extends Dialog {
@@ -55,8 +57,8 @@ public class CountryCodeDialog extends Dialog {
     mCountryCodePicker.refreshCustomMasterList();
     mCountryCodePicker.refreshPreferredCountries();
     List<Country> masterCountries = mCountryCodePicker.getCustomCountries(mCountryCodePicker);
-    final CountryCodeAdapter cca = new CountryCodeAdapter(masterCountries, mCountryCodePicker, mEdtSearch,
-            mTvNoResult, this);
+    CountryCodeAdapter cca = new CountryCodeAdapter(masterCountries, mCountryCodePicker,
+                                    mEdtSearch, mTvNoResult, this);
     if (!mCountryCodePicker.isSelectionDialogShowSearch()) {
       RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) mRvCountryDialog.getLayoutParams();
       params.height = RecyclerView.LayoutParams.WRAP_CONTENT;
