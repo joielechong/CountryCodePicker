@@ -135,8 +135,8 @@ Features
 	   ```java
 	   ccp.setOnCountryChangeListener(new CountryCodePicker.OnCountryChangeListener() {
 		    @Override
-		    public void onCountrySelected() {
-		       Toast.makeText(getContext(), "Updated " + ccp.getSelectedCountryName(), Toast.LENGTH_SHORT).show();
+		    public void onCountrySelected(Country selectedCountry) {
+		       Toast.makeText(getContext(), "Updated " + selectedCountry.getName(), Toast.LENGTH_SHORT).show();
             }
        	});
 	   ```

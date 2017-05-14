@@ -24,18 +24,20 @@ import java.util.List;
 
 /**
  * Created by hbb20 on 11/1/16.
+ *
+ * Updated code style and remove unused code
+ *
+ * Updated by Joielechong 13 May 2017
  */
 public class CountryCodePicker extends RelativeLayout {
 
   private static String TAG = CountryCodePicker.class.getSimpleName();
 
-  private static final String BUNDLE_SELECTED_CODE = "selectedCode";
-  private static final int    LIB_DEFAULT_COUNTRY_CODE = 62; // Indonesia
+  private static final int DEFAULT_COUNTRY_CODE = 62; // Indonesia
 
   private int mDefaultCountryCode;
   private String mDefaultCountryNameCode;
 
-//  private Context mContext;
   private View mViewHolder;
   private LayoutInflater mInflater;
   private AppCompatTextView mTvSelectedCountry;
@@ -47,7 +49,6 @@ public class CountryCodePicker extends RelativeLayout {
   private Country mSelectedCountry;
   private Country mDefaultCountry;
   private RelativeLayout mRlyClickConsumer;
-  private CountryCodePicker mCcpCodePicker;
 
   private boolean mHideNameCode = false;
   private boolean mShowFlag = true;
@@ -69,12 +70,13 @@ public class CountryCodePicker extends RelativeLayout {
   // Font typeface
   private Typeface mTypeFace;
 
+  private OnCountryChangeListener onCountryChangeListener;
+
   View.OnClickListener countryCodeHolderClickListener = new View.OnClickListener() {
     @Override public void onClick(View v) {
       if (isClickable()) {
-        //CountryCodeDialogOld.openCountryCodeDialog(mCcpCodePicker);
         if (countryCodeDialog == null) {
-          countryCodeDialog = new CountryCodeDialog(mCcpCodePicker);
+          countryCodeDialog = new CountryCodeDialog(CountryCodePicker.this);
           countryCodeDialog.show();
         } else {
           countryCodeDialog.reShow();
@@ -83,28 +85,23 @@ public class CountryCodePicker extends RelativeLayout {
     }
   };
 
-  private OnCountryChangeListener onCountryChangeListener;
 
   public CountryCodePicker(Context context) {
     super(context);
-//    this.mContext = context;
     init(null);
   }
 
   public CountryCodePicker(Context context, AttributeSet attrs) {
     super(context, attrs);
-//    this.mContext = context;
     init(attrs);
   }
 
   public CountryCodePicker(Context context, AttributeSet attrs, int defStyleAttr) {
     super(context, attrs, defStyleAttr);
-//    this.mContext = context;
     init(attrs);
   }
 
   private void init(AttributeSet attrs) {
-    //        Log.d(TAG, "Initialization of CCP");
     mInflater = LayoutInflater.from(this.getContext());
     mViewHolder = mInflater.inflate(R.layout.layout_code_picker, this, true);
     mTvSelectedCountry = (AppCompatTextView) mViewHolder.findViewById(R.id.selected_country_tv);
@@ -113,13 +110,11 @@ public class CountryCodePicker extends RelativeLayout {
     mImvFlag = (AppCompatImageView) mViewHolder.findViewById(R.id.flag_imv);
     mLlyFlagHolder = (LinearLayout) mViewHolder.findViewById(R.id.flag_holder_lly);
     mRlyClickConsumer = (RelativeLayout) mViewHolder.findViewById(R.id.click_consumer_rly);
-    mCcpCodePicker = this;
     applyCustomProperty(attrs);
     mRlyClickConsumer.setOnClickListener(countryCodeHolderClickListener);
   }
 
   private void applyCustomProperty(AttributeSet attrs) {
-    //        Log.d(TAG, "Applying custom property");
     TypedArray a =
         getContext().getTheme().obtainStyledAttributes(attrs, R.styleable.CountryCodePicker, 0, 0);
     //default country code
@@ -130,7 +125,7 @@ public class CountryCodePicker extends RelativeLayout {
       //show full name
       mShowFullName = a.getBoolean(R.styleable.CountryCodePicker_ccp_showFullName, false);
 
-      //autopop keyboard
+      //auto pop keyboard
       setKeyboardAutoPopOnSearch(
           a.getBoolean(R.styleable.CountryCodePicker_ccp_keyboardAutoPopOnSearch, true));
 
@@ -159,10 +154,10 @@ public class CountryCodePicker extends RelativeLayout {
       if (!setUsingNameCode) {
         int defaultCountryCode = a.getInteger(R.styleable.CountryCodePicker_ccp_defaultCode, -1);
 
-        //if invalid country is set using xml, it will be replaced with LIB_DEFAULT_COUNTRY_CODE
+        //if invalid country is set using xml, it will be replaced with DEFAULT_COUNTRY_CODE
         if (CountryUtils.getCountryByCode(getContext(), mPreferredCountries, defaultCountryCode)
             == null) {
-          defaultCountryCode = LIB_DEFAULT_COUNTRY_CODE;
+          defaultCountryCode = DEFAULT_COUNTRY_CODE;
         }
         setDefaultCountryUsingPhoneCode(defaultCountryCode);
         setSelectedCountry(mDefaultCountry);
@@ -223,7 +218,6 @@ public class CountryCodePicker extends RelativeLayout {
 
   private void setDefaultCountry(Country defaultCountry) {
     this.mDefaultCountry = defaultCountry;
-    //        Log.d(TAG, "Setting default country:" + mDefaultCountry.logString());
   }
 
   private TextView getTvSelectedCountry() {
@@ -242,8 +236,7 @@ public class CountryCodePicker extends RelativeLayout {
     this.mSelectedCountry = selectedCountry;
     //as soon as country is selected, textView should be updated
     if (selectedCountry == null) {
-      selectedCountry =
-          CountryUtils.getCountryByCode(getContext(), mPreferredCountries, mDefaultCountryCode);
+      selectedCountry = CountryUtils.getCountryByCode(getContext(), mPreferredCountries, mDefaultCountryCode);
     }
 
     if (!mHideNameCode) {
@@ -257,24 +250,16 @@ public class CountryCodePicker extends RelativeLayout {
             + selectedCountry.getPhoneCode());
       }
     } else {
-      mTvSelectedCountry.setText("+" + selectedCountry.getPhoneCode());
+      mTvSelectedCountry.setText(getContext().getString(R.string.phone_code, selectedCountry.getPhoneCode()));
     }
 
     if (onCountryChangeListener != null) {
-      onCountryChangeListener.onCountrySelected();
+      onCountryChangeListener.onCountrySelected(selectedCountry);
     }
 
     mImvFlag.setImageResource(selectedCountry.getFlagDrawableResId());
     //        Log.d(TAG, "Setting selected country:" + mSelectedCountry.logString());
   }
-
-  //Language getCustomLanguage() {
-  //  return customLanguage;
-  //}
-  //
-  //private void setCustomLanguage(Language customLanguage) {
-  //  this.customLanguage = customLanguage;
-  //}
 
   private View getHolderView() {
     return mViewHolder;
@@ -574,7 +559,7 @@ public class CountryCodePicker extends RelativeLayout {
    * if default country is JP +81(Japan) returns: "Japan"
    */
   public String getDefaultCountryName() {
-    return getDefaultCountry().getName();
+    return mDefaultCountry.getName();
   }
 
   /**
@@ -585,7 +570,7 @@ public class CountryCodePicker extends RelativeLayout {
    * if default country is JP +81(Japan) returns: "JP"
    */
   public String getDefaultCountryNameCode() {
-    return getDefaultCountry().getNameCode().toUpperCase();
+    return mDefaultCountry.getNameCode().toUpperCase();
   }
 
   /**
@@ -618,7 +603,7 @@ public class CountryCodePicker extends RelativeLayout {
    * if selected country is JP +81(Japan) returns: "+81"
    */
   public String getSelectedCountryCodeWithPlus() {
-    return getContext().getString(R.string.phone_code,getSelectedCountryCode());
+    return getContext().getString(R.string.phone_code, getSelectedCountryCode());
   }
 
   /**
@@ -668,8 +653,7 @@ public class CountryCodePicker extends RelativeLayout {
    * If you want to set JP +81(Japan), countryCode= 81
    */
   public void setCountryForPhoneCode(int countryCode) {
-    Country country = CountryUtils.getCountryByCode(getContext(), mPreferredCountries,
-        countryCode); //xml stores data in string format, but want to allow only numeric value to country code to user.
+    Country country = CountryUtils.getCountryByCode(getContext(), mPreferredCountries, countryCode);
     if (country == null) {
       if (mDefaultCountry == null) {
         mDefaultCountry =
@@ -689,8 +673,7 @@ public class CountryCodePicker extends RelativeLayout {
    * If you want to set JP +81(Japan), countryCode= JP
    */
   public void setCountryForNameCode(String countryNameCode) {
-    Country country = CountryUtils.getCountryByNameCodeFromAllCountries(getContext(),
-        countryNameCode); //xml stores data in string format, but want to allow only numeric value to country code to user.
+    Country country = CountryUtils.getCountryByNameCodeFromAllCountries(getContext(), countryNameCode);
     if (country == null) {
       if (mDefaultCountry == null) {
         mDefaultCountry =
@@ -725,12 +708,12 @@ public class CountryCodePicker extends RelativeLayout {
   public String getFullNumber() {
     String fullNumber;
     if (mEdtRegisteredCarrierNumber != null) {
-      fullNumber =
-          getSelectedCountry().getPhoneCode() + mEdtRegisteredCarrierNumber.getText().toString();
+      fullNumber = getSelectedCountry().getPhoneCode()
+                   + mEdtRegisteredCarrierNumber.getText().toString();
     } else {
       fullNumber = getSelectedCountry().getPhoneCode();
-      Log.w(TAG,
-          "EditText for carrier number is not registered. Register it using registerCarrierNumberEditText() before getFullNumber() or setFullNumber().");
+      Log.w(TAG, "EditText for carrier number is not registered. Register it " +
+              "using registerCarrierNumberEditText() before getFullNumber() or setFullNumber().");
     }
     return fullNumber;
   }
@@ -751,11 +734,10 @@ public class CountryCodePicker extends RelativeLayout {
     Country country = CountryUtils.getCountryByNumber(getContext(), mPreferredCountries, fullNumber);
     setSelectedCountry(country);
     String carrierNumber = detectCarrierNumber(fullNumber, country);
-    if (getEdtRegisteredCarrierNumber() != null) {
-      getEdtRegisteredCarrierNumber().setText(carrierNumber);
+    if (mEdtRegisteredCarrierNumber != null) {
+      mEdtRegisteredCarrierNumber.setText(carrierNumber);
     } else {
-      Log.w(TAG,
-          "EditText for carrier number is not registered. Register it using registerCarrierNumberEditText() before getFullNumber() or setFullNumber().");
+      Log.w(TAG, "EditText for carrier number is not registered. Register it using registerCarrierNumberEditText() before getFullNumber() or setFullNumber().");
     }
   }
 
@@ -767,7 +749,7 @@ public class CountryCodePicker extends RelativeLayout {
    * 8866667722, this will return "+918866667722"
    */
   public String getFullNumberWithPlus() {
-    return "+" + getFullNumber();
+    return getContext().getString(R.string.phone_code, getFullNumber());
   }
 
   /**
@@ -838,7 +820,7 @@ public class CountryCodePicker extends RelativeLayout {
    *
    * @param mCountryPreference is country name codes separated by comma. e.g. "us,in,nz"
    */
-  public void setmCountryPreference(String mCountryPreference) {
+  public void setCountryPreference(String mCountryPreference) {
     this.mCountryPreference = mCountryPreference;
   }
 
@@ -953,6 +935,6 @@ public class CountryCodePicker extends RelativeLayout {
   interface to set change listener
    */
   public interface OnCountryChangeListener {
-    void onCountrySelected();
+    void onCountrySelected(Country selectedCountry);
   }
 }
