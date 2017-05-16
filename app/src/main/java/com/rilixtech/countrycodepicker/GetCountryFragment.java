@@ -17,11 +17,11 @@ import com.rilixtech.CountryCodePicker;
  */
 public class GetCountryFragment extends Fragment {
 
-
     TextView textViewCountryName,textViewCountryCode,textViewCountryNameCode;
     Button buttonReadCountry;
     CountryCodePicker ccp;
     Button buttonNext;
+
     public GetCountryFragment() {
         // Required empty public constructor
     }
@@ -37,7 +37,7 @@ public class GetCountryFragment extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        assignViews();
+        assignViews(view);
         setClickListener();
     }
 
@@ -59,12 +59,12 @@ public class GetCountryFragment extends Fragment {
         });
     }
 
-    private void assignViews() {
-        ccp=(CountryCodePicker)getView().findViewById(R.id.ccp);
-        textViewCountryCode=(TextView)getView().findViewById(R.id.textView_countryCode);
-        textViewCountryName=(TextView)getView().findViewById(R.id.country_name_tv);
-        textViewCountryNameCode=(TextView)getView().findViewById(R.id.textView_countryNameCode);
-        buttonReadCountry=(Button)getView().findViewById(R.id.button_readCountry);
-        buttonNext=(Button)getView().findViewById(R.id.button_next);
+    private void assignViews(View view) {
+        ccp=(CountryCodePicker)view.findViewById(R.id.ccp);
+        textViewCountryCode=(TextView)view.findViewById(R.id.get_country_country_code_tv);
+        textViewCountryName=(TextView)view.findViewById(R.id.get_country_country_name_tv);
+        textViewCountryNameCode=(TextView)view.findViewById(R.id.get_country_country_name_code_tv);
+        buttonReadCountry=(Button)view.findViewById(R.id.button_readCountry);
+        buttonNext=(Button)view.findViewById(R.id.button_next);
     }
 }

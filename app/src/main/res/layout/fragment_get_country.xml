@@ -116,7 +116,7 @@
                         android:layout_height="wrap_content"
                         android:weightSum="3">
                         <TextView
-                            android:id="@+id/textView_countryName"
+                            android:id="@+id/get_country_country_name_tv"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -124,7 +124,7 @@
                             android:text="_________"
                             android:textColor="@android:color/black" />
                         <TextView
-                            android:id="@+id/textView_countryCode"
+                            android:id="@+id/get_country_country_code_tv"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -132,7 +132,7 @@
                             android:text="_________"
                             android:textColor="@android:color/black" />
                         <TextView
-                            android:id="@+id/textView_countryNameCode"
+                            android:id="@+id/get_country_country_name_code_tv"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"

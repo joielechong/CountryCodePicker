@@ -17,7 +17,7 @@ import java.util.List;
  * Created by Joielechong on 11 May 2017.
  */
 
-public class CountryCodeDialog extends Dialog {
+class CountryCodeDialog extends Dialog {
   private AppCompatEditText mEdtSearch;
   private AppCompatTextView mTvNoResult;
   private AppCompatTextView mTvTitle;

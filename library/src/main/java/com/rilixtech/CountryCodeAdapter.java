@@ -22,8 +22,8 @@ import java.util.List;
  * Created by hbb20 on 11/1/16.
  */
 class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.CountryCodeViewHolder> {
-  private List<Country> filteredCountries = null;
-  private List<Country> masterCountries = null;
+  private List<Country> filteredCountries;
+  private List<Country> masterCountries;
   private AppCompatTextView mTvNoResult;
   private CountryCodePicker mCountryCodePicker;
   private AppCompatEditText mEdtSearch;
@@ -105,27 +105,26 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
   }
 
   private List<Country> getFilteredCountries(String query) {
-    List<Country> tempCountryList = new ArrayList<>();
+    List<Country> tempCountries = new ArrayList<>();
     List<Country> preferredCountries = mCountryCodePicker.getPreferredCountries();
     if (preferredCountries != null && preferredCountries.size() > 0) {
       for (Country country : preferredCountries) {
         if (country.isEligibleForQuery(query)) {
-          tempCountryList.add(country);
+          tempCountries.add(country);
         }
       }
 
-      if (tempCountryList.size() > 0) { //means at least one preferred country is added.
-        Country divider = null;
-        tempCountryList.add(divider);
+      if (tempCountries.size() > 0) { //means at least one preferred country is added.
+        tempCountries.add(null); // this will add separator for preference countries.
       }
     }
 
     for (Country country : masterCountries) {
       if (country.isEligibleForQuery(query)) {
-        tempCountryList.add(country);
+        tempCountries.add(country);
       }
     }
-    return tempCountryList;
+    return tempCountries;
   }
 
   @Override public CountryCodeViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
@@ -135,7 +134,7 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
   }
 
   @Override public void onBindViewHolder(CountryCodeViewHolder viewHolder, final int i) {
-    final int position =viewHolder.getAdapterPosition();
+    final int position = viewHolder.getAdapterPosition();
     viewHolder.setCountry(filteredCountries.get(position));
     viewHolder.rlyMain.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View view) {

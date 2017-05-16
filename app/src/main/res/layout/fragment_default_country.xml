@@ -211,7 +211,7 @@
                     android:orientation="horizontal">
 
                     <EditText
-                        android:id="@+id/editText_defaultNameCode"
+                        android:id="@+id/default_country_default_name_code_edt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:inputType="textCapCharacters"
@@ -221,7 +221,7 @@
                         android:text="US" />
 
                     <Button
-                        android:id="@+id/button_setDefaultNameCode"
+                        android:id="@+id/default_country_set_default_name_code_btn"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:maxLines="2"

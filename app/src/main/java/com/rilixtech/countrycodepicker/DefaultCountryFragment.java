@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,9 +21,10 @@ import com.rilixtech.CountryCodePicker;
  */
 public class DefaultCountryFragment extends Fragment {
 
+    public static final String TAG = DefaultCountryFragment.class.getSimpleName();
 
-    EditText editTextDefaultPhoneCode, editTextDefaultNameCode;
-    Button buttonSetNewDefaultPhoneCode, buttonSetNewDefaultNameCode, buttonResetToDefault;
+    EditText editTextDefaultPhoneCode, edtDefaultNameCode;
+    Button buttonSetNewDefaultPhoneCode, btnSetNewDefaultNameCode, buttonResetToDefault;
     CountryCodePicker ccp;
     Button buttonNext;
 
@@ -50,9 +52,8 @@ public class DefaultCountryFragment extends Fragment {
         buttonSetNewDefaultPhoneCode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int code = -1;
                 try {
-                    code = Integer.parseInt(editTextDefaultPhoneCode.getText().toString());
+                    int code = Integer.parseInt(editTextDefaultPhoneCode.getText().toString());
                     ccp.setDefaultCountryUsingPhoneCode(code);
                     Toast.makeText(getActivity(), "Now default country is " + ccp.getDefaultCountryName() + " with phone code " + ccp.getDefaultCountryCode(), Toast.LENGTH_LONG).show();
                 } catch (Exception ex) {
@@ -61,12 +62,13 @@ public class DefaultCountryFragment extends Fragment {
             }
         });
 
-        buttonSetNewDefaultNameCode.setOnClickListener(new View.OnClickListener() {
+        btnSetNewDefaultNameCode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String nameCode;
                 try {
-                    nameCode = editTextDefaultNameCode.getText().toString();
+                    nameCode = edtDefaultNameCode.getText().toString();
+                    Log.d(TAG, "nameCode = " + nameCode);
                     ccp.setDefaultCountryUsingNameCode(nameCode);
                     Toast.makeText(getActivity(), "Now default country is " + ccp.getDefaultCountryName() + " with phone code " + ccp.getDefaultCountryCode(), Toast.LENGTH_LONG).show();
                 } catch (Exception ex) {
@@ -108,7 +110,7 @@ public class DefaultCountryFragment extends Fragment {
             }
         });
 
-        editTextDefaultNameCode.addTextChangedListener(new TextWatcher() {
+        edtDefaultNameCode.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -116,7 +118,7 @@ public class DefaultCountryFragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                buttonSetNewDefaultNameCode.setText("set '" + s + "' as Default Country Name Code");
+                btnSetNewDefaultNameCode.setText("set '" + s + "' as Default Country Name Code");
             }
 
             @Override
@@ -132,8 +134,8 @@ public class DefaultCountryFragment extends Fragment {
         buttonSetNewDefaultPhoneCode = (Button) getView().findViewById(R.id.button_setDefaultCode);
         buttonResetToDefault = (Button) getView().findViewById(R.id.button_resetToDefault);
 
-        editTextDefaultNameCode = (EditText) getView().findViewById(R.id.editText_defaultNameCode);
-        buttonSetNewDefaultNameCode = (Button) getView().findViewById(R.id.button_setDefaultNameCode);
+        edtDefaultNameCode = (EditText) getView().findViewById(R.id.default_country_default_name_code_edt);
+        btnSetNewDefaultNameCode = (Button) getView().findViewById(R.id.default_country_set_default_name_code_btn);
 
         buttonNext = (Button) getView().findViewById(R.id.button_next);
     }

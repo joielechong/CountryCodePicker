@@ -1,7 +1,5 @@
 package com.rilixtech;
 
-import android.util.Log;
-
 /**
  * Created by hbb20 on 11/1/16.
  *
@@ -11,15 +9,9 @@ import android.util.Log;
  * Updated by Joielechong 13 May 2017
  */
 public class Country {
-  private static String TAG = Country.class.getSimpleName();
-
   private String nameCode;
   private String phoneCode;
   private String name;
-
-  public Country() {
-
-  }
 
   public Country(String nameCode, String phoneCode, String name) {
     this.nameCode = nameCode;
@@ -53,18 +45,6 @@ public class Country {
 
   public int getFlagDrawableResId() {
     return CountryUtils.getFlagDrawableResId(this);
-  }
-
-  public void log() {
-    try {
-      Log.d(TAG, "Country->" + nameCode + ":" + phoneCode + ":" + name);
-    } catch (NullPointerException ex) {
-      Log.d(TAG, "Null");
-    }
-  }
-
-  public String logString() {
-    return nameCode.toUpperCase() + " +" + phoneCode + "(" + name + ")";
   }
 
   /**
