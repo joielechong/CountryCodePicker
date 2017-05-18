@@ -208,6 +208,7 @@ If you just want to read them, here you go:
 
  #### Programmatically
   To set color programmatically, use `setContentColor()` method.
+  
   <img src="https://farm6.staticflickr.com/5821/30736274500_02e03a57dd_z.jpg" width="300"> 
 
 
