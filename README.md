@@ -32,7 +32,7 @@ How to add to your project
 
     ````groovy
     dependencies {
-        compile 'com.github.joielechong:countrycodepicker:1.7.9'
+        compile 'com.github.joielechong:countrycodepicker:1.8.0'
     }
     ````
 
@@ -429,7 +429,10 @@ Change log
 ##### version 1.7.9
     - Removed unused code.
     - Fix bugs
-    
+
+##### version 1.8.0
+    - Fix bugs in Democratic Republic of the Congo code
+
 ## Credits
 
 Harsh Bhakta for the original project at [CountryCodePickerProject](https://github.com/hbb20/CountryCodePickerProject)
