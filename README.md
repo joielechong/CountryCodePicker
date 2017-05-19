@@ -63,7 +63,7 @@ How to add to your project
 --------
 
 If you prefer experience along with only reads, an demo android app is available that demonstrates all the features of this library. Click below button to download from Playstore.
-<br/><a href="https://goo.gl/zI2cY2"><img src="http://www.android.com/images/brand/get_it_on_play_logo_large.png"/></a>
+<br/><a href="https://play.google.com/store/apps/details?id=com.rilixtech.countrycodepicker"><img src="http://www.android.com/images/brand/get_it_on_play_logo_large.png"/></a>
 
 If you just want to read them, here you go:
  
