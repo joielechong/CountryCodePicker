@@ -683,9 +683,9 @@ class CountryUtils {
         context.getString(R.string.country_congo_number),
         context.getString(R.string.country_congo_name)));
 
-    countries.add(new Country(context.getString(R.string.country_congo_code),
-        context.getString(R.string.country_congo_number),
-        context.getString(R.string.country_congo_name)));
+    countries.add(new Country(context.getString(R.string.country_the_democratic_republic_of_congo_code),
+        context.getString(R.string.country_the_democratic_republic_of_congo_number),
+        context.getString(R.string.country_the_democratic_republic_of_congo_name)));
 
     countries.add(new Country(context.getString(R.string.country_cook_islands_code),
         context.getString(R.string.country_cook_islands_number),

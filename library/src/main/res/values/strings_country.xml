@@ -184,11 +184,11 @@
   <string name="country_comoros_code">km</string>
   <string name="country_comoros_number" translatable="false">269</string>
 
-  <string name="country_congo_name">Congo</string>
+  <string name="country_congo_name">Republic of the Congo</string>
   <string name="country_congo_code">cg</string>
   <string name="country_congo_number" translatable="false">242</string>
 
-  <string name="country_the_democratic_republic_of_congo_name">Congo, The Democratic Republic Of The</string>
+  <string name="country_the_democratic_republic_of_congo_name">Democratic Republic of the Congo</string>
   <string name="country_the_democratic_republic_of_congo_code">cd</string>
   <string name="country_the_democratic_republic_of_congo_number" translatable="false">243</string>
 
