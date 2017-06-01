@@ -106,7 +106,7 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
   }
 
   private List<Country> getFilteredCountries(String query) {
-    if(mTempCountries == null) {
+    if (mTempCountries == null) {
       mTempCountries = new ArrayList<>();
     } else {
       mTempCountries.clear();
@@ -194,6 +194,12 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
           tvName.setTypeface(mCountryCodePicker.getTypeFace());
         }
         imvFlag.setImageResource(country.getFlagDrawableResId());
+
+        if (mCountryCodePicker.getTextColor() != mCountryCodePicker.getDefaultContentColor()) {
+          int color = mCountryCodePicker.getTextColor();
+          tvCode.setTextColor(color);
+          tvName.setTextColor(color);
+        }
       } else {
         viewDivider.setVisibility(View.VISIBLE);
         tvName.setVisibility(View.GONE);

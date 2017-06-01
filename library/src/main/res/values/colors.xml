@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="defaultContentColor">@android:color/black</color>
+    <color name="defaultTextColor">@android:color/black</color>
+    <color name="defaultBackgroundColor">@android:color/transparent</color>
 </resources>

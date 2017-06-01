@@ -192,27 +192,45 @@ If you just want to read them, here you go:
   - A carrierNumberEditText must be registered before any function call of full number like `setFullNumber()` or `getFullNumber()`.
   - *None of the above functions validate the number format of phone.*
   
-  ### 6. Custom content color
- Color of CCP content can be changed according to different background.
+ ### 6. Custom text color
+ Color of CCP text can be changed according to different background.
     
  #### Using XML
-  Add `app:ccp_contentColor` property to xml layout
+  Add `app:ccp_textColor` property to xml layout
    
    ````xml
    <com.rilixtech.CountryCodePicker
 	   android:layout_width="wrap_content"
 	   android:layout_height="wrap_content"
-	   app:ccp_contentColor="@color/custom_color"/>
+	   app:ccp_textColor="@color/custom_color"/>
    ````
    <img src="https://farm6.staticflickr.com/5590/30736274540_b156916b98_z.jpg" width="300">
 
  #### Programmatically
-  To set color programmatically, use `setContentColor()` method.
+  To set color programmatically, use `setTextColor()` method.
   
   <img src="https://farm6.staticflickr.com/5821/30736274500_02e03a57dd_z.jpg" width="300"> 
 
+ ### 7. Custom background color
+ CCP background color can be set to any custom color. It will be defaulting to application theme if not set up.
 
- ### 7. Custom textSize
+ #### Using XML
+  Add `app:ccp_backgroundColor` property to xml layout
+
+   ````xml
+   <com.rilixtech.CountryCodePicker
+	   android:layout_width="wrap_content"
+	   android:layout_height="wrap_content"
+	   app:ccp_backgroundColor="@color/custom_color"/>
+   ````
+   <img src="https://farm6.staticflickr.com/5590/30736274540_b156916b98_z.jpg" width="300">
+
+ #### Programmatically
+  To set color programmatically, use `setBackgroundColor()` method.
+
+  <img src="https://farm6.staticflickr.com/5821/30736274500_02e03a57dd_z.jpg" width="300">
+
+ ### 8. Custom textSize
    - Text size of CCP content can be changed in order to match rest of the view of form.
    - Everytime when textSize is updated, arrowsize will be updated itself. 
    <img src="https://farm6.staticflickr.com/5743/30296515043_78d70ff6ba_z.jpg" width="300">  
@@ -231,7 +249,7 @@ If you just want to read them, here you go:
    To set `textSize` programmatically, use `setTextSize()` method.
    
    
-   ### 8. Custom arrow size
+   ### 9. Custom arrow size
   Size if Down arrow of CCP view can be modified in order to match rest of the view of form.
     
  #### Using XML
@@ -248,7 +266,7 @@ If you just want to read them, here you go:
   To set arrow size programmatically, use ```` setArrowSize() ```` method.
  
  
- ### 9. Hide country name code
+ ### 10. Hide country name code
   By default, text of CCP contains country's name code. i.e "(US) +1". Country name code can be removed if required.
     
  #### Using XML
@@ -264,7 +282,7 @@ If you just want to read them, here you go:
   #### Programmatically
    To hide name code programmatically, use ```` hideNameCode() ```` method.
   
-### 10. Custom master country list
+### 11. Custom master country list
   - If your app expects users from only few countries then you might wish to remove all other countries from selection list.
   - You can remove unnecessary countries by setting your custom master country list.
   - Also it will keep user from selecting irrelevant country.
@@ -287,7 +305,7 @@ If you just want to read them, here you go:
   - Use `setCustomMasterCountries()` method. 
   - `setCustomMasterCountries(null)` will remove custom list and revert to library default list.
 
-  ### 11. Custom font
+  ### 12. Custom font
   FontFamily of CCP content can be changed in order to match rest of the view of form.
   <img src="https://farm6.staticflickr.com/5334/31103136905_1f0dc0b535_z.jpg" width="300">  
 
@@ -316,7 +334,7 @@ If you just want to read them, here you go:
        	 app:ccp_textFont="myfonts.ttf" />
    ````
    
-### 12. National Flag Thumbnail
+### 13. National Flag Thumbnail
  - Added flag thumbnail to cpp and selector dialog
  - More thumbnail packs can be added
  - By default flag will be added to the ccp view
@@ -335,7 +353,7 @@ If you just want to read them, here you go:
  #### Programmatically
   Use `showFlag(false)` method to hide the flag.
 
-### 13. Show Full Country Name
+### 14. Show Full Country Name
  - Developer might wish to show full country name instead of only code name
  - `showFullName` will replace name code with full name.
  - If name code was hidden using app:hideNameCode="true" then this will not work.
@@ -357,7 +375,7 @@ If you just want to read them, here you go:
   Use `showFullName(true)` or `showFullName(false)` method to show / hide the full name.
   
   
-### 14. Enable / Disable click
+### 15. Enable / Disable click
  Developer can toggle click listener of ccp
  #### Set through xml
   Add `app:ccp_Clickable="true"` to enable click listener.
@@ -373,7 +391,7 @@ If you just want to read them, here you go:
  #### Programmatically
    Use ` setClickable(true)` or ` setClickable(false)` method to enable / disable the click.
 
-### 15. Hide / Show Phone Code
+### 16. Hide / Show Phone Code
  The phone code can be hide or show if you want. By default the phone code is shown. We don't need to add the attribute to show the phone code.
  #### Set through xml
   Add `app:ccp_hidePhoneCode="true"` to hide the phone code.
@@ -447,6 +465,11 @@ Change log
 
 ##### version 1.8.0
     - Fix bugs in Democratic Republic of the Congo code
+
+##### version 1.9.0
+    - Add hide phone code with `ccp_hidePhoneCode` attribute
+    - Rename `ccp_contentColor` attribute to `ccp_textColor`
+    - Add `ccp_backgroundColor` to set CCP background color.
 
 ## Credits
 

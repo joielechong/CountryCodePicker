@@ -64,7 +64,7 @@
                                 <com.rilixtech.CountryCodePicker
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    app:ccp_contentColor="@android:color/white"
+                                    app:ccp_textColor="@android:color/white"
                                     app:ccp_textSize="14sp" />
 
                                 <TextView
@@ -85,7 +85,7 @@
                                 <com.rilixtech.CountryCodePicker
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    app:ccp_contentColor="@android:color/white"
+                                    app:ccp_textColor="@android:color/white"
                                     app:ccp_textSize="16sp" />
 
                                 <TextView
@@ -106,7 +106,7 @@
                                 <com.rilixtech.CountryCodePicker
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    app:ccp_contentColor="@android:color/white" />
+                                    app:ccp_textColor="@android:color/white" />
 
                                 <TextView
                                     android:layout_width="match_parent"
@@ -127,7 +127,7 @@
                                 <com.rilixtech.CountryCodePicker
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    app:ccp_contentColor="@android:color/white"
+                                    app:ccp_textColor="@android:color/white"
                                     app:ccp_textSize="20sp" />
 
                                 <TextView
@@ -148,7 +148,7 @@
                                 <com.rilixtech.CountryCodePicker
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    app:ccp_contentColor="@android:color/white"
+                                    app:ccp_textColor="@android:color/white"
 
                                     app:ccp_textSize="22sp" />
 
@@ -170,7 +170,7 @@
                                 <com.rilixtech.CountryCodePicker
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    app:ccp_contentColor="@android:color/white"
+                                    app:ccp_textColor="@android:color/white"
                                     app:ccp_textSize="24sp" />
 
                                 <TextView

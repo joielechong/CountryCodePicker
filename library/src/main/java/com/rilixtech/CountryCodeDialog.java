@@ -1,6 +1,7 @@
 package com.rilixtech;
 
 import android.app.Dialog;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatEditText;
@@ -23,6 +24,7 @@ class CountryCodeDialog extends Dialog {
   private AppCompatTextView mTvTitle;
   private RecyclerView mRvCountryDialog;
   private CountryCodePicker mCountryCodePicker;
+  private RelativeLayout mRlyDialog;
 
   public CountryCodeDialog(CountryCodePicker countryCodePicker) {
     super(countryCodePicker.getContext());
@@ -38,22 +40,37 @@ class CountryCodeDialog extends Dialog {
   }
 
   private void setupUI() {
+    mRlyDialog = (RelativeLayout) this.findViewById(R.id.dialog_rly);
     mRvCountryDialog = (RecyclerView) this.findViewById(R.id.country_dialog_rv);
     mTvTitle = (AppCompatTextView) this.findViewById(R.id.title_tv);
-    mTvTitle.setText(R.string.select_country);
+    //mTvTitle.setText(R.string.select_country);
     mEdtSearch = (AppCompatEditText) this.findViewById(R.id.search_edt);
-    mEdtSearch.setHint(R.string.search_hint);
+    //mEdtSearch.setHint(R.string.search_hint);
     mTvNoResult = (AppCompatTextView) this.findViewById(R.id.no_result_tv);
-    mTvNoResult.setText(R.string.no_result_found);
+    //mTvNoResult.setText(R.string.no_result_found);
+
+  }
+
+  private void setupData() {
     if (mCountryCodePicker.getTypeFace() != null) {
       Typeface typeface = mCountryCodePicker.getTypeFace();
       mTvTitle.setTypeface(typeface);
       mEdtSearch.setTypeface(typeface);
       mTvNoResult.setTypeface(typeface);
     }
-  }
+    if(mCountryCodePicker.getBackgroundColor() != mCountryCodePicker.getDefaultBackgroundColor()) {
+      mRlyDialog.setBackgroundColor(mCountryCodePicker.getBackgroundColor());
+    }
 
-  private void setupData() {
+    if(mCountryCodePicker.getTextColor() != mCountryCodePicker.getDefaultContentColor()) {
+      int color = mCountryCodePicker.getTextColor();
+      mTvTitle.setTextColor(color);
+      mTvNoResult.setTextColor(color);
+      mEdtSearch.setTextColor(color);
+
+      mEdtSearch.setHintTextColor(adjustAlpha(color, 0.7f));
+    }
+
     mCountryCodePicker.refreshCustomMasterList();
     mCountryCodePicker.refreshPreferredCountries();
     List<Country> masterCountries = mCountryCodePicker.getCustomCountries(mCountryCodePicker);
@@ -69,8 +86,16 @@ class CountryCodeDialog extends Dialog {
     mRvCountryDialog.setAdapter(cca);
   }
 
-  public void reShow() {
+  void reShow() {
     setupData();
     show();
+  }
+
+  private int adjustAlpha(int color, float factor) {
+    int alpha = Math.round(Color.alpha(color) * factor);
+    int red = Color.red(color);
+    int green = Color.green(color);
+    int blue = Color.blue(color);
+    return Color.argb(alpha, red, green, blue);
   }
 }

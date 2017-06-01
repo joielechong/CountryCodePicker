@@ -83,7 +83,7 @@ public class CustomColorFragment extends Fragment {
     }
 
     private void setColor(int selection,int color) {
-        ccp.setContentColor(color);
+        ccp.setTextColor(color);
         //textView
         textViewTitle.setTextColor(color);
 

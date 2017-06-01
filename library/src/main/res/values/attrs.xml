@@ -2,7 +2,8 @@
 <resources>
     <declare-styleable name="CountryCodePicker">
         <attr name="ccp_defaultCode" format="integer" />
-        <attr name="ccp_contentColor" format="color"/>
+        <attr name="ccp_textColor" format="color"/>
+        <attr name="ccp_backgroundColor" format="color"/>
         <attr name="ccp_textSize" format="dimension"/>
         <attr name="ccp_textFont" format="string"/>
         <attr name="ccp_arrowSize" format="dimension"/>

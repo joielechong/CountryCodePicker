@@ -110,7 +110,6 @@
                             <com.rilixtech.CountryCodePicker
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                app:ccp_contentColor="@android:color/black"
                                 app:ccp_customMasterCountries="US,ID,NZ"/>
 
                             <EditText

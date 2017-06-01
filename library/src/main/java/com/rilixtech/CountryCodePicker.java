@@ -2,6 +2,7 @@ package com.rilixtech;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.Typeface;
 import android.support.v4.content.ContextCompat;
@@ -56,7 +57,6 @@ public class CountryCodePicker extends RelativeLayout {
   private boolean mUseFullName = false;
   private boolean mSelectionDialogShowSearch = true;
 
-  private int mContentColor;
   private List<Country> mPreferredCountries;
   //this will be "AU,ID,US"
   private String mCountryPreference;
@@ -68,6 +68,11 @@ public class CountryCodePicker extends RelativeLayout {
   private CountryCodeDialog mCountryCodeDialog;
 
   private boolean mHidePhoneCode = false;
+
+  private static final int DEFAULT_TEXT_COLOR = 0;
+  private int mTextColor = DEFAULT_TEXT_COLOR;
+  private static final int  DEFAULT_BACKGROUND_COLOR = Color.TRANSPARENT;
+  private int mBackgroundColor = DEFAULT_BACKGROUND_COLOR;
 
   // Font typeface
   private Typeface mTypeFace;
@@ -170,16 +175,22 @@ public class CountryCodePicker extends RelativeLayout {
       //show flag
       showFlag(a.getBoolean(R.styleable.CountryCodePicker_ccp_showFlag, true));
 
-      //content color
-      int contentColor;
+      //text color
+      int textColor;
       if (isInEditMode()) {
-        contentColor = a.getColor(R.styleable.CountryCodePicker_ccp_contentColor, 0);
+        textColor = a.getColor(R.styleable.CountryCodePicker_ccp_textColor, 0);
       } else {
-        contentColor = a.getColor(R.styleable.CountryCodePicker_ccp_contentColor,
-            ContextCompat.getColor(getContext(), R.color.defaultContentColor));
+        textColor = a.getColor(R.styleable.CountryCodePicker_ccp_textColor,
+            ContextCompat.getColor(getContext(), R.color.defaultTextColor));
       }
-      if (contentColor != 0) {
-        setContentColor(contentColor);
+      if (textColor != 0) {
+        setTextColor(textColor);
+      }
+
+      mBackgroundColor = a.getColor(R.styleable.CountryCodePicker_ccp_backgroundColor, Color.TRANSPARENT);
+
+      if(mBackgroundColor != Color.TRANSPARENT) {
+        mRlyHolder.setBackgroundColor(mBackgroundColor);
       }
 
       // text font
@@ -751,8 +762,12 @@ public class CountryCodePicker extends RelativeLayout {
   /**
    * @return content color of CCP's text and small downward arrow.
    */
-  public int getContentColor() {
-    return mContentColor;
+  public int getTextColor() {
+    return mTextColor;
+  }
+
+  public int getDefaultContentColor() {
+    return DEFAULT_TEXT_COLOR;
   }
 
   /**
@@ -760,10 +775,23 @@ public class CountryCodePicker extends RelativeLayout {
    *
    * @param contentColor color to apply to text and down arrow
    */
-  public void setContentColor(int contentColor) {
-    this.mContentColor = contentColor;
-    mTvSelectedCountry.setTextColor(this.mContentColor);
-    mImvArrow.setColorFilter(this.mContentColor, PorterDuff.Mode.SRC_IN);
+  public void setTextColor(int contentColor) {
+    this.mTextColor = contentColor;
+    mTvSelectedCountry.setTextColor(this.mTextColor);
+    mImvArrow.setColorFilter(this.mTextColor, PorterDuff.Mode.SRC_IN);
+  }
+
+  public int getBackgroundColor() {
+    return mBackgroundColor;
+  }
+
+  public void setBackgroundColor(int backgroundColor) {
+    this.mBackgroundColor = backgroundColor;
+    mRlyHolder.setBackgroundColor(backgroundColor);
+  }
+
+  public int getDefaultBackgroundColor() {
+    return DEFAULT_BACKGROUND_COLOR;
   }
 
   /**
