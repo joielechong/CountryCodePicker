@@ -223,12 +223,12 @@ If you just want to read them, here you go:
 	   android:layout_height="wrap_content"
 	   app:ccp_backgroundColor="@color/custom_color"/>
    ````
-   <img src="https://farm6.staticflickr.com/5590/30736274540_b156916b98_z.jpg" width="300">
+   <img src="https://raw.githubusercontent.com/joielechong/CountryCodePicker/master/release/color.png" width="300">
 
  #### Programmatically
   To set color programmatically, use `setBackgroundColor()` method.
 
-  <img src="https://farm6.staticflickr.com/5821/30736274500_02e03a57dd_z.jpg" width="300">
+  <img src="https://raw.githubusercontent.com/joielechong/CountryCodePicker/master/release/dialog_color.png" width="300">
 
  ### 8. Custom textSize
    - Text size of CCP content can be changed in order to match rest of the view of form.
