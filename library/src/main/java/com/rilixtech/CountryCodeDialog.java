@@ -45,7 +45,7 @@ class CountryCodeDialog extends Dialog {
     mEdtSearch.setHint(R.string.search_hint);
     mTvNoResult = (AppCompatTextView) this.findViewById(R.id.no_result_tv);
     mTvNoResult.setText(R.string.no_result_found);
-    if(mCountryCodePicker.getTypeFace() != null) {
+    if (mCountryCodePicker.getTypeFace() != null) {
       Typeface typeface = mCountryCodePicker.getTypeFace();
       mTvTitle.setTypeface(typeface);
       mEdtSearch.setTypeface(typeface);
@@ -57,10 +57,11 @@ class CountryCodeDialog extends Dialog {
     mCountryCodePicker.refreshCustomMasterList();
     mCountryCodePicker.refreshPreferredCountries();
     List<Country> masterCountries = mCountryCodePicker.getCustomCountries(mCountryCodePicker);
-    CountryCodeAdapter cca = new CountryCodeAdapter(masterCountries, mCountryCodePicker,
-                                    mEdtSearch, mTvNoResult, this);
+    CountryCodeAdapter cca =
+        new CountryCodeAdapter(masterCountries, mCountryCodePicker, mEdtSearch, mTvNoResult, this);
     if (!mCountryCodePicker.isSelectionDialogShowSearch()) {
-      RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) mRvCountryDialog.getLayoutParams();
+      RelativeLayout.LayoutParams params =
+          (RelativeLayout.LayoutParams) mRvCountryDialog.getLayoutParams();
       params.height = RecyclerView.LayoutParams.WRAP_CONTENT;
       mRvCountryDialog.setLayoutParams(params);
     }

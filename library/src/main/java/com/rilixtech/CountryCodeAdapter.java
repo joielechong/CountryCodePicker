@@ -29,6 +29,7 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
   private AppCompatEditText mEdtSearch;
   private Dialog mDialog;
   private InputMethodManager mInputMethodManager;
+  private List<Country> mTempCountries;
 
   CountryCodeAdapter(List<Country> countries, CountryCodePicker codePicker,
       final AppCompatEditText edtSearch, AppCompatTextView tvNoResult, Dialog dialog) {
@@ -105,26 +106,30 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
   }
 
   private List<Country> getFilteredCountries(String query) {
-    List<Country> tempCountries = new ArrayList<>();
+    if(mTempCountries == null) {
+      mTempCountries = new ArrayList<>();
+    } else {
+      mTempCountries.clear();
+    }
     List<Country> preferredCountries = mCountryCodePicker.getPreferredCountries();
     if (preferredCountries != null && preferredCountries.size() > 0) {
       for (Country country : preferredCountries) {
         if (country.isEligibleForQuery(query)) {
-          tempCountries.add(country);
+          mTempCountries.add(country);
         }
       }
 
-      if (tempCountries.size() > 0) { //means at least one preferred country is added.
-        tempCountries.add(null); // this will add separator for preference countries.
+      if (mTempCountries.size() > 0) { //means at least one preferred country is added.
+        mTempCountries.add(null); // this will add separator for preference countries.
       }
     }
 
     for (Country country : masterCountries) {
       if (country.isEligibleForQuery(query)) {
-        tempCountries.add(country);
+        mTempCountries.add(country);
       }
     }
-    return tempCountries;
+    return mTempCountries;
   }
 
   @Override public CountryCodeViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
@@ -178,8 +183,13 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
             .getString(R.string.country_name_and_code, country.getName(),
                 country.getNameCode().toUpperCase());
         tvName.setText(countryNameAndCode);
-        tvCode.setText(tvCode.getContext().getString(R.string.phone_code, country.getPhoneCode()));
-        if(mCountryCodePicker.getTypeFace() != null) {
+        if (!mCountryCodePicker.isHidePhoneCode()) {
+          tvCode.setText(
+              tvCode.getContext().getString(R.string.phone_code, country.getPhoneCode()));
+        } else {
+          tvCode.setVisibility(View.GONE);
+        }
+        if (mCountryCodePicker.getTypeFace() != null) {
           tvCode.setTypeface(mCountryCodePicker.getTypeFace());
           tvName.setTypeface(mCountryCodePicker.getTypeFace());
         }

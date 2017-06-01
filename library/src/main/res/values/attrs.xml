@@ -15,5 +15,6 @@
         <attr name="ccp_showFullName" format="boolean" />
         <attr name="ccp_selectionDialogShowSearch" format="boolean" />
         <attr name="ccp_Clickable" format="boolean" />
+        <attr name="ccp_hidePhoneCode" format="boolean"/>
     </declare-styleable>
 </resources>

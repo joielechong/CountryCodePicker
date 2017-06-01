@@ -94,8 +94,6 @@ public class CountryPreferenceFragment extends Fragment {
         editTextCountryPreference = (EditText) getView().findViewById(R.id.editText_countryPreference);
         ccp = (CountryCodePicker) getView().findViewById(R.id.ccp);
         buttonSetCountryPreference = (Button) getView().findViewById(R.id.button_setCountryPreference);
-
-
         buttonNext = (Button) getView().findViewById(R.id.button_next);
     }
 }

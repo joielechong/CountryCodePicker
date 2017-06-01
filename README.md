@@ -373,7 +373,22 @@ If you just want to read them, here you go:
  #### Programmatically
    Use ` setClickable(true)` or ` setClickable(false)` method to enable / disable the click.
 
-   
+### 15. Hide / Show Phone Code
+ The phone code can be hide or show if you want. By default the phone code is shown. We don't need to add the attribute to show the phone code.
+ #### Set through xml
+  Add `app:ccp_hidePhoneCode="true"` to hide the phone code.
+
+   ````xml
+   <com.rilixtech.CountryCodePicker
+          android:id="@+id/ccp"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          app:ccp_hidePhoneCode="true"/>
+   ````
+
+ #### Programmatically
+   Use ` setHidePhoneCode(true)` or ` setHidePhoneCode(false)` method to hide / show the phone code.
+
 Change log
 --------
 
