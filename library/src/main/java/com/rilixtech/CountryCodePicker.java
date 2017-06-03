@@ -89,6 +89,8 @@ public class CountryCodePicker extends RelativeLayout {
   // Font typeface
   private Typeface mTypeFace;
 
+  private boolean mIsHintEnabled = true;
+
   private OnCountryChangeListener mOnCountryChangeListener;
 
   View.OnClickListener countryCodeHolderClickListener = new View.OnClickListener() {
@@ -235,7 +237,10 @@ public class CountryCodePicker extends RelativeLayout {
 
       mSelectionDialogShowSearch =
           a.getBoolean(R.styleable.CountryCodePicker_ccp_selectionDialogShowSearch, true);
-      setClickable(a.getBoolean(R.styleable.CountryCodePicker_ccp_Clickable, true));
+      setClickable(a.getBoolean(R.styleable.CountryCodePicker_ccp_clickable, true));
+
+      mIsHintEnabled =  a.getBoolean(R.styleable.CountryCodePicker_ccp_enableHint, true);
+
     } catch (Exception e) {
       mTvSelectedCountry.setText(e.getMessage());
     } finally {
@@ -300,7 +305,9 @@ public class CountryCodePicker extends RelativeLayout {
     mImvFlag.setImageResource(selectedCountry.getFlagDrawableResId());
     //        Log.d(TAG, "Setting selected country:" + mSelectedCountry.logString());
 
-    setPhoneNumberHint();
+    if(mIsHintEnabled) {
+      setPhoneNumberHint();
+    }
   }
 
   private View getHolderView() {
@@ -341,7 +348,9 @@ public class CountryCodePicker extends RelativeLayout {
   void setEdtRegisteredCarrierNumber(AppCompatEditText edtRegisteredCarrierNumber) {
     this.mEdtRegisteredCarrierNumber = edtRegisteredCarrierNumber;
     this.mEdtRegisteredCarrierNumber.addTextChangedListener(mPhoneNumberWatcher);
-    setPhoneNumberHint();
+    if(mIsHintEnabled) {
+      setPhoneNumberHint();
+    }
   }
 
   private LayoutInflater getInflater() {
@@ -976,6 +985,17 @@ public class CountryCodePicker extends RelativeLayout {
     return mHidePhoneCode;
   }
 
+  public boolean isHintEnabled() {
+    return mIsHintEnabled;
+  }
+
+  public void enableHint(boolean hintEnabled) {
+    this.mIsHintEnabled = hintEnabled;
+    if(mIsHintEnabled) {
+      setPhoneNumberHint();
+    }
+  }
+
   //TODO: Check this
   public void setHidePhoneCode(boolean mHidePhoneCode) {
     this.mHidePhoneCode = mHidePhoneCode;
@@ -1058,6 +1078,29 @@ public class CountryCodePicker extends RelativeLayout {
       }
     }
   }
+
+  ///**
+  // * Set Number
+  // *
+  // * @param number E.164 format or national format
+  // */
+  //public void setNumber(String number) {
+  //  try {
+  //    String iso = null;
+  //    if (mSelectedCountry != null) {
+  //      iso = mSelectedCountry.getIso();
+  //    }
+  //    Phonenumber.PhoneNumber phoneNumber = mPhoneUtil.parse(number, iso);
+  //
+  //    int countryIdx = mCountries.indexOfIso(mPhoneUtil.getRegionCodeForNumber(phoneNumber));
+  //    mSelectedCountry = mCountries.get(countryIdx);
+  //    mCountrySpinner.setSelection(countryIdx);
+  //
+  //
+  //    mPhoneEdit.setText(mPhoneUtil.format(phoneNumber, PhoneNumberUtil.PhoneNumberFormat.NATIONAL));
+  //  } catch (NumberParseException ignored) {
+  //  }
+  //}
 
   /**
    * Get number

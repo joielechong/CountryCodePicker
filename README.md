@@ -32,7 +32,7 @@ How to add to your project
 
     ````groovy
     dependencies {
-        compile 'com.github.joielechong:countrycodepicker:1.9.0'
+        compile 'com.github.joielechong:countrycodepicker:2.0.0'
     }
     ````
 
@@ -376,16 +376,16 @@ If you just want to read them, here you go:
   
   
 ### 15. Enable / Disable click
- Developer can toggle click listener of ccp
+ Developer can toggle click listener of CCP
  #### Set through xml
-  Add `app:ccp_Clickable="true"` to enable click listener.
+  Add `app:ccp_clickable="true"` to enable click listener.
 
    ````xml
    <com.rilixtech.CountryCodePicker
           android:id="@+id/ccp"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          app:ccp_Clickable="false"/>
+          app:ccp_clickable="false"/>
    ````
 
  #### Programmatically
