@@ -6,11 +6,13 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.AppCompatEditText;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.google.i18n.phonenumbers.PhoneNumberUtil;
 import com.rilixtech.CountryCodePicker;
 
 
@@ -19,6 +21,7 @@ import com.rilixtech.CountryCodePicker;
  */
 public class FullNumberFragment extends Fragment {
 
+    public static final String TAG = FullNumberFragment.class.getSimpleName();
 
     AppCompatEditText editTextLoadFullNumber,editTextLoadCarrierNumber,editTextGetFullNumber,editTextGetCarrierNumber;
     CountryCodePicker ccpLoadNumber,ccpGetNumber;
@@ -96,7 +99,21 @@ public class FullNumberFragment extends Fragment {
 
     private void registerCarrierEditText() {
         ccpLoadNumber.registerCarrierNumberEditText(editTextLoadCarrierNumber);
+        ccpLoadNumber.setPhoneNumberInputValidityListener(new CountryCodePicker.PhoneNumberInputValidityListener() {
+            @Override public void onFinish(CountryCodePicker ccp, boolean isValid) {
+                Log.d(TAG, ccp.getPhoneNumber() + " " + (isValid ? "is valid": "not valid"));
+            }
+        });
+
+        final PhoneNumberUtil mPhoneUtil = PhoneNumberUtil.getInstance();
         ccpGetNumber.registerCarrierNumberEditText(editTextGetCarrierNumber);
+        ccpGetNumber.setPhoneNumberInputValidityListener(new CountryCodePicker.PhoneNumberInputValidityListener() {
+            @Override public void onFinish(CountryCodePicker ccp, boolean isValid) {
+                Log.d(TAG, ccp.getPhoneNumber() + " " + (isValid ? "is valid": "not valid"));
+                Log.d(TAG, "PhoneNumberFormat.E164 = " + mPhoneUtil.format(ccp.getPhoneNumber(),
+                    PhoneNumberUtil.PhoneNumberFormat.E164));
+            }
+        });
     }
 
     private void assignView() {

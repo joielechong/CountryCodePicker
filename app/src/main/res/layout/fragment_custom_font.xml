@@ -73,6 +73,7 @@
                     app:ccp_defaultNameCode="gr"
                     app:ccp_textColor="@android:color/white"
                     app:ccp_textFont="bookos.ttf"
+                    app:ccp_backgroundColor="#222124"
                     />
 
                 <TextView
@@ -98,6 +99,7 @@
                     android:layout_height="wrap_content"
                     app:ccp_defaultNameCode="gr"
                     app:ccp_textColor="@android:color/white"
+                    app:ccp_backgroundColor="#222124"
                     />
 
                 <TextView
@@ -122,6 +124,7 @@
                     android:layout_height="wrap_content"
                     app:ccp_defaultNameCode="gr"
                     app:ccp_textColor="@android:color/white"
+                    app:ccp_backgroundColor="#222124"
                     />
 
                 <TextView
@@ -147,6 +150,7 @@
                     android:layout_height="wrap_content"
                     app:ccp_defaultNameCode="gr"
                     app:ccp_textColor="@android:color/white"
+                    app:ccp_backgroundColor="#222124"
                     />
 
                 <TextView
@@ -172,6 +176,7 @@
                     android:layout_height="wrap_content"
                     app:ccp_defaultNameCode="gr"
                     app:ccp_textColor="@android:color/white"
+                    app:ccp_backgroundColor="#222124"
                     />
 
                 <TextView
@@ -197,6 +202,7 @@
                     android:layout_height="wrap_content"
                     app:ccp_defaultNameCode="gr"
                     app:ccp_textColor="@android:color/white"
+                    app:ccp_backgroundColor="#222124"
                     />
 
                 <TextView
