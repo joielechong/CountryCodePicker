@@ -18,5 +18,6 @@
         <attr name="ccp_clickable" format="boolean" />
         <attr name="ccp_hidePhoneCode" format="boolean"/>
         <attr name="ccp_enableHint" format="boolean"/>
+        <attr name="ccp_enablePhoneNumberWatcher" format="boolean"/>
     </declare-styleable>
 </resources>

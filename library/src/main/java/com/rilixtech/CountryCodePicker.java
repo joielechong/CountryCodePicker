@@ -90,6 +90,7 @@ public class CountryCodePicker extends RelativeLayout {
   private Typeface mTypeFace;
 
   private boolean mIsHintEnabled = true;
+  private boolean mIsEnablePhoneNumberWatcher = true;
 
   private OnCountryChangeListener mOnCountryChangeListener;
 
@@ -148,6 +149,10 @@ public class CountryCodePicker extends RelativeLayout {
 
       //show full name
       mShowFullName = a.getBoolean(R.styleable.CountryCodePicker_ccp_showFullName, false);
+
+      mIsHintEnabled =  a.getBoolean(R.styleable.CountryCodePicker_ccp_enableHint, true);
+
+      mIsEnablePhoneNumberWatcher =  a.getBoolean(R.styleable.CountryCodePicker_ccp_enablePhoneNumberWatcher, true);
 
       //auto pop keyboard
       setKeyboardAutoPopOnSearch(
@@ -238,8 +243,6 @@ public class CountryCodePicker extends RelativeLayout {
       mSelectionDialogShowSearch =
           a.getBoolean(R.styleable.CountryCodePicker_ccp_selectionDialogShowSearch, true);
       setClickable(a.getBoolean(R.styleable.CountryCodePicker_ccp_clickable, true));
-
-      mIsHintEnabled =  a.getBoolean(R.styleable.CountryCodePicker_ccp_enableHint, true);
 
     } catch (Exception e) {
       mTvSelectedCountry.setText(e.getMessage());
@@ -347,9 +350,26 @@ public class CountryCodePicker extends RelativeLayout {
 
   void setEdtRegisteredCarrierNumber(AppCompatEditText edtRegisteredCarrierNumber) {
     this.mEdtRegisteredCarrierNumber = edtRegisteredCarrierNumber;
-    this.mEdtRegisteredCarrierNumber.addTextChangedListener(mPhoneNumberWatcher);
+    if(mIsEnablePhoneNumberWatcher) {
+      this.mEdtRegisteredCarrierNumber.addTextChangedListener(mPhoneNumberWatcher);
+    }
     if(mIsHintEnabled) {
       setPhoneNumberHint();
+    }
+  }
+
+  public boolean isPhoneNumberWatcherEnabled() {
+    return mIsEnablePhoneNumberWatcher;
+  }
+
+  public void enablePhoneNumberWatcher(boolean isEnablePhoneNumberWatcher) {
+    this.mIsEnablePhoneNumberWatcher = isEnablePhoneNumberWatcher;
+    if(isEnablePhoneNumberWatcher) {
+      if(mPhoneNumberWatcher == null) {
+        mPhoneNumberWatcher = new PhoneNumberWatcher(getSelectedCountryNameCode());
+      }
+    } else {
+      mPhoneNumberWatcher = null;
     }
   }
 
