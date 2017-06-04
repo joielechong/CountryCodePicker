@@ -32,7 +32,7 @@ How to add to your project
 
     ````groovy
     dependencies {
-        compile 'com.github.joielechong:countrycodepicker:2.0.0'
+        compile 'com.github.joielechong:countrycodepicker:2.0.1'
     }
     ````
 

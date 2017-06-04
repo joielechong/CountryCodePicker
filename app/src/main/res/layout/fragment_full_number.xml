@@ -156,9 +156,9 @@
                             <com.rilixtech.CountryCodePicker
                                 android:id="@+id/ccp_getFullNumber"
                                 android:layout_width="wrap_content"
-                                app:ccp_defaultNameCode="ID"
                                 app:ccp_enableHint="false"
-                                app:ccp_enablePhoneNumberWatcher="false"
+                                app:ccp_enablePhoneAutoFormatter="false"
+                                app:ccp_defaultNameCode="  "
                                 android:layout_height="wrap_content" />
 
                             <android.support.v7.widget.AppCompatEditText

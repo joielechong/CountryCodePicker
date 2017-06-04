@@ -2,8 +2,16 @@ package com.rilixtech;
 
 import android.content.Context;
 
+import android.util.Log;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Util related to Country
@@ -14,8 +22,10 @@ import java.util.List;
  */
 
 class CountryUtils {
+  private static final String TAG = CountryUtils.class.getSimpleName();
 
   private static List<Country> countries;
+  private static Map<String, List<String>> timeZoneAndCountryISOs;
 
   /**
    * Returns image res based on country name code
@@ -1509,6 +1519,7 @@ class CountryUtils {
    * or returns null if no country matches given code.
    */
   static Country getByNameCodeFromAllCountries(Context context, String nameCode) {
+    nameCode = nameCode.toUpperCase();
     List<Country> countries = CountryUtils.getAllCountries(context);
     for (Country country : countries) {
       if (country.getNameCode().equalsIgnoreCase(nameCode)) {
@@ -1517,4 +1528,54 @@ class CountryUtils {
     }
     return null;
   }
+
+  static List<String> getCountryIsoByTimeZone(Context context, String timeZoneId) {
+    Map<String, List<String>> timeZoneAndCountryIsos = getTimeZoneAndCountryISOs(context);
+    return timeZoneAndCountryIsos.get(timeZoneId);
+  }
+
+  /**
+   * Return list of Map for timezone and iso country.
+   * @param context
+   * @return List of timezone and country.
+   */
+  static Map<String, List<String>> getTimeZoneAndCountryISOs(Context context) {
+    if (timeZoneAndCountryISOs != null && !timeZoneAndCountryISOs.isEmpty()) {
+      return timeZoneAndCountryISOs;
+    }
+
+    timeZoneAndCountryISOs = new HashMap<>();
+
+    // Read from raw
+    InputStream inputStream = context.getResources().openRawResource(R.raw.zone1970);
+    BufferedReader buf = new BufferedReader(new InputStreamReader(inputStream));
+
+    String lineJustFetched;
+    String[] wordsArray;
+    try {
+      while (true) {
+        lineJustFetched = buf.readLine();
+        if (lineJustFetched == null) {
+          break;
+        } else {
+          wordsArray = lineJustFetched.split("\t");
+          // Ignore line which have # as the first character.
+          if(!lineJustFetched.substring(0,1).contains("#")) {
+            if (wordsArray.length >= 3) {
+              // First word is country code or list of country code separate by comma
+              List<String> isos = new ArrayList<>();
+              Collections.addAll(isos, wordsArray[0].split(","));
+              // Third word in wordsArray is timezone.
+              timeZoneAndCountryISOs.put(wordsArray[2], isos);
+            }
+          }
+        }
+      }
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+
+    return timeZoneAndCountryISOs;
+  }
+
 }

@@ -18,6 +18,7 @@
         <attr name="ccp_clickable" format="boolean" />
         <attr name="ccp_hidePhoneCode" format="boolean"/>
         <attr name="ccp_enableHint" format="boolean"/>
-        <attr name="ccp_enablePhoneNumberWatcher" format="boolean"/>
+        <attr name="ccp_enablePhoneAutoFormatter" format="boolean"/>
+        <attr name="ccp_searchCountryByTimeZone" format="boolean"/>
     </declare-styleable>
 </resources>
