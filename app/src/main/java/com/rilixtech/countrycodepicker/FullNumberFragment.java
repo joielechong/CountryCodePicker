@@ -97,7 +97,7 @@ public class FullNumberFragment extends Fragment {
     }
 
     private void registerCarrierEditText() {
-        ccpLoadNumber.registerCarrierNumberEditText(editTextLoadCarrierNumber);
+        ccpLoadNumber.registerPhoneNumberTextView(editTextLoadCarrierNumber);
         ccpLoadNumber.setPhoneNumberInputValidityListener(new CountryCodePicker.PhoneNumberInputValidityListener() {
             @Override public void onFinish(CountryCodePicker ccp, boolean isValid) {
                 Log.d(TAG, ccp.getPhoneNumber() + " " + (isValid ? "is valid": "not valid"));
@@ -105,7 +105,7 @@ public class FullNumberFragment extends Fragment {
         });
 
         final PhoneNumberUtil mPhoneUtil = PhoneNumberUtil.createInstance(getContext());
-        ccpGetNumber.registerCarrierNumberEditText(editTextGetCarrierNumber);
+        ccpGetNumber.registerPhoneNumberTextView(editTextGetCarrierNumber);
         ccpGetNumber.setPhoneNumberInputValidityListener(new CountryCodePicker.PhoneNumberInputValidityListener() {
             @Override public void onFinish(CountryCodePicker ccp, boolean isValid) {
                 Log.d(TAG, ccp.getPhoneNumber() + " " + (isValid ? "is valid": "not valid"));

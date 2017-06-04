@@ -22,24 +22,24 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="A carrierNumberEditText must be registered in order to work with full number."
+                    android:text="A phoneNumberTextView must be registered in order to work with full number."
                     android:textColor="@android:color/holo_red_dark" />
 
                 <TextView
                     style="@style/sectionText"
-                    android:text="Register carrierNumberEditText" />
+                    android:text="Register phoneNumberTextView" />
 
                 <TextView
                     style="@style/pointText"
-                    android:text="\u2022 CarrierNumberEditText is the supplementary editText in which carrier number part of full number is entered." />
+                    android:text="\u2022 phoneNumberTextView is the supplementary TextView/EditText in which carrier number part of full number is entered." />
 
                 <TextView
                     style="@style/pointText"
-                    android:text="\u2022 editText can be registered using registerCarrierNumberEditText()." />
+                    android:text="\u2022 TextView/EditText can be registered using registerPhoneNumberTextView()." />
 
                 <TextView
                     style="@style/pointText"
-                    android:text="\u2022 A carrierNumberEditText must be registered before any function call of full number like setFullNumber() or getFullNumber()." />
+                    android:text="\u2022 A phoneNumberTextView must be registered before any function call of full number like setFullNumber() or getFullNumber()." />
 
 
                 <TextView
@@ -88,11 +88,11 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical">
+
                             <com.rilixtech.CountryCodePicker
                                 android:id="@+id/ccp_loadFullNumber"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                app:ccp_countryPreference="us,in"
                                 />
                             <android.support.v7.widget.AppCompatEditText
                                 android:id="@+id/editText_loadCarrierNumber"
@@ -114,11 +114,11 @@
 
                 <TextView
                     style="@style/pointText"
-                    android:text="\u2022 This will detect country code from full number and set that county to ccp and carrier number ( remaining part of full number other than country code) will be set as text of registered carrier editText." />
+                    android:text="\u2022 This will detect country code from full number and set that county to ccp and carrier number ( remaining part of full number other than country code) will be set as text of registered carrier TextView/EditText." />
 
                 <TextView
                     style="@style/pointText"
-                    android:text="\u2022 If no valid country code is found in beginning part of full number, default country will be set to CCP and full number will be set as text of registered carrier editText. " />
+                    android:text="\u2022 If no valid country code is found in beginning part of full number, default country will be set to CCP and full number will be set as text of registered carrier TextView/editText. " />
 
                 <TextView
                     style="@style/sectionText"
@@ -126,7 +126,7 @@
 
                 <TextView
                     style="@style/pointText"
-                    android:text="\u2022 Full number can be read from CCP if carrierEditText is registered." />
+                    android:text="\u2022 Full number can be read from CCP if phoneTextView is registered." />
 
                 <RelativeLayout
                     android:layout_width="match_parent"

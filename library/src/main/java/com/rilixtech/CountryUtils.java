@@ -1539,7 +1539,7 @@ class CountryUtils {
    * @param context
    * @return List of timezone and country.
    */
-  static Map<String, List<String>> getTimeZoneAndCountryISOs(Context context) {
+  private static Map<String, List<String>> getTimeZoneAndCountryISOs(Context context) {
     if (timeZoneAndCountryISOs != null && !timeZoneAndCountryISOs.isEmpty()) {
       return timeZoneAndCountryISOs;
     }
@@ -1574,7 +1574,6 @@ class CountryUtils {
     } catch (IOException e) {
       e.printStackTrace();
     }
-
     return timeZoneAndCountryISOs;
   }
 

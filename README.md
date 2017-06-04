@@ -5,7 +5,8 @@ Country Code Picker (CCP) <img src="https://farm6.staticflickr.com/5726/30960801
 
 Introduction
 ------------
-* CCP gives professional touch to your well designed form like login screen, sign up screen, edit profile screen. CCP removes confusion about how to add number and thus make view more understandable. Finally reduces mistakes in user input.
+* CCP gives professional touch to your well designed form like login screen, sign up screen, edit profile screen.
+CCP removes confusion about how to add number and thus make view more understandable. Finally reduces mistakes in user input.
  * Phone number screen without CCP
      - <img src="https://raw.githubusercontent.com/hbb20/CountryCodePickerProject/master/app/src/main/res/drawable/img_c.png" width="300"> 
 	  
@@ -14,6 +15,54 @@ Introduction
     
 * Tapping on CCP will open a dialog to search and select country
     - <img src="https://farm6.staticflickr.com/5686/30982885732_294ee950d7_z.jpg" width="300">
+
+
+ The most recommended usage for CCP is using the default setting so the library will auto check the all the value.
+ To do that, you need to follow the following step:
+ 1. Add CCP view to layout
+ 2. Add AppCompatEditText view to layout
+ 3. register the AppCompatEditText using `registerPhoneNumberTextView(AppCompatEditText)`
+    we can use TextView instead of AppCompatEditText also.
+ 4. Let the magic happens ;)
+
+ Here the more details step:
+ 1. Add CCP to layout using the following:
+
+     ````xml
+     <com.rilixtech.CountryCodePicker
+           android:id="@+id/ccp"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content" />
+     ````
+
+ 2. Add AppCompatEditText view to layout:
+
+     ````xml
+     <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/phone_number_edt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="phone"
+            android:inputType="phone"/>
+     ````
+
+3. register the AppCompatEditText with code:
+
+   ```java
+   CountryCodePicker ccp;
+   AppCompatEditText edtPhoneNumber;
+
+   ...
+
+   ccp = (CountryCodePicker) findViewById(R.id.ccp);
+   edtPhoneNumber = (AppCompatEditText) findViewById(R.id.phone_number_edt);
+
+   ...
+
+   ccp.registerPhoneNumberTextView(edtPhoneNumber);
+   ```
+
+
 
 How to add to your project
 --------------
@@ -175,10 +224,10 @@ If you just want to read them, here you go:
    ### 5. Full number support
   Full number is combination of country code and carrier number. for example, if country code is **91** and carrier number is **8866667722** then **918866667722** or **+918866667722** is the full number.
 
- #### Register carrierNumberEditText
+ #### Register phoneNumberTextView
   - `CarrierNumberEditText` is the supplementary editText in which carrier number part of full number is entered.
   - A carrierNumberEditText must be registered in order to work with full number.
-  - editText can be registered using ``` registerCarrierNumberEditText()```.
+  - editText can be registered using ``` registerPhoneNumberTextView()```.
   
  #### Load full number
   - To load full number, use `setFullNumber()` method. In this method you need to pass the full number.
@@ -189,7 +238,7 @@ If you just want to read them, here you go:
  #### Get full number
   - Use `getFullNumber();` for full number without “+” prefix.
   - Use `getFullNumberWithPlus();` for full number with “+” prefix.
-  - A carrierNumberEditText must be registered before any function call of full number like `setFullNumber()` or `getFullNumber()`.
+  - A phoneNumberTextView must be registered before any function call of full number like `setFullNumber()` or `getFullNumber()`.
   - *None of the above functions validate the number format of phone.*
   
  ### 6. Custom text color
@@ -406,6 +455,59 @@ If you just want to read them, here you go:
 
  #### Programmatically
    Use ` setHidePhoneCode(true)` or ` setHidePhoneCode(false)` method to hide / show the phone code.
+
+
+### 17. Enable / Disable Auto Formatter
+You need to set an EditText for phone number with `registerPhoneNumberTextView()` to make use of this.
+ Ignore this if you don't.
+ The auto formatter for EditText can be enable/disable by using `enablePhoneAutoFormatter` attribute. By default, auto formatter is enabled.
+ #### Set through xml
+   Add `app:ccp_enablePhoneAutoFormatter="false"` to disable.
+
+      ````xml
+      <com.rilixtech.CountryCodePicker
+             android:id="@+id/ccp"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             app:ccp_enablePhoneAutoFormatter="false"/>
+      ````
+
+ #### Programmatically
+   Use `enablePhoneAutoFormatter(true)` or `enablePhoneAutoFormatter(false)` method to enable / disable auto formatter.
+
+   To check for it, use `isPhoneAutoFormatterEnabled()`
+
+### 18. Enable / Disable Set Country Code By TimeZone
+You need to set an EditText for phone number with `registerPhoneNumberTextView()` to make use of this.
+ Ignore this if you don't.
+ By default, CCP will checking for country code from time zone if no default country code set and no country code is found from device network.
+ The default value is true.
+
+ Use `ccp_setCountryByTimeZone` attribute to change.
+ This attribute is having the least order from defaultNameCode. Here the order CCP use:
+ 1. defaultNameCode by using `ccp_defaultNameCode`
+ 2. Auto detect from device by checking network
+ 3. time zone from device by using `ccp_setCountryByTimeZone`
+ 4. country iso from device locale.
+ 5. the last default will be defaulting to country code ID (Indonesia).
+
+ #### Set through xml
+   Add `app:ccp_setCountryByTimeZone="false"` to disable.
+
+      ````xml
+      <com.rilixtech.CountryCodePicker
+             android:id="@+id/ccp"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             app:ccp_setCountryByTimeZone="false"/>
+      ````
+
+ #### Programmatically
+   Use `enableSetCountryByTimeZone(true)` or `enableSetCountryByTimeZone(false)` method to enable / disable time zone.
+
+   To check for it, use `isPhoneAutoFormatterEnabled()`
+
+
 
 Change log
 --------

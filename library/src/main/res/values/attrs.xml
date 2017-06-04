@@ -19,6 +19,6 @@
         <attr name="ccp_hidePhoneCode" format="boolean"/>
         <attr name="ccp_enableHint" format="boolean"/>
         <attr name="ccp_enablePhoneAutoFormatter" format="boolean"/>
-        <attr name="ccp_searchCountryByTimeZone" format="boolean"/>
+        <attr name="ccp_setCountryByTimeZone" format="boolean"/>
     </declare-styleable>
 </resources>
