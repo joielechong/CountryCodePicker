@@ -12,9 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.google.i18n.phonenumbers.PhoneNumberUtil;
 import com.rilixtech.CountryCodePicker;
-
+import io.michaelrocks.libphonenumber.android.PhoneNumberUtil;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -105,7 +104,7 @@ public class FullNumberFragment extends Fragment {
             }
         });
 
-        final PhoneNumberUtil mPhoneUtil = PhoneNumberUtil.getInstance();
+        final PhoneNumberUtil mPhoneUtil = PhoneNumberUtil.createInstance(getContext());
         ccpGetNumber.registerCarrierNumberEditText(editTextGetCarrierNumber);
         ccpGetNumber.setPhoneNumberInputValidityListener(new CountryCodePicker.PhoneNumberInputValidityListener() {
             @Override public void onFinish(CountryCodePicker ccp, boolean isValid) {

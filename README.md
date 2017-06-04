@@ -471,7 +471,17 @@ Change log
     - Rename `ccp_contentColor` attribute to `ccp_textColor`
     - Add `ccp_backgroundColor` to set CCP background color.
 
+##### version 2.0.1
+    - Add libphonenumber for hint and phone text auto formatter.
+
+##### version 2.1.0
+    - change libphonenumber usage with libphonenumber-android
+    - Add auto check default country from device
+    - Add auto check for country from device time zone
+
 ## Credits
+
+Michael Rozumyanskiy for [libphonenumber-android](https://github.com/MichaelRocks/libphonenumber-android)
 
 Harsh Bhakta for the original project at [CountryCodePickerProject](https://github.com/hbb20/CountryCodePickerProject)
 

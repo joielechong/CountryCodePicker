@@ -24,9 +24,9 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.google.i18n.phonenumbers.NumberParseException;
-import com.google.i18n.phonenumbers.PhoneNumberUtil;
-import com.google.i18n.phonenumbers.Phonenumber;
+import io.michaelrocks.libphonenumber.android.NumberParseException;
+import io.michaelrocks.libphonenumber.android.PhoneNumberUtil;
+import io.michaelrocks.libphonenumber.android.Phonenumber;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -51,7 +51,7 @@ public class CountryCodePicker extends RelativeLayout {
   private String mDefaultCountryNameCode;
 
   //Util
-  private PhoneNumberUtil mPhoneUtil = PhoneNumberUtil.getInstance();
+  private PhoneNumberUtil mPhoneUtil;
   private PhoneNumberWatcher mPhoneNumberWatcher;
 
   private View mViewHolder;
@@ -141,6 +141,7 @@ public class CountryCodePicker extends RelativeLayout {
   }
 
   private void applyCustomProperty(AttributeSet attrs) {
+    mPhoneUtil = PhoneNumberUtil.createInstance(getContext());
     TypedArray a =
         getContext().getTheme().obtainStyledAttributes(attrs, R.styleable.CountryCodePicker, 0, 0);
     //default country code
@@ -227,6 +228,7 @@ public class CountryCodePicker extends RelativeLayout {
         setTextColor(textColor);
       }
 
+      // background color of view.
       mBackgroundColor =
           a.getColor(R.styleable.CountryCodePicker_ccp_backgroundColor, Color.TRANSPARENT);
 
@@ -246,7 +248,7 @@ public class CountryCodePicker extends RelativeLayout {
         mTvSelectedCountry.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
         setFlagSize(textSize);
         setArrowSize(textSize);
-      } else { //no textsize specified
+      } else { //no text size specified
         DisplayMetrics dm = getContext().getResources().getDisplayMetrics();
         int defaultSize = Math.round(18 * (dm.xdpi / DisplayMetrics.DENSITY_DEFAULT));
         setTextSize(defaultSize);
@@ -262,10 +264,11 @@ public class CountryCodePicker extends RelativeLayout {
           a.getBoolean(R.styleable.CountryCodePicker_ccp_selectionDialogShowSearch, true);
       setClickable(a.getBoolean(R.styleable.CountryCodePicker_ccp_clickable, true));
 
-      Log.d(TAG, "mDefaultCountryNameCode = " + mDefaultCountryNameCode);
+      // Set to default phone code if no country name code set in attribute.
       if (mDefaultCountryNameCode == null || mDefaultCountryNameCode.isEmpty()) {
         setDefaultCountryFlagAndCode();
       }
+
     } catch (Exception e) {
       mTvSelectedCountry.setText(e.getMessage());
     } finally {
@@ -279,14 +282,6 @@ public class CountryCodePicker extends RelativeLayout {
 
   private void setDefaultCountry(Country defaultCountry) {
     this.mDefaultCountry = defaultCountry;
-  }
-
-  private TextView getTvSelectedCountry() {
-    return mTvSelectedCountry;
-  }
-
-  private void setTvSelectedCountry(AppCompatTextView tvSelectedCountry) {
-    this.mTvSelectedCountry = tvSelectedCountry;
   }
 
   private Country getSelectedCountry() {
@@ -563,7 +558,8 @@ public class CountryCodePicker extends RelativeLayout {
    * if you want to set JP +81(Japan) as default country, mDefaultCountryCode =  81
    */
   @Deprecated public void setDefaultCountryUsingPhoneCode(int defaultCountryCode) {
-    Country defaultCountry = CountryUtils.getByCode(getContext(), mPreferredCountries, defaultCountryCode);
+    Country defaultCountry =
+        CountryUtils.getByCode(getContext(), mPreferredCountries, defaultCountryCode);
     //if correct country is found, set the country
     if (defaultCountry != null) {
       this.mDefaultCountryCode = defaultCountryCode;
@@ -1185,14 +1181,15 @@ public class CountryCodePicker extends RelativeLayout {
    * Will try to retrieve phone number from device
    */
   private void setDefaultCountryFlagAndCode() {
-    TelephonyManager telManager = (TelephonyManager) getContext().getSystemService(Context.TELEPHONY_SERVICE);
+    TelephonyManager telManager =
+        (TelephonyManager) getContext().getSystemService(Context.TELEPHONY_SERVICE);
     String simCountryIso = telManager.getSimCountryIso();
     if (simCountryIso != null && !simCountryIso.isEmpty()) {
       setEmptyDefault(simCountryIso);
       Log.d(TAG, "simCountryIso = " + simCountryIso);
     } else {
       String iso = telManager.getNetworkCountryIso();
-      if(iso != null && !iso.isEmpty()) {
+      if (iso != null && !iso.isEmpty()) {
         setEmptyDefault(iso);
         Log.d(TAG, "isoNetwork = " + iso);
       } else {
@@ -1218,7 +1215,7 @@ public class CountryCodePicker extends RelativeLayout {
       if (mDefaultCountryNameCode != null && !mDefaultCountryNameCode.isEmpty()) {
         countryCode = mDefaultCountryNameCode;
       } else {
-        if(DEFAULT_COUNTRY != null && !DEFAULT_COUNTRY.isEmpty()) {
+        if (DEFAULT_COUNTRY != null && !DEFAULT_COUNTRY.isEmpty()) {
           countryCode = DEFAULT_COUNTRY;
         } else {
           countryCode = DEFAULT_ISO_COUNTRY;
