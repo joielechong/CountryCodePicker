@@ -62,7 +62,10 @@ CCP removes confusion about how to add number and thus make view more understand
    ccp.registerPhoneNumberTextView(edtPhoneNumber);
    ```
 
+4. Now look at the magic ;)
 
+
+you can check validity of phone number using isValid() method.
 
 How to add to your project
 --------------

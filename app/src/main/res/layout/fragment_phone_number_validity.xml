@@ -27,17 +27,7 @@
             style="@style/sectionText"
             />
         <TextView
-            android:text="\u2022 The custom content color can be set through xml layout and programmatically as well."
-            style="@style/pointText"
-            />
-        <TextView
-            android:text="1. Using xml "
-            android:textStyle="bold"
-            style="@style/pointText"
-            />
-        <TextView
-            android:paddingLeft="32dp"
-            android:text='add app:ccp_textColor=\"@color/customColor" to xml layout.'
+            android:text="\u2022 To check the validity of phone number, we can use isValid(). But remember to register an EditText with registerPhoneNumberTextView(TextView textView) method."
             style="@style/pointText"
             />
         <RelativeLayout
