@@ -2,7 +2,7 @@ package com.rilixtech;
 
 import android.content.Context;
 
-import android.util.Log;
+import android.support.annotation.DrawableRes;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -32,8 +32,9 @@ class CountryUtils {
    * @param country selected country
    * @return drawable resource id of country flag.
    */
+  @DrawableRes
   static int getFlagDrawableResId(Country country) {
-    switch (country.getNameCode()) {
+    switch (country.getIso()) {
       case "af": //afghanistan
         return R.drawable.flag_afghanistan;
       case "al": //albania
@@ -1503,7 +1504,7 @@ class CountryUtils {
       return getByNameCodeFromAllCountries(context, nameCode);
     } else {
       for (Country country : customCountries) {
-        if (country.getNameCode().equalsIgnoreCase(nameCode)) {
+        if (country.getIso().equalsIgnoreCase(nameCode)) {
           return country;
         }
       }
@@ -1522,7 +1523,7 @@ class CountryUtils {
     nameCode = nameCode.toUpperCase();
     List<Country> countries = CountryUtils.getAllCountries(context);
     for (Country country : countries) {
-      if (country.getNameCode().equalsIgnoreCase(nameCode)) {
+      if (country.getIso().equalsIgnoreCase(nameCode)) {
         return country;
       }
     }

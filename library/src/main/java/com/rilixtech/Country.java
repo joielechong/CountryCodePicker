@@ -1,5 +1,7 @@
 package com.rilixtech;
 
+import android.support.annotation.DrawableRes;
+
 /**
  * Created by hbb20 on 11/1/16.
  *
@@ -9,22 +11,22 @@ package com.rilixtech;
  * Updated by Joielechong 13 May 2017
  */
 public class Country {
-  private String nameCode;
+  private String iso;
   private String phoneCode;
   private String name;
 
-  public Country(String nameCode, String phoneCode, String name) {
-    this.nameCode = nameCode;
+  public Country(String iso, String phoneCode, String name) {
+    this.iso = iso;
     this.phoneCode = phoneCode;
     this.name = name;
   }
 
-  public String getNameCode() {
-    return nameCode;
+  public String getIso() {
+    return iso;
   }
 
-  public void setNameCode(String nameCode) {
-    this.nameCode = nameCode;
+  public void setIso(String iso) {
+    this.iso = iso;
   }
 
   public String getPhoneCode() {
@@ -43,6 +45,7 @@ public class Country {
     this.name = name;
   }
 
+  @DrawableRes
   public int getFlagDrawableResId() {
     return CountryUtils.getFlagDrawableResId(this);
   }
@@ -50,10 +53,10 @@ public class Country {
   /**
    * If country have query word in name or name code or phone code, this will return true.
    */
-  public boolean isEligibleForQuery(String query) {
+  boolean isEligibleForQuery(String query) {
     query = query.toLowerCase();
     return getName().toLowerCase().contains(query)
-        || getNameCode().toLowerCase().contains(query)
+        || getIso().toLowerCase().contains(query)
         || getPhoneCode().toLowerCase().contains(query);
   }
 }

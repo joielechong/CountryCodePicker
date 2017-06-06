@@ -1,135 +1,36 @@
 package com.rilixtech;
 
-import android.app.Dialog;
-import android.content.Context;
-import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.RecyclerView;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by hbb20 on 11/1/16.
+ * Created by hbb20 on 11/1/16. item
+ *
+ * Move all code unrelated to RecyclerView to parent dialog.
+ * Updated by joielechong on 6 June 2017
  */
 class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.CountryCodeViewHolder> {
-  private List<Country> filteredCountries;
-  private List<Country> masterCountries;
-  private AppCompatTextView mTvNoResult;
+
+  private List<Country> mCountries;
   private CountryCodePicker mCountryCodePicker;
-  private AppCompatEditText mEdtSearch;
-  private Dialog mDialog;
-  private InputMethodManager mInputMethodManager;
-  private List<Country> mTempCountries;
+  private Callback mCallback;
 
-  CountryCodeAdapter(List<Country> countries, CountryCodePicker codePicker,
-      final AppCompatEditText edtSearch, AppCompatTextView tvNoResult, Dialog dialog) {
-    this.masterCountries = countries;
+  interface Callback {
+    void onItemCountrySelected(Country country);
+  }
+
+  CountryCodeAdapter(List<Country> countries, CountryCodePicker codePicker, Callback callback) {
+    this.mCountries = countries;
     this.mCountryCodePicker = codePicker;
-    this.mDialog = dialog;
-    this.mTvNoResult = tvNoResult;
-    this.mEdtSearch = edtSearch;
-    this.filteredCountries = getFilteredCountries();
-    mInputMethodManager = (InputMethodManager) mCountryCodePicker.getContext()
-        .getSystemService(Context.INPUT_METHOD_SERVICE);
-    setSearchBar();
-  }
-
-  private void setSearchBar() {
-    if (mCountryCodePicker.isSelectionDialogShowSearch()) {
-      setTextWatcher();
-    } else {
-      mEdtSearch.setVisibility(View.GONE);
-    }
-  }
-
-  /**
-   * add textChangeListener, to apply new query each time editText get text changed.
-   */
-  private void setTextWatcher() {
-    if (mEdtSearch != null) {
-      mEdtSearch.addTextChangedListener(new TextWatcher() {
-
-        @Override public void afterTextChanged(Editable s) {
-        }
-
-        @Override public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-        }
-
-        @Override public void onTextChanged(CharSequence s, int start, int before, int count) {
-          applyQuery(s.toString());
-        }
-      });
-
-      if (mCountryCodePicker.isKeyboardAutoPopOnSearch()) {
-        if (mInputMethodManager != null) {
-          mInputMethodManager.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
-        }
-      }
-    }
-  }
-
-  /**
-   * Filter country list for given keyWord / query.
-   * Lists all countries that contains @param query in country's name, name code or phone code.
-   *
-   * @param query : text to match against country name, name code or phone code
-   */
-  private void applyQuery(String query) {
-    mTvNoResult.setVisibility(View.GONE);
-    query = query.toLowerCase();
-
-    //if query started from "+" ignore it
-    if (query.length() > 0 && query.charAt(0) == '+') {
-      query = query.substring(1);
-    }
-
-    filteredCountries = getFilteredCountries(query);
-
-    if (filteredCountries.size() == 0) {
-      mTvNoResult.setVisibility(View.VISIBLE);
-    }
-    notifyDataSetChanged();
-  }
-
-  private List<Country> getFilteredCountries() {
-    return getFilteredCountries("");
-  }
-
-  private List<Country> getFilteredCountries(String query) {
-    if (mTempCountries == null) {
-      mTempCountries = new ArrayList<>();
-    } else {
-      mTempCountries.clear();
-    }
-    List<Country> preferredCountries = mCountryCodePicker.getPreferredCountries();
-    if (preferredCountries != null && preferredCountries.size() > 0) {
-      for (Country country : preferredCountries) {
-        if (country.isEligibleForQuery(query)) {
-          mTempCountries.add(country);
-        }
-      }
-
-      if (mTempCountries.size() > 0) { //means at least one preferred country is added.
-        mTempCountries.add(null); // this will add separator for preference countries.
-      }
-    }
-
-    for (Country country : masterCountries) {
-      if (country.isEligibleForQuery(query)) {
-        mTempCountries.add(country);
-      }
-    }
-    return mTempCountries;
+    this.mCallback = callback;
   }
 
   @Override public CountryCodeViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
@@ -140,20 +41,16 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
 
   @Override public void onBindViewHolder(CountryCodeViewHolder viewHolder, final int i) {
     final int position = viewHolder.getAdapterPosition();
-    viewHolder.setCountry(filteredCountries.get(position));
+    viewHolder.setCountry(mCountries.get(position));
     viewHolder.rlyMain.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View view) {
-        mCountryCodePicker.setSelectedCountry(filteredCountries.get(position));
-        if (view != null && filteredCountries.get(position) != null) {
-          mInputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
-          mDialog.dismiss();
-        }
+        mCallback.onItemCountrySelected(mCountries.get(position));
       }
     });
   }
 
   @Override public int getItemCount() {
-    return filteredCountries.size();
+    return mCountries.size();
   }
 
   class CountryCodeViewHolder extends RecyclerView.ViewHolder {
@@ -181,7 +78,7 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
         llyFlagHolder.setVisibility(View.VISIBLE);
         String countryNameAndCode = tvName.getContext()
             .getString(R.string.country_name_and_code, country.getName(),
-                country.getNameCode().toUpperCase());
+                country.getIso().toUpperCase());
         tvName.setText(countryNameAndCode);
         if (!mCountryCodePicker.isHidePhoneCode()) {
           tvCode.setText(

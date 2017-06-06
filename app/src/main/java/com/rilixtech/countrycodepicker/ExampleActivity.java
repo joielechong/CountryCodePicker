@@ -74,13 +74,15 @@ public class ExampleActivity extends AppCompatActivity {
                     return new CustomSizeFragment();
                 case 9:
                     return new CustomFontFragment();
+                case 10:
+                    return new PhoneNumberValidityFragment();
             }
             return null;
         }
 
         @Override
         public int getCount() {
-            return 10;
+            return 11;
         }
     }
 }

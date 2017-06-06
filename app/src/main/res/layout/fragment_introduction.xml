@@ -108,6 +108,7 @@
                             android:gravity="right">
 
                             <com.rilixtech.CountryCodePicker
+                                android:padding="10dp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 app:ccp_customMasterCountries="US,ID,NZ"/>

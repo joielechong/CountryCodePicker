@@ -9,7 +9,9 @@ import android.widget.TextView;
 
 public class HomeActivity extends AppCompatActivity {
 
-    TextView textIntro, textDefaultCountry, textPreference, textCustomMaster, textsetCountry, textGetCountry, textFullNumber, textCustomColor, textCustomSize, textCustomFont;
+    TextView textIntro, textDefaultCountry, textPreference, textCustomMaster,
+        textsetCountry, textGetCountry, textFullNumber, textCustomColor,
+        textCustomSize, textCustomFont, tvCheckValidity;
     Button startDemo;
 
     @Override
@@ -49,6 +51,9 @@ public class HomeActivity extends AppCompatActivity {
 
         textCustomFont = (TextView) findViewById(R.id.textCustomFont);
         setclick(textCustomFont, 9);
+
+        tvCheckValidity = (TextView) findViewById(R.id.check_validity_tv);
+        setclick(tvCheckValidity, 10);
 
         startDemo = (Button) findViewById(R.id.buttonGo);
         startDemo.setOnClickListener(new View.OnClickListener() {
