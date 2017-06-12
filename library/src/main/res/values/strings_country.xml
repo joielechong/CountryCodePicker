@@ -392,9 +392,9 @@
   <string name="country_italy_code">it</string>
   <string name="country_italy_number" translatable="false">39</string>
 
-  <string name="country_côte_d_ivoire_name">Côte D\'ivoire</string>
-  <string name="country_côte_d_ivoire_code">ci</string>
-  <string name="country_côte_d_ivoire_number" translatable="false">225</string>
+  <string name="country_cote_d_ivoire_name">Côte D\'ivoire</string>
+  <string name="country_cote_d_ivoire_code">ci</string>
+  <string name="country_cote_d_ivoire_number" translatable="false">225</string>
 
   <string name="country_jamaica_name">Jamaica</string>
   <string name="country_jamaica_code">jm</string>
@@ -656,9 +656,9 @@
   <string name="country_qatar_code">qa</string>
   <string name="country_qatar_number" translatable="false">974</string>
 
-  <string name="country_réunion_name">Réunion</string>
-  <string name="country_réunion_code">re</string>
-  <string name="country_réunion_number" translatable="false">262</string>
+  <string name="country_reunion_name">Réunion</string>
+  <string name="country_reunion_code">re</string>
+  <string name="country_reunion_number" translatable="false">262</string>
 
   <string name="country_romania_name">Romania</string>
   <string name="country_romania_code">ro</string>
@@ -672,9 +672,9 @@
   <string name="country_rwanda_code">rw</string>
   <string name="country_rwanda_number" translatable="false">250</string>
 
-  <string name="country_saint_barthélemy_name">Saint Barthélemy</string>
-  <string name="country_saint_barthélemy_code">bl</string>
-  <string name="country_saint_barthélemy_number" translatable="false">590</string>
+  <string name="country_saint_barthelemy_name">Saint Barthélemy</string>
+  <string name="country_saint_barthelemy_code">bl</string>
+  <string name="country_saint_barthelemy_number" translatable="false">590</string>
 
   <string name="country_saint_kitts_and_nevis_name">Saint Kitts and Nevis</string>
   <string name="country_saint_kitts_and_nevis_code">kn</string>

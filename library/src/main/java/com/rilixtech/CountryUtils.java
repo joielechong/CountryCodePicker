@@ -898,9 +898,9 @@ class CountryUtils {
         context.getString(R.string.country_italy_number),
         context.getString(R.string.country_italy_name)));
 
-    countries.add(new Country(context.getString(R.string.country_côte_d_ivoire_code),
-    context.getString(R.string.country_côte_d_ivoire_number),
-    context.getString(R.string.country_côte_d_ivoire_name)));
+    countries.add(new Country(context.getString(R.string.country_cote_d_ivoire_code),
+    context.getString(R.string.country_cote_d_ivoire_number),
+    context.getString(R.string.country_cote_d_ivoire_name)));
 
     countries.add(new Country(context.getString(R.string.country_jamaica_code),
         context.getString(R.string.country_jamaica_number),
@@ -1158,9 +1158,9 @@ class CountryUtils {
         context.getString(R.string.country_qatar_number),
         context.getString(R.string.country_qatar_name)));
 
-    countries.add(new Country(context.getString(R.string.country_réunion_code),
-        context.getString(R.string.country_réunion_number),
-        context.getString(R.string.country_réunion_name)));
+    countries.add(new Country(context.getString(R.string.country_reunion_code),
+        context.getString(R.string.country_reunion_number),
+        context.getString(R.string.country_reunion_name)));
 
     countries.add(new Country(context.getString(R.string.country_romania_code),
         context.getString(R.string.country_romania_number),
@@ -1174,9 +1174,9 @@ class CountryUtils {
         context.getString(R.string.country_rwanda_number),
         context.getString(R.string.country_rwanda_name)));
 
-    countries.add(new Country(context.getString(R.string.country_saint_barthélemy_code),
-        context.getString(R.string.country_saint_barthélemy_number),
-        context.getString(R.string.country_saint_barthélemy_name)));
+    countries.add(new Country(context.getString(R.string.country_saint_barthelemy_code),
+        context.getString(R.string.country_saint_barthelemy_number),
+        context.getString(R.string.country_saint_barthelemy_name)));
 
     countries.add(new Country(context.getString(R.string.country_saint_kitts_and_nevis_code),
         context.getString(R.string.country_saint_kitts_and_nevis_number),

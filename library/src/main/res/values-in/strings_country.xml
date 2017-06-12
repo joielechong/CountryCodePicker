@@ -99,7 +99,7 @@
   <string name="country_isle_of_man_name">Isle Of Man</string>
   <string name="country_israel_name">Israel</string>
   <string name="country_italy_name">Italia</string>
-  <string name="country_côte_d_ivoire_name">Pantai Gading</string>
+  <string name="country_cote_d_ivoire_name">Pantai Gading</string>
   <string name="country_jamaica_name">Jamaika</string>
   <string name="country_japan_name">Jepang</string>
   <string name="country_jordan_name">Jordan</string>
@@ -164,11 +164,11 @@
   <string name="country_portugal_name">Portugal</string>
   <string name="country_puerto_rico_name">Puerto Rico</string>
   <string name="country_qatar_name">Qatar</string>
-  <string name="country_réunion_name">Réunion</string>
+  <string name="country_reunion_name">Réunion</string>
   <string name="country_romania_name">Romania</string>
   <string name="country_russian_federation_name">Federasi Rusia</string>
   <string name="country_rwanda_name">Rwanda</string>
-  <string name="country_saint_barthélemy_name">Saint Barthélemy</string>
+  <string name="country_saint_barthelemy_name">Saint Barthélemy</string>
   <string name="country_saint_kitts_and_nevis_name">Saint Kitts dan Nevis</string>
   <string name="country_saint_lucia_name">Saint Lucia</string>
   <string name="country_saint_vincent_the_grenadines_name">Saint Vincent &amp; The Grenadines</string>
@@ -211,7 +211,7 @@
   <string name="country_turkmenistan_name">Turkmenistan</string>
   <string name="country_turks_and_caicos_islands_name">Turks dan Caicos Islands</string>
   <string name="country_tuvalu_name">Tuvalu</string>
-  <string name="country_united_arab_emirates_name">United Arab Emirates</string>
+  <string name="country_united_arab_emirates_name">Uni Emirat Arab</string>
   <string name="country_uganda_name">Uganda</string>
   <string name="country_united_kingdom_name">United Kingdom</string>
   <string name="country_ukraine_name">Ukraina</string>

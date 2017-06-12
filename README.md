@@ -584,6 +584,10 @@ Change log
     - Add auto check default country from device
     - Add auto check for country from device time zone
 
+##### version 2.1.1
+    - Add Russian translation.
+    - Fix illegal character encoding.
+
 ## Credits
 
 Michael Rozumyanskiy for [libphonenumber-android](https://github.com/MichaelRocks/libphonenumber-android)

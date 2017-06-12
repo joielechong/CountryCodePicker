@@ -133,6 +133,12 @@ public class CountryCodePicker extends RelativeLayout {
     init(attrs);
   }
 
+  @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+  public CountryCodePicker(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    super(context, attrs, defStyleAttr, defStyleRes);
+    init(attrs);
+  }
+
   private void init(AttributeSet attrs) {
     mInflater = LayoutInflater.from(this.getContext());
     mViewHolder = mInflater.inflate(R.layout.layout_code_picker, this, true);
@@ -142,6 +148,9 @@ public class CountryCodePicker extends RelativeLayout {
     mImvFlag = (AppCompatImageView) mViewHolder.findViewById(R.id.flag_imv);
     mLlyFlagHolder = (LinearLayout) mViewHolder.findViewById(R.id.flag_holder_lly);
     mRlyClickConsumer = (RelativeLayout) mViewHolder.findViewById(R.id.click_consumer_rly);
+
+    if (isInEditMode()) return;
+
     applyCustomProperty(attrs);
 
     mCountryCodeHolderClickListener = new View.OnClickListener() {
@@ -292,6 +301,7 @@ public class CountryCodePicker extends RelativeLayout {
       }
 
     } catch (Exception e) {
+      Log.d(TAG, "exception = " + e.toString());
       mTvSelectedCountry.setText(e.getMessage());
     } finally {
       a.recycle();

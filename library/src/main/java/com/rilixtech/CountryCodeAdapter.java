@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * Created by hbb20 on 11/1/16. item
  *
- * Move all code unrelated to RecyclerView to parent dialog.
+ * Move all code unrelated with RecyclerView item to parent dialog.
  * Updated by joielechong on 6 June 2017
  */
 class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.CountryCodeViewHolder> {

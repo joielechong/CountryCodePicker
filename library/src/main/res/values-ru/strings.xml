@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="search_hint">Поиск &#8230;</string>
+  <string name="no_result_found">Результатов не найдено</string>
+  <string name="select_country">Выберите страну</string>
+</resources>
