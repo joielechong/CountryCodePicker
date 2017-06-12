@@ -70,7 +70,7 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
       viewDivider = rlyMain.findViewById(R.id.preference_divider_view);
     }
 
-    public void setCountry(Country country) {
+    private void setCountry(Country country) {
       if (country != null) {
         viewDivider.setVisibility(View.GONE);
         tvName.setVisibility(View.VISIBLE);

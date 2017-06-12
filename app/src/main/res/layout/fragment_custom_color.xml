@@ -69,9 +69,9 @@
               <com.rilixtech.CountryCodePicker
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
+                  app:ccp_backgroundColor="#250041"
                   app:ccp_defaultNameCode="jp"
                   app:ccp_textColor="@android:color/holo_orange_dark"
-                  app:ccp_backgroundColor="#250041"
                   />
               <EditText
                   android:layout_width="match_parent"

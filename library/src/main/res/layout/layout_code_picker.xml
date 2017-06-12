@@ -47,6 +47,7 @@
         android:layout_centerVertical="true"
         android:layout_toEndOf="@+id/flag_holder_lly"
         android:layout_toRightOf="@+id/flag_holder_lly"
+        android:maxLines="1"
         android:singleLine="true"
         android:text="(ID) +62"
         android:textColor="@android:color/black"

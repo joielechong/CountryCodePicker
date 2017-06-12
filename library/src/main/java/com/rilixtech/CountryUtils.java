@@ -1520,7 +1520,6 @@ class CountryUtils {
    * or returns null if no country matches given code.
    */
   static Country getByNameCodeFromAllCountries(Context context, String nameCode) {
-    nameCode = nameCode.toUpperCase();
     List<Country> countries = CountryUtils.getAllCountries(context);
     for (Country country : countries) {
       if (country.getIso().equalsIgnoreCase(nameCode)) {

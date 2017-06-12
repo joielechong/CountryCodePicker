@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="CountryCodePicker">
-        <attr name="ccp_defaultCode" format="integer" />
-        <attr name="ccp_textColor" format="color"/>
-        <attr name="ccp_backgroundColor" format="color"/>
-        <attr name="ccp_textSize" format="dimension"/>
-        <attr name="ccp_textFont" format="string"/>
-        <attr name="ccp_arrowSize" format="dimension"/>
-        <attr name="ccp_countryPreference" format="string"/>
-        <attr name="ccp_defaultNameCode" format="string" />
-        <attr name="ccp_hideNameCode" format="boolean"/>
-        <attr name="ccp_keyboardAutoPopOnSearch" format="boolean"/>
-        <attr name="ccp_customMasterCountries" format="string" />
-        <attr name="ccp_showFlag" format="boolean" />
-        <attr name="ccp_showFullName" format="boolean" />
-        <attr name="ccp_selectionDialogShowSearch" format="boolean" />
-        <attr name="ccp_clickable" format="boolean" />
-        <attr name="ccp_hidePhoneCode" format="boolean"/>
-        <attr name="ccp_enableHint" format="boolean"/>
-        <attr name="ccp_enablePhoneAutoFormatter" format="boolean"/>
-        <attr name="ccp_setCountryByTimeZone" format="boolean"/>
-    </declare-styleable>
+  <declare-styleable name="CountryCodePicker">
+    <attr format="integer" name="ccp_defaultCode"/>
+    <attr format="color" name="ccp_textColor"/>
+    <attr format="color" name="ccp_backgroundColor"/>
+    <attr format="dimension" name="ccp_textSize"/>
+    <attr format="string" name="ccp_textFont"/>
+    <attr format="dimension" name="ccp_arrowSize"/>
+    <attr format="string" name="ccp_countryPreference"/>
+    <attr format="string" name="ccp_defaultNameCode"/>
+    <attr format="boolean" name="ccp_hideNameCode"/>
+    <attr format="boolean" name="ccp_keyboardAutoPopOnSearch"/>
+    <attr format="string" name="ccp_customMasterCountries"/>
+    <attr format="boolean" name="ccp_showFlag"/>
+    <attr format="boolean" name="ccp_showFullName"/>
+    <attr format="boolean" name="ccp_selectionDialogShowSearch"/>
+    <attr format="boolean" name="ccp_clickable"/>
+    <attr format="boolean" name="ccp_hidePhoneCode"/>
+    <attr format="boolean" name="ccp_enableHint"/>
+    <attr format="boolean" name="ccp_enablePhoneAutoFormatter"/>
+    <attr format="boolean" name="ccp_setCountryByTimeZone"/>
+  </declare-styleable>
 </resources>

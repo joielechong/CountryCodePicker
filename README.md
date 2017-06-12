@@ -84,7 +84,7 @@ How to add to your project
 
     ````groovy
     dependencies {
-        compile 'com.github.joielechong:countrycodepicker:2.1.1'
+        compile 'com.github.joielechong:countrycodepicker:2.1.2'
     }
     ````
 
@@ -587,6 +587,9 @@ Change log
 ##### version 2.1.1
     - Add Russian translation.
     - Fix illegal character encoding.
+
+##### version 2.1.2
+    - Enable preview
 
 ## Credits
 
