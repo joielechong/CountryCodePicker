@@ -84,7 +84,7 @@ How to add to your project
 
     ````groovy
     dependencies {
-        compile 'com.github.joielechong:countrycodepicker:2.1.2'
+        compile 'com.github.joielechong:countrycodepicker:2.1.3'
     }
     ````
 
@@ -590,6 +590,11 @@ Change log
 
 ##### version 2.1.2
     - Enable preview
+
+##### version 2.1.3
+    - Fix preview
+    - sort country
+    - upgrade build.gradle and support library
 
 ## Credits
 
