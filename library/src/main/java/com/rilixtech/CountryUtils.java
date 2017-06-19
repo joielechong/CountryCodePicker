@@ -9,6 +9,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -1410,6 +1411,14 @@ class CountryUtils {
     countries.add(new Country(context.getString(R.string.country_zimbabwe_code),
         context.getString(R.string.country_zimbabwe_number),
         context.getString(R.string.country_zimbabwe_name)));
+
+
+    Collections.sort(countries, new Comparator<Country>() {
+      @Override public int compare(Country country1, Country country2) {
+        return country1.getName().compareToIgnoreCase(country2.getName());
+      }
+    });
+
     return countries;
   }
 
