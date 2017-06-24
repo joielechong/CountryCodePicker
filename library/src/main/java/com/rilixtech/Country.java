@@ -1,14 +1,12 @@
 package com.rilixtech;
 
-import android.support.annotation.DrawableRes;
-
 /**
  * Created by hbb20 on 11/1/16.
  *
  * Clean up and moving all Country related code to {@link CountryUtils}.
  * a pojo should be a pojo and no more.
- *
  * Updated by Joielechong 13 May 2017
+ *
  */
 public class Country {
   private String iso;
@@ -43,11 +41,6 @@ public class Country {
 
   public void setName(String name) {
     this.name = name;
-  }
-
-  @DrawableRes
-  public int getFlagDrawableResId() {
-    return CountryUtils.getFlagDrawableResId(this);
   }
 
   /**

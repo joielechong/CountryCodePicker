@@ -52,11 +52,11 @@ class CountryCodeDialog extends Dialog {
   }
 
   private void setupUI() {
-    mRlyDialog = (RelativeLayout) this.findViewById(R.id.dialog_rly);
-    mRvCountryDialog = (RecyclerView) this.findViewById(R.id.country_dialog_rv);
-    mTvTitle = (AppCompatTextView) this.findViewById(R.id.title_tv);
-    mEdtSearch = (AppCompatEditText) this.findViewById(R.id.search_edt);
-    mTvNoResult = (AppCompatTextView) this.findViewById(R.id.no_result_tv);
+    mRlyDialog = this.findViewById(R.id.dialog_rly);
+    mRvCountryDialog = this.findViewById(R.id.country_dialog_rv);
+    mTvTitle = this.findViewById(R.id.title_tv);
+    mEdtSearch = this.findViewById(R.id.search_edt);
+    mTvNoResult = this.findViewById(R.id.no_result_tv);
   }
 
   private void setupData() {
@@ -66,11 +66,11 @@ class CountryCodeDialog extends Dialog {
       mEdtSearch.setTypeface(typeface);
       mTvNoResult.setTypeface(typeface);
     }
-    if(mCountryCodePicker.getBackgroundColor() != mCountryCodePicker.getDefaultBackgroundColor()) {
+    if (mCountryCodePicker.getBackgroundColor() != mCountryCodePicker.getDefaultBackgroundColor()) {
       mRlyDialog.setBackgroundColor(mCountryCodePicker.getBackgroundColor());
     }
 
-    if(mCountryCodePicker.getTextColor() != mCountryCodePicker.getDefaultContentColor()) {
+    if (mCountryCodePicker.getTextColor() != mCountryCodePicker.getDefaultContentColor()) {
       int color = mCountryCodePicker.getTextColor();
       mTvTitle.setTextColor(color);
       mTvNoResult.setTextColor(color);
@@ -86,10 +86,10 @@ class CountryCodeDialog extends Dialog {
       @Override public void onItemCountrySelected(Country country) {
         mCountryCodePicker.setSelectedCountry(country);
         //if (view != null && mCountries.get(position) != null) {
-          mInputMethodManager.hideSoftInputFromWindow(mEdtSearch.getWindowToken(), 0);
-          CountryCodeDialog.this.dismiss();
-        }
-      };
+        mInputMethodManager.hideSoftInputFromWindow(mEdtSearch.getWindowToken(), 0);
+        CountryCodeDialog.this.dismiss();
+      }
+    };
 
     this.mFilteredCountries = getFilteredCountries();
 
@@ -106,11 +106,6 @@ class CountryCodeDialog extends Dialog {
     mInputMethodManager = (InputMethodManager) mCountryCodePicker.getContext()
         .getSystemService(Context.INPUT_METHOD_SERVICE);
     setSearchBar();
-  }
-
-  void reShow() {
-    setupData();
-    show();
   }
 
   private int adjustAlpha(int color, float factor) {

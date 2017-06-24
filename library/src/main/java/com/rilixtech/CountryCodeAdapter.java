@@ -63,10 +63,10 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
     CountryCodeViewHolder(View itemView) {
       super(itemView);
       rlyMain = (RelativeLayout) itemView;
-      tvName = (AppCompatTextView) rlyMain.findViewById(R.id.country_name_tv);
-      tvCode = (AppCompatTextView) rlyMain.findViewById(R.id.code_tv);
-      imvFlag = (AppCompatImageView) rlyMain.findViewById(R.id.flag_imv);
-      llyFlagHolder = (LinearLayout) rlyMain.findViewById(R.id.flag_holder_lly);
+      tvName = rlyMain.findViewById(R.id.country_name_tv);
+      tvCode = rlyMain.findViewById(R.id.code_tv);
+      imvFlag = rlyMain.findViewById(R.id.flag_imv);
+      llyFlagHolder = rlyMain.findViewById(R.id.flag_holder_lly);
       viewDivider = rlyMain.findViewById(R.id.preference_divider_view);
     }
 
@@ -90,7 +90,7 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
           tvCode.setTypeface(mCountryCodePicker.getTypeFace());
           tvName.setTypeface(mCountryCodePicker.getTypeFace());
         }
-        imvFlag.setImageResource(country.getFlagDrawableResId());
+        imvFlag.setImageResource(CountryUtils.getFlagDrawableResId(country));
 
         if (mCountryCodePicker.getTextColor() != mCountryCodePicker.getDefaultContentColor()) {
           int color = mCountryCodePicker.getTextColor();

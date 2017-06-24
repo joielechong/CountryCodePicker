@@ -139,12 +139,12 @@ public class CountryCodePicker extends RelativeLayout {
   private void init(AttributeSet attrs) {
     inflate(getContext(), R.layout.layout_code_picker, this);
 
-    mTvSelectedCountry = (AppCompatTextView) findViewById(R.id.selected_country_tv);
-    mRlyHolder = (RelativeLayout) findViewById(R.id.country_code_holder_rly);
-    mImvArrow = (AppCompatImageView) findViewById(R.id.arrow_imv);
-    mImvFlag = (AppCompatImageView) findViewById(R.id.flag_imv);
-    mLlyFlagHolder = (LinearLayout) findViewById(R.id.flag_holder_lly);
-    mRlyClickConsumer = (RelativeLayout) findViewById(R.id.click_consumer_rly);
+    mTvSelectedCountry = findViewById(R.id.selected_country_tv);
+    mRlyHolder = findViewById(R.id.country_code_holder_rly);
+    mImvArrow = findViewById(R.id.arrow_imv);
+    mImvFlag = findViewById(R.id.flag_imv);
+    mLlyFlagHolder = findViewById(R.id.flag_holder_lly);
+    mRlyClickConsumer = findViewById(R.id.click_consumer_rly);
 
     applyCustomProperty(attrs);
 
@@ -155,7 +155,7 @@ public class CountryCodePicker extends RelativeLayout {
             mCountryCodeDialog = new CountryCodeDialog(CountryCodePicker.this);
             mCountryCodeDialog.show();
           } else {
-            mCountryCodeDialog.reShow();
+            mCountryCodeDialog.show();
           }
         }
       }
@@ -355,7 +355,7 @@ public class CountryCodePicker extends RelativeLayout {
       mOnCountryChangeListener.onCountrySelected(selectedCountry);
     }
 
-    mImvFlag.setImageResource(selectedCountry.getFlagDrawableResId());
+    mImvFlag.setImageResource(CountryUtils.getFlagDrawableResId(selectedCountry));
     //        Log.d(TAG, "Setting selected country:" + mSelectedCountry.logString());
 
     if (mIsHintEnabled) {
@@ -1191,7 +1191,7 @@ public class CountryCodePicker extends RelativeLayout {
   /**
    * Get PhoneNumber object
    *
-   * @return PhonenUmber | null on error
+   * @return Phone Number | null on error
    */
   @SuppressWarnings("unused") public Phonenumber.PhoneNumber getPhoneNumber() {
     try {
