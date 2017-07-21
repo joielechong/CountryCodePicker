@@ -5,8 +5,8 @@ ext {
   minSdkVersion = 9
   buildToolsVersion = '26.0.0'
   supportLibVersion = '25.4.0'
-  libraryVersion = '2.1.4'
-  libraryVersionCode = 214
+  libraryVersion = '2.1.5'
+  libraryVersionCode = 215
 }
 
 buildscript {

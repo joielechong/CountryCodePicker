@@ -92,8 +92,8 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
         }
         imvFlag.setImageResource(CountryUtils.getFlagDrawableResId(country));
 
-        if (mCountryCodePicker.getTextColor() != mCountryCodePicker.getDefaultContentColor()) {
-          int color = mCountryCodePicker.getTextColor();
+        if (mCountryCodePicker.getDialogTextColor() != mCountryCodePicker.getDefaultContentColor()) {
+          int color = mCountryCodePicker.getDialogTextColor();
           tvCode.setTextColor(color);
           tvName.setTextColor(color);
         }

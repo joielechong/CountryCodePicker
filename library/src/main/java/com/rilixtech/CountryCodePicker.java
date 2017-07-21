@@ -91,6 +91,8 @@ public class CountryCodePicker extends RelativeLayout {
 
   private int mTextColor = DEFAULT_TEXT_COLOR;
 
+  private int mDialogTextColor = DEFAULT_TEXT_COLOR;
+
   // Font typeface
   private Typeface mTypeFace;
 
@@ -244,7 +246,7 @@ public class CountryCodePicker extends RelativeLayout {
       //text color
       int textColor;
       if (isInEditMode()) {
-        textColor = a.getColor(R.styleable.CountryCodePicker_ccp_textColor, 0);
+        textColor = a.getColor(R.styleable.CountryCodePicker_ccp_textColor, DEFAULT_TEXT_COLOR);
       } else {
         textColor = a.getColor(R.styleable.CountryCodePicker_ccp_textColor,
             ContextCompat.getColor(getContext(), R.color.defaultTextColor));
@@ -252,6 +254,10 @@ public class CountryCodePicker extends RelativeLayout {
       if (textColor != 0) {
         setTextColor(textColor);
       }
+
+      // dialog text color
+
+      mDialogTextColor = a.getColor(R.styleable.CountryCodePicker_ccp_dialogTextColor, DEFAULT_TEXT_COLOR);
 
       // background color of view.
       mBackgroundColor =
@@ -1305,5 +1311,13 @@ public class CountryCodePicker extends RelativeLayout {
       }
     }
     mSetCountryByTimeZone = isEnabled;
+  }
+
+  public int getDialogTextColor() {
+    return mDialogTextColor;
+  }
+
+  public void setDialogTextColor(int dialogTextColor) {
+    mDialogTextColor = mDialogTextColor;
   }
 }

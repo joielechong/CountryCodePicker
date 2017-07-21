@@ -1,0 +1,87 @@
+
+Change log
+--------
+
+##### version 0.1.1
+    - First upload with all basic functionalities
+
+##### version 1.2
+    - Support for textSize and arrowSize modification
+
+##### version 1.4
+    - Country preference
+    - Hide country name code option
+    - Default country using Country name code
+
+##### version 1.5
+    - Custom master list
+    - Custom font
+    - Language support
+    - Optional KeyboardAutoPopup
+
+##### version 1.5.1
+    - Changed ccp view size when code name is hidden
+
+##### version 1.6
+    - Added country change listener
+
+##### version 1.6.1
+    - Bug fix for getDefaultCountryCodeAsInt() and getDefaultCountryCodeAsInt()
+
+##### version 1.7.1
+    - Adds Flag thumbnail
+    - Adds option for full country name
+
+##### version 1.7.3
+    - Adds support for HEBREW
+    - Two variants of CHINESE are added CHINESE TRADITIONAL and CHINESE SIMPLIFIED
+    - Correct layout for RTL layouts
+    - Support to enable/disable click
+    - Option to hide search bar from selection dialog
+
+##### version 1.7.4
+    - Adds French Guyana, Martinique and Réunion to country list
+
+##### version 1.7.7
+    - Change code totally. Fully deviate from original fork.
+    - Refactoring code
+    - Remove country string from code to values resources.
+
+##### version 1.7.8
+    - Further code clean up.
+    - Add ccp_textFont for text TypeFace
+
+##### version 1.7.9
+    - Removed unused code.
+    - Fix bugs
+
+##### version 1.8.0
+    - Fix bugs in Democratic Republic of the Congo code
+
+##### version 1.9.0
+    - Add hide phone code with `ccp_hidePhoneCode` attribute
+    - Rename `ccp_contentColor` attribute to `ccp_textColor`
+    - Add `ccp_backgroundColor` to set CCP background color.
+
+##### version 2.0.1
+    - Add libphonenumber for hint and phone text auto formatter.
+
+##### version 2.1.0
+    - change libphonenumber usage with libphonenumber-android
+    - Add auto check default country from device
+    - Add auto check for country from device time zone
+
+##### version 2.1.1
+    - Add Russian translation.
+    - Fix illegal character encoding.
+
+##### version 2.1.2
+    - Enable preview
+
+##### version 2.1.3
+    - Fix preview
+    - sort country
+    - upgrade build.gradle and support library
+
+##### version 2.1.5
+    - Add ccp_dialogTextColor to change dialog text color

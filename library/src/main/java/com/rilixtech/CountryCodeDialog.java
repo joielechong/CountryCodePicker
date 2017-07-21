@@ -70,8 +70,8 @@ class CountryCodeDialog extends Dialog {
       mRlyDialog.setBackgroundColor(mCountryCodePicker.getBackgroundColor());
     }
 
-    if (mCountryCodePicker.getTextColor() != mCountryCodePicker.getDefaultContentColor()) {
-      int color = mCountryCodePicker.getTextColor();
+    if (mCountryCodePicker.getDialogTextColor() != mCountryCodePicker.getDefaultContentColor()) {
+      int color = mCountryCodePicker.getDialogTextColor();
       mTvTitle.setTextColor(color);
       mTvNoResult.setTextColor(color);
       mEdtSearch.setTextColor(color);

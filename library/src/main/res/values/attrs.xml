@@ -20,5 +20,8 @@
     <attr format="boolean" name="ccp_enableHint"/>
     <attr format="boolean" name="ccp_enablePhoneAutoFormatter"/>
     <attr format="boolean" name="ccp_setCountryByTimeZone"/>
+
+    <!--For dialog-->
+    <attr format="color" name="ccp_dialogTextColor"/>
   </declare-styleable>
 </resources>
