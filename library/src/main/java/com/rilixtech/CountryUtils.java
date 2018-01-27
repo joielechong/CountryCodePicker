@@ -558,6 +558,10 @@ class CountryUtils {
         context.getString(R.string.country_australia_number),
         context.getString(R.string.country_australia_name)));
 
+    countries.add(new Country(context.getString(R.string.country_austria_code),
+        context.getString(R.string.country_austria_number),
+        context.getString(R.string.country_austria_name)));
+
     countries.add(new Country(context.getString(R.string.country_azerbaijan_code),
         context.getString(R.string.country_azerbaijan_number),
         context.getString(R.string.country_azerbaijan_name)));
