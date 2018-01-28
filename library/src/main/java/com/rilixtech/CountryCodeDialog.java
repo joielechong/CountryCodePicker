@@ -82,18 +82,10 @@ class CountryCodeDialog extends Dialog {
     mCountryCodePicker.refreshPreferredCountries();
     masterCountries = mCountryCodePicker.getCustomCountries(mCountryCodePicker);
 
-    CountryCodeAdapter.Callback callback = new CountryCodeAdapter.Callback() {
-      @Override public void onItemCountrySelected(Country country) {
-        mCountryCodePicker.setSelectedCountry(country);
-        //if (view != null && mCountries.get(position) != null) {
-        mInputMethodManager.hideSoftInputFromWindow(mEdtSearch.getWindowToken(), 0);
-        CountryCodeDialog.this.dismiss();
-      }
-    };
-
     this.mFilteredCountries = getFilteredCountries();
+    final ItemRecyclerViewClickListener listener = new ItemRecyclerViewClickListener();
+    mAdapter = new CountryCodeAdapter(mFilteredCountries, mCountryCodePicker, listener);
 
-    mAdapter = new CountryCodeAdapter(mFilteredCountries, mCountryCodePicker, callback);
     if (!mCountryCodePicker.isSelectionDialogShowSearch()) {
       RelativeLayout.LayoutParams params =
           (RelativeLayout.LayoutParams) mRvCountryDialog.getLayoutParams();
@@ -204,5 +196,15 @@ class CountryCodeDialog extends Dialog {
       }
     }
     return mTempCountries;
+  }
+
+  public class ItemRecyclerViewClickListener implements View.OnClickListener {
+    @Override public void onClick(View view) {
+      int itemPosition = mRvCountryDialog.getChildLayoutPosition(view);
+      mCountryCodePicker.setSelectedCountry(mFilteredCountries.get(itemPosition));
+      //if (view != null && mCountries.get(position) != null) {
+      mInputMethodManager.hideSoftInputFromWindow(mEdtSearch.getWindowToken(), 0);
+      CountryCodeDialog.this.dismiss();
+    }
   }
 }

@@ -11,6 +11,8 @@ import android.widget.RelativeLayout;
 
 import java.util.List;
 
+import com.rilixtech.CountryCodeDialog.ItemRecyclerViewClickListener;
+
 /**
  * Created by hbb20 on 11/1/16. item
  *
@@ -21,16 +23,12 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
 
   private List<Country> mCountries;
   private CountryCodePicker mCountryCodePicker;
-  private Callback mCallback;
+  private ItemRecyclerViewClickListener mListener;
 
-  interface Callback {
-    void onItemCountrySelected(Country country);
-  }
-
-  CountryCodeAdapter(List<Country> countries, CountryCodePicker codePicker, Callback callback) {
+  CountryCodeAdapter(List<Country> countries, CountryCodePicker codePicker, ItemRecyclerViewClickListener listener) {
     this.mCountries = countries;
     this.mCountryCodePicker = codePicker;
-    this.mCallback = callback;
+    this.mListener = listener;
   }
 
   @Override public CountryCodeViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
@@ -42,11 +40,7 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
   @Override public void onBindViewHolder(CountryCodeViewHolder viewHolder, final int i) {
     final int position = viewHolder.getAdapterPosition();
     viewHolder.setCountry(mCountries.get(position));
-    viewHolder.rlyMain.setOnClickListener(new View.OnClickListener() {
-      @Override public void onClick(View view) {
-        mCallback.onItemCountrySelected(mCountries.get(position));
-      }
-    });
+    viewHolder.rlyMain.setOnClickListener(mListener);
   }
 
   @Override public int getItemCount() {
