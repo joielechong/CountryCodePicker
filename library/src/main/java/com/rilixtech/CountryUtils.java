@@ -1059,6 +1059,10 @@ class CountryUtils {
         context.getString(R.string.country_morocco_number),
         context.getString(R.string.country_morocco_name)));
 
+    countries.add(new Country(context.getString(R.string.country_myanmar_code),
+        context.getString(R.string.country_myanmar_number),
+        context.getString(R.string.country_myanmar_name)));
+
     countries.add(new Country(context.getString(R.string.country_mozambique_code),
         context.getString(R.string.country_mozambique_number),
         context.getString(R.string.country_mozambique_name)));

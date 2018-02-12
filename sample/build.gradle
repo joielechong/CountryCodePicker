@@ -23,7 +23,7 @@ dependencies {
   compile fileTree(include: ['*.jar'], dir: 'libs')
   testCompile 'junit:junit:4.12'
   compile project(':library')
-  //  compile 'com.github.joielechong:countrycodepicker:2.1.6'
+//    compile 'com.github.joielechong:countrycodepicker:2.1.6'
 
   compile "com.android.support:appcompat-v7:$supportLibVersion"
   compile "com.android.support:support-v4:$supportLibVersion"
