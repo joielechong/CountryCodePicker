@@ -3,18 +3,22 @@
 ext {
   sdkVersion = 27
   minSdkVersion = 14
-  buildToolsVersion = '27.0.0'
+  buildToolsVersion = '27.0.3'
   supportLibVersion = '27.0.2'
-  libraryVersion = '2.1.7'
-  libraryVersionCode = 217
+  libraryVersion = '2.1.8'
+  libraryVersionCode = 218
 }
 
 buildscript {
   repositories {
     jcenter()
+    maven {
+      url 'https://maven.google.com/'
+      name 'Google'
+    }
   }
   dependencies {
-    classpath 'com.android.tools.build:gradle:3.0.1'
+    classpath 'com.android.tools.build:gradle:3.1.1'
     classpath 'com.github.dcendents:android-maven-gradle-plugin:2.0'
 
     // NOTE: Do not place your application dependencies here; they belong
@@ -27,6 +31,10 @@ allprojects {
     jcenter()
     maven { url "https://jitpack.io" }
     maven { url "https://maven.google.com" }
+    maven {
+      url 'https://maven.google.com/'
+      name 'Google'
+    }
   }
 }
 

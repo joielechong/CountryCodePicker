@@ -2,5 +2,5 @@
 <resources>
   <string name="search_hint">Cari&#8230;</string>
   <string name="no_result_found">Hasil tidak ditemukan</string>
-  <string name="select_country">Pilih negara</string>
+  <string name="select_country">Pilih Negara</string>
 </resources>
