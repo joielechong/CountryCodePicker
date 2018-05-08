@@ -493,9 +493,9 @@ class CountryUtils {
         return R.drawable.flag_turks_and_caicos_islands;
       case "vi": //us virgin islands
         return R.drawable.flag_us_virgin_islands;
-      case "ss": //us virgin islands
+      case "ss": //south sudan
         return R.drawable.flag_south_sudan;
-      case "xk": //us virgin islands
+      case "xk": //kosovo
         return R.drawable.flag_kosovo;
       default:
         return R.drawable.flag_transparent;
