@@ -119,23 +119,27 @@ public class CountryCodePicker extends RelativeLayout {
 
   public CountryCodePicker(Context context) {
     super(context);
-    init(null);
+    if(!isInEditMode())
+      init(null);
   }
 
   public CountryCodePicker(Context context, AttributeSet attrs) {
     super(context, attrs);
-    init(attrs);
+    if(!isInEditMode())
+          init(attrs);
   }
 
   public CountryCodePicker(Context context, AttributeSet attrs, int defStyleAttr) {
     super(context, attrs, defStyleAttr);
-    init(attrs);
+      if(!isInEditMode())
+         init(attrs);
   }
 
   @TargetApi(Build.VERSION_CODES.LOLLIPOP)
   public CountryCodePicker(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
     super(context, attrs, defStyleAttr, defStyleRes);
-    init(attrs);
+      if(!isInEditMode())
+          init(attrs);
   }
 
   private void init(AttributeSet attrs) {

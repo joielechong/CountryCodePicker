@@ -420,6 +420,10 @@
   <string name="country_kiribati_code">ki</string>
   <string name="country_kiribati_number" translatable="false">686</string>
 
+    <string name="country_kosovo_name">Kosovo</string>
+    <string name="country_kosovo_code">xk</string>
+    <string name="country_kosovo_number" translatable="false">383</string>
+
   <string name="country_kuwait_name">Kuwait</string>
   <string name="country_kuwait_code">kw</string>
   <string name="country_kuwait_number" translatable="false">965</string>
@@ -767,6 +771,10 @@
   <string name="country_saint_pierre_and_miquelon_name">Saint Pierre And Miquelon</string>
   <string name="country_saint_pierre_and_miquelon_code">pm</string>
   <string name="country_saint_pierre_and_miquelon_number" translatable="false">508</string>
+
+  <string name="country_south_sudan_name">South Sudan</string>
+  <string name="country_south_sudan_code">ss</string>
+  <string name="country_south_sudan_number" translatable="false">211</string>
 
   <string name="country_sudan_name">Sudan</string>
   <string name="country_sudan_code">sd</string>

@@ -493,6 +493,10 @@ class CountryUtils {
         return R.drawable.flag_turks_and_caicos_islands;
       case "vi": //us virgin islands
         return R.drawable.flag_us_virgin_islands;
+      case "ss": // south sudan
+        return R.drawable.flag_south_sudan;
+      case "xk": // kosovo
+        return R.drawable.flag_kosovo;
       default:
         return R.drawable.flag_transparent;
     }
@@ -931,6 +935,10 @@ class CountryUtils {
         context.getString(R.string.country_kiribati_number),
         context.getString(R.string.country_kiribati_name)));
 
+    countries.add(new Country(context.getString(R.string.country_kosovo_code),
+            context.getString(R.string.country_kosovo_number),
+            context.getString(R.string.country_kosovo_name)));
+
     countries.add(new Country(context.getString(R.string.country_kuwait_code),
         context.getString(R.string.country_kuwait_number),
         context.getString(R.string.country_kuwait_name)));
@@ -1278,6 +1286,11 @@ class CountryUtils {
     countries.add(new Country(context.getString(R.string.country_saint_pierre_and_miquelon_code),
         context.getString(R.string.country_saint_pierre_and_miquelon_number),
         context.getString(R.string.country_saint_pierre_and_miquelon_name)));
+
+    countries.add(new Country(context.getString(R.string.country_south_sudan_code),
+            context.getString(R.string.country_south_sudan_number),
+            context.getString(R.string.country_south_sudan_name)));
+
 
     countries.add(new Country(context.getString(R.string.country_sudan_code),
         context.getString(R.string.country_sudan_number),
