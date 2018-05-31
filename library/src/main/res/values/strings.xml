@@ -3,9 +3,12 @@
   <string name="app_name" translatable="false">CountryCodePicker</string>
   <string name="phone_code" translatable="false">+%s</string>
   <string name="country_name_and_code" translatable="false">%1$s (%2$s)</string>
-  <string name="search_hint">Ara&#8230;</string>
-  <string name="no_result_found">Sonuç bulunamadı</string>
-  <string name="select_country">Ülke Seçiniz</string>
+  <string name="search_hint">Search&#8230;</string>
+  <string name="no_result_found">No result found</string>
+  <string name="select_country">Select Country</string>
+  <string name="search_hint_tr">Ara&#8230;</string>
+  <string name="no_result_found_tr">Sonuç bulunamadı</string>
+  <string name="select_country_tr">Ülke Seçiniz</string>
   <string name="country_code_and_phone_code">(%1$s) +%2$s</string>
   <string name="country_full_name_and_phone_code">%1$s +%2$s</string>
   <string name="error_unregister_carrier_number">EditText for carrier number is not registered. Register it using registerPhoneNumberTextView() before getFullNumber() or setFullNumber().</string>
