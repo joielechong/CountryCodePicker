@@ -93,7 +93,7 @@ How to add to your project
         implementation 'com.android.support:appcompat-v7:27.0.2'
         implementation 'io.michaelrocks:libphonenumber-android:8.8.5'
 
-        implementation 'com.github.joielechong:countrycodepicker:2.1.5'
+        implementation 'com.github.joielechong:countrycodepicker:2.1.8'
     }
     ````
 
