@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="search_hint">搜索 &#8230;</string>
+  <string name="no_result_found">未找到结果</string>
+  <string name="select_country">选择国家/地区</string>
+</resources>
