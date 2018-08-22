@@ -22,9 +22,9 @@ android {
 dependencies {
   implementation fileTree(include: ['*.jar'], dir: 'libs')
   testImplementation 'junit:junit:4.12'
-//  implementation project(':library')
+  implementation project(':library')
 //    compile 'com.github.joielechong:countrycodepicker:2.1.6'
-  implementation 'com.github.joielechong:countrycodepicker:2.1.8'
+//  implementation 'com.github.joielechong:countrycodepicker:2.1.8'
 
   implementation "com.android.support:appcompat-v7:$supportLibVersion"
 //  implementation "com.android.support:support-v4:$supportLibVersion"

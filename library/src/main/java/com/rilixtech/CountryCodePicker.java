@@ -307,8 +307,8 @@ public class CountryCodePicker extends RelativeLayout {
       selectedCountry = CountryUtils.getByCode(getContext(), mPreferredCountries, mDefaultCountryCode);
     }
 
-    if (getRegisteredPhoneNumberTextView() != null) {
-      setRegisteredPhoneNumberTextView(mTvSelectedCountry, selectedCountry.getIso().toUpperCase());
+    if (mRegisteredPhoneNumberTextView != null) {
+      setPhoneNumberWatcherToTextView(selectedCountry.getIso().toUpperCase());
     }
 
     if (!mHideNameCode) {
@@ -770,8 +770,7 @@ public class CountryCodePicker extends RelativeLayout {
     }
   }
 
-  void setRegisteredPhoneNumberTextView(TextView phoneNumberTextView, String countryNameCode) {
-    this.mRegisteredPhoneNumberTextView = phoneNumberTextView;
+  private void setPhoneNumberWatcherToTextView(String countryNameCode) {
     if (mIsEnablePhoneNumberWatcher) {
       if (mPhoneNumberWatcher == null) {
         mPhoneNumberWatcher = new PhoneNumberWatcher(countryNameCode);
