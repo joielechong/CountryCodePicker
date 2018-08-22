@@ -309,7 +309,7 @@ public class CountryCodePicker extends RelativeLayout {
     }
 
     if (mRegisteredPhoneNumberTextView != null) {
-      setPhoneNumberWatcherToTextView(selectedCountry.getIso().toUpperCase());
+      setPhoneNumberWatcherToTextView(mRegisteredPhoneNumberTextView, selectedCountry.getIso().toUpperCase());
     }
 
     String phoneCode = selectedCountry.getPhoneCode();
@@ -769,11 +769,11 @@ public class CountryCodePicker extends RelativeLayout {
     }
   }
 
-  private void setPhoneNumberWatcherToTextView(String countryNameCode) {
+  private void setPhoneNumberWatcherToTextView(TextView textView, String countryNameCode) {
     if (mIsEnablePhoneNumberWatcher) {
       if (mPhoneNumberWatcher == null) {
         mPhoneNumberWatcher = new PhoneNumberWatcher(countryNameCode);
-        mRegisteredPhoneNumberTextView.addTextChangedListener(mPhoneNumberWatcher);
+        textView.addTextChangedListener(mPhoneNumberWatcher);
       } else {
         if (!mPhoneNumberWatcher.getPreviousCountryCode().equalsIgnoreCase(countryNameCode)) {
           mPhoneNumberWatcher = new PhoneNumberWatcher(countryNameCode);
