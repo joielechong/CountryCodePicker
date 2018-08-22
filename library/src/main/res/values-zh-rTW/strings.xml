@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="search_hint">搜尋 &#8230;</string>
+  <string name="no_result_found">沒有結果</string>
+  <string name="select_country">選擇國家</string>
+</resources>
