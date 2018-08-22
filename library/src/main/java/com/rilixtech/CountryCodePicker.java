@@ -69,7 +69,7 @@ public class CountryCodePicker extends RelativeLayout {
   private Country mSelectedCountry;
   private Country mDefaultCountry;
   private RelativeLayout mRlyClickConsumer;
-  View.OnClickListener mCountryCodeHolderClickListener;
+  private View.OnClickListener mCountryCodeHolderClickListener;
 
   private boolean mHideNameCode = false;
   private boolean mShowFlag = true;
@@ -248,21 +248,22 @@ public class CountryCodePicker extends RelativeLayout {
     }
   }
 
-  private void applyCustomPropertyOfDefaultCountryNameCode(TypedArray typedArray) {
+  private void applyCustomPropertyOfDefaultCountryNameCode(TypedArray tar) {
     //default country
-    mDefaultCountryNameCode = typedArray.getString(R.styleable.CountryCodePicker_ccp_defaultNameCode);
-    Log.d(TAG, "mDefaultCountryNameCode from attribute = " + mDefaultCountryNameCode);
-    if (mDefaultCountryNameCode != null && !mDefaultCountryNameCode.isEmpty()) {
-      String temp = mDefaultCountryNameCode.trim();
-      if (!temp.isEmpty()) {
-        setDefaultCountryUsingNameCode(mDefaultCountryNameCode);
-        if (mDefaultCountryNameCode != null) {
-          setSelectedCountry(mDefaultCountry);
-        }
-      } else {
-        mDefaultCountryNameCode = null;
-      }
+    mDefaultCountryNameCode = tar.getString(R.styleable.CountryCodePicker_ccp_defaultNameCode);
+    if(BuildConfig.DEBUG) {
+      Log.d(TAG, "mDefaultCountryNameCode from attribute = " + mDefaultCountryNameCode);
     }
+
+    if (mDefaultCountryNameCode == null || mDefaultCountryNameCode.isEmpty()) return;
+
+    if (mDefaultCountryNameCode.trim().isEmpty()) {
+      mDefaultCountryNameCode = null;
+      return;
+    }
+
+    setDefaultCountryUsingNameCode(mDefaultCountryNameCode);
+    setSelectedCountry(mDefaultCountry);
   }
 
   private void applyCustomPropertyOfColor(TypedArray typedArray) {
@@ -293,7 +294,7 @@ public class CountryCodePicker extends RelativeLayout {
   }
 
   private void setDefaultCountry(Country defaultCountry) {
-    this.mDefaultCountry = defaultCountry;
+    mDefaultCountry = defaultCountry;
   }
 
   @SuppressWarnings("unused") private Country getSelectedCountry() {
@@ -301,7 +302,7 @@ public class CountryCodePicker extends RelativeLayout {
   }
 
   protected void setSelectedCountry(Country selectedCountry) {
-    this.mSelectedCountry = selectedCountry;
+    mSelectedCountry = selectedCountry;
     //as soon as country is selected, textView should be updated
     if (selectedCountry == null) {
       selectedCountry = CountryUtils.getByCode(getContext(), mPreferredCountries, mDefaultCountryCode);
@@ -311,26 +312,26 @@ public class CountryCodePicker extends RelativeLayout {
       setPhoneNumberWatcherToTextView(selectedCountry.getIso().toUpperCase());
     }
 
-    if (!mHideNameCode) {
+    String phoneCode = selectedCountry.getPhoneCode();
+    if (mHideNameCode) {
+      mTvSelectedCountry.setText(getContext().getString(R.string.phone_code, phoneCode));
+    } else {
       if (mShowFullName) {
-        if (!mHidePhoneCode) {
-          mTvSelectedCountry.setText(
-              getContext().getString(R.string.country_full_name_and_phone_code, selectedCountry.getName().toUpperCase(),
-                  selectedCountry.getPhoneCode()));
+        String countryName = selectedCountry.getName().toUpperCase();
+        if (mHidePhoneCode) {
+          mTvSelectedCountry.setText(countryName);
         } else {
-          mTvSelectedCountry.setText(selectedCountry.getName().toUpperCase());
+          mTvSelectedCountry.setText(
+              getContext().getString(R.string.country_full_name_and_phone_code, countryName, phoneCode));
         }
       } else {
-        if (!mHidePhoneCode) {
-          mTvSelectedCountry.setText(
-              getContext().getString(R.string.country_code_and_phone_code, selectedCountry.getIso().toUpperCase(),
-                  selectedCountry.getPhoneCode()));
+        String iso = selectedCountry.getIso().toUpperCase();
+        if (mHidePhoneCode) {
+          mTvSelectedCountry.setText(iso);
         } else {
-          mTvSelectedCountry.setText(selectedCountry.getIso().toUpperCase());
+          mTvSelectedCountry.setText(getContext().getString(R.string.country_code_and_phone_code, iso, phoneCode));
         }
       }
-    } else {
-      mTvSelectedCountry.setText(getContext().getString(R.string.phone_code, selectedCountry.getPhoneCode()));
     }
 
     if (mOnCountryChangeListener != null) {
@@ -339,9 +340,7 @@ public class CountryCodePicker extends RelativeLayout {
 
     mImvFlag.setImageResource(CountryUtils.getFlagDrawableResId(selectedCountry));
 
-    if (mIsHintEnabled) {
-      setPhoneNumberHint();
-    }
+    if (mIsHintEnabled) setPhoneNumberHint();
   }
 
   boolean isKeyboardAutoPopOnSearch() {
@@ -356,7 +355,7 @@ public class CountryCodePicker extends RelativeLayout {
    * false: to avoid auto pop of keyboard
    */
   public void setKeyboardAutoPopOnSearch(boolean keyboardAutoPopOnSearch) {
-    this.mKeyboardAutoPopOnSearch = keyboardAutoPopOnSearch;
+    mKeyboardAutoPopOnSearch = keyboardAutoPopOnSearch;
   }
 
   /**
@@ -376,7 +375,7 @@ public class CountryCodePicker extends RelativeLayout {
    * @param isEnable return if phone auto formatter enabled or not.
    */
   @SuppressWarnings("unused") public void enablePhoneAutoFormatter(boolean isEnable) {
-    this.mIsEnablePhoneNumberWatcher = isEnable;
+    mIsEnablePhoneNumberWatcher = isEnable;
     if (isEnable) {
       if (mPhoneNumberWatcher == null) {
         mPhoneNumberWatcher = new PhoneNumberWatcher(getSelectedCountryNameCode());
@@ -401,11 +400,10 @@ public class CountryCodePicker extends RelativeLayout {
       for (String nameCode : mCountryPreference.split(",")) {
         Country country =
             CountryUtils.getByNameCodeFromCustomCountries(getContext(), mCustomMasterCountriesList, nameCode);
-        if (country != null) {
-          if (!isAlreadyInList(country, localCountryList)) { //to avoid duplicate entry of country
-            localCountryList.add(country);
-          }
-        }
+        if (country == null) continue;
+        //to avoid duplicate entry of country
+        if (isAlreadyInList(country, localCountryList)) continue;
+        localCountryList.add(country);
       }
 
       if (localCountryList.size() == 0) {
@@ -422,22 +420,24 @@ public class CountryCodePicker extends RelativeLayout {
   void refreshCustomMasterList() {
     if (mCustomMasterCountries == null || mCustomMasterCountries.length() == 0) {
       mCustomMasterCountriesList = null;
-    } else {
-      List<Country> localCountryList = new ArrayList<>();
-      for (String nameCode : mCustomMasterCountries.split(",")) {
-        Country country = CountryUtils.getByNameCodeFromAllCountries(getContext(), nameCode);
-        if (country != null) {
-          if (!isAlreadyInList(country, localCountryList)) { //to avoid duplicate entry of country
-            localCountryList.add(country);
-          }
-        }
-      }
+      return;
+    }
 
-      if (localCountryList.size() == 0) {
-        mCustomMasterCountriesList = null;
-      } else {
-        mCustomMasterCountriesList = localCountryList;
-      }
+    List<Country> localCountries = new ArrayList<>();
+    String[] split = mCustomMasterCountries.split(",");
+    for (int i = 0; i < split.length; i++) {
+      String nameCode = split[i];
+      Country country = CountryUtils.getByNameCodeFromAllCountries(getContext(), nameCode);
+      if (country == null) continue;
+      //to avoid duplicate entry of country
+      if (isAlreadyInList(country, localCountries)) continue;
+      localCountries.add(country);
+    }
+
+    if (localCountries.size() == 0) {
+      mCustomMasterCountriesList = null;
+    } else {
+      mCustomMasterCountriesList = localCountries;
     }
   }
 
@@ -453,15 +453,15 @@ public class CountryCodePicker extends RelativeLayout {
    */
   List<Country> getCustomCountries(CountryCodePicker codePicker) {
     codePicker.refreshCustomMasterList();
-    if (codePicker.getCustomCountries() != null && codePicker.getCustomCountries().size() > 0) {
-      return codePicker.getCustomCountries();
-    } else {
+    if (codePicker.getCustomCountries() == null || codePicker.getCustomCountries().size() <= 0) {
       return CountryUtils.getAllCountries(codePicker.getContext());
+    } else {
+      return codePicker.getCustomCountries();
     }
   }
 
-  @SuppressWarnings("unused") public void setCustomMasterCountriesList(List<Country> mCustomMasterCountriesList) {
-    this.mCustomMasterCountriesList = mCustomMasterCountriesList;
+  @SuppressWarnings("unused") public void setCustomMasterCountriesList(List<Country> customMasterCountriesList) {
+    mCustomMasterCountriesList = customMasterCountriesList;
   }
 
   @SuppressWarnings("unused") public String getCustomMasterCountries() {
@@ -485,23 +485,22 @@ public class CountryCodePicker extends RelativeLayout {
    * if null or "" , will remove custom countries and library default will be used.
    */
   public void setCustomMasterCountries(String customMasterCountries) {
-    this.mCustomMasterCountries = customMasterCountries;
+    mCustomMasterCountries = customMasterCountries;
   }
 
   /**
    * This will match name code of all countries of list against the country's name code.
    *
-   * @param countryList list of countries against which country will be checked.
+   * @param countries list of countries against which country will be checked.
    * @return if country name code is found in list, returns true else return false
    */
-  private boolean isAlreadyInList(Country country, List<Country> countryList) {
-    if (country != null && countryList != null) {
-      for (Country iterationCountry : countryList) {
-        if (iterationCountry.getIso().equalsIgnoreCase(country.getIso())) {
-          return true;
-        }
-      }
+  private boolean isAlreadyInList(Country country, List<Country> countries) {
+    if (country == null || countries == null) return false;
+
+    for (int i = 0; i < countries.size(); i++) {
+      if (countries.get(i).getIso().equalsIgnoreCase(country.getIso())) return true;
     }
+
     return false;
   }
 
@@ -547,11 +546,12 @@ public class CountryCodePicker extends RelativeLayout {
    */
   @Deprecated public void setDefaultCountryUsingPhoneCode(int defaultCountryCode) {
     Country defaultCountry = CountryUtils.getByCode(getContext(), mPreferredCountries, defaultCountryCode);
+
+    if (defaultCountry == null) return;
+
     //if correct country is found, set the country
-    if (defaultCountry != null) {
-      this.mDefaultCountryCode = defaultCountryCode;
-      setDefaultCountry(defaultCountry);
-    }
+    mDefaultCountryCode = defaultCountryCode;
+    setDefaultCountry(defaultCountry);
   }
 
   /**
@@ -568,11 +568,12 @@ public class CountryCodePicker extends RelativeLayout {
    */
   public void setDefaultCountryUsingNameCode(String countryIso) {
     Country defaultCountry = CountryUtils.getByNameCodeFromAllCountries(getContext(), countryIso);
+
+    if (defaultCountry == null) return;
+
     //if correct country is found, set the country
-    if (defaultCountry != null) {
-      this.mDefaultCountryNameCode = defaultCountry.getIso();
-      setDefaultCountry(defaultCountry);
-    }
+    mDefaultCountryNameCode = defaultCountry.getIso();
+    setDefaultCountry(defaultCountry);
   }
 
   /**
@@ -751,9 +752,7 @@ public class CountryCodePicker extends RelativeLayout {
    */
   public void registerPhoneNumberTextView(TextView textView) {
     setRegisteredPhoneNumberTextView(textView);
-    if (mIsHintEnabled) {
-      setPhoneNumberHint();
-    }
+    if (mIsHintEnabled) setPhoneNumberHint();
   }
 
   @SuppressWarnings("unused") public TextView getRegisteredPhoneNumberTextView() {
@@ -761,12 +760,12 @@ public class CountryCodePicker extends RelativeLayout {
   }
 
   void setRegisteredPhoneNumberTextView(TextView phoneNumberTextView) {
-    this.mRegisteredPhoneNumberTextView = phoneNumberTextView;
+    mRegisteredPhoneNumberTextView = phoneNumberTextView;
     if (mIsEnablePhoneNumberWatcher) {
       if (mPhoneNumberWatcher == null) {
         mPhoneNumberWatcher = new PhoneNumberWatcher(getDefaultCountryNameCode());
       }
-      this.mRegisteredPhoneNumberTextView.addTextChangedListener(mPhoneNumberWatcher);
+      mRegisteredPhoneNumberTextView.addTextChangedListener(mPhoneNumberWatcher);
     }
   }
 
@@ -791,12 +790,11 @@ public class CountryCodePicker extends RelativeLayout {
    * 8866667722, this will return "918866667722"
    */
   public String getFullNumber() {
-    String fullNumber;
-    if (mRegisteredPhoneNumberTextView != null) {
-      fullNumber = mSelectedCountry.getPhoneCode() + mRegisteredPhoneNumberTextView.getText().toString();
-    } else {
-      fullNumber = mSelectedCountry.getPhoneCode();
+    String fullNumber = mSelectedCountry.getPhoneCode();
+    if (mRegisteredPhoneNumberTextView == null) {
       Log.w(TAG, getContext().getString(R.string.error_unregister_carrier_number));
+    } else {
+      fullNumber += mRegisteredPhoneNumberTextView.getText().toString();
     }
     return fullNumber;
   }
@@ -817,10 +815,10 @@ public class CountryCodePicker extends RelativeLayout {
     Country country = CountryUtils.getByNumber(getContext(), mPreferredCountries, fullNumber);
     setSelectedCountry(country);
     String carrierNumber = detectCarrierNumber(fullNumber, country);
-    if (mRegisteredPhoneNumberTextView != null) {
-      mRegisteredPhoneNumberTextView.setText(carrierNumber);
-    } else {
+    if (mRegisteredPhoneNumberTextView == null) {
       Log.w(TAG, getContext().getString(R.string.error_unregister_carrier_number));
+    } else {
+      mRegisteredPhoneNumberTextView.setText(carrierNumber);
     }
   }
 
@@ -852,9 +850,9 @@ public class CountryCodePicker extends RelativeLayout {
    * @param contentColor color to apply to text and down arrow
    */
   public void setTextColor(int contentColor) {
-    this.mTextColor = contentColor;
-    mTvSelectedCountry.setTextColor(this.mTextColor);
-    mImvArrow.setColorFilter(this.mTextColor, PorterDuff.Mode.SRC_IN);
+    mTextColor = contentColor;
+    mTvSelectedCountry.setTextColor(contentColor);
+    mImvArrow.setColorFilter(contentColor, PorterDuff.Mode.SRC_IN);
   }
 
   public int getBackgroundColor() {
@@ -862,7 +860,7 @@ public class CountryCodePicker extends RelativeLayout {
   }
 
   public void setBackgroundColor(int backgroundColor) {
-    this.mBackgroundColor = backgroundColor;
+    mBackgroundColor = backgroundColor;
     mRlyHolder.setBackgroundColor(backgroundColor);
   }
 
@@ -905,7 +903,7 @@ public class CountryCodePicker extends RelativeLayout {
    * false will show country name code in ccp view, it will result " (IN) +91 "
    */
   @SuppressWarnings("unused") public void hideNameCode(boolean hideNameCode) {
-    this.mHideNameCode = hideNameCode;
+    mHideNameCode = hideNameCode;
     setSelectedCountry(mSelectedCountry);
   }
 
@@ -921,7 +919,7 @@ public class CountryCodePicker extends RelativeLayout {
    * @param countryPreference is country name codes separated by comma. e.g. "us,in,nz"
    */
   public void setCountryPreference(String countryPreference) {
-    this.mCountryPreference = countryPreference;
+    mCountryPreference = countryPreference;
   }
 
   /**
@@ -972,7 +970,7 @@ public class CountryCodePicker extends RelativeLayout {
    * To get call back on country selection a mOnCountryChangeListener must be registered.
    */
   public void setOnCountryChangeListener(OnCountryChangeListener onCountryChangeListener) {
-    this.mOnCountryChangeListener = onCountryChangeListener;
+    mOnCountryChangeListener = onCountryChangeListener;
   }
 
   /**
@@ -986,12 +984,8 @@ public class CountryCodePicker extends RelativeLayout {
   }
 
   public void showFlag(boolean showFlag) {
-    this.mShowFlag = showFlag;
-    if (showFlag) {
-      mLlyFlagHolder.setVisibility(VISIBLE);
-    } else {
-      mLlyFlagHolder.setVisibility(GONE);
-    }
+    mShowFlag = showFlag;
+    mLlyFlagHolder.setVisibility(showFlag? VISIBLE:GONE);
   }
 
   /**
@@ -1000,7 +994,7 @@ public class CountryCodePicker extends RelativeLayout {
    * @param showFullName show or not.
    */
   @SuppressWarnings("unused") public void showFullName(boolean showFullName) {
-    this.mShowFullName = showFullName;
+    mShowFullName = showFullName;
     setSelectedCountry(mSelectedCountry);
   }
 
@@ -1018,8 +1012,9 @@ public class CountryCodePicker extends RelativeLayout {
    *
    * @param selectionDialogShowSearch true will allow search and false will hide search box
    */
-  @SuppressWarnings("unused") public void setSelectionDialogShowSearch(boolean selectionDialogShowSearch) {
-    this.mSelectionDialogShowSearch = selectionDialogShowSearch;
+  @SuppressWarnings("unused")
+  public void setSelectionDialogShowSearch(boolean selectionDialogShowSearch) {
+    mSelectionDialogShowSearch = selectionDialogShowSearch;
   }
 
   @Override public boolean isClickable() {
@@ -1030,16 +1025,10 @@ public class CountryCodePicker extends RelativeLayout {
    * Allow click and open dialog
    */
   public void setClickable(boolean isClickable) {
-    this.mIsClickable = isClickable;
-    if (!isClickable) {
-      mRlyClickConsumer.setOnClickListener(null);
-      mRlyClickConsumer.setClickable(false);
-      mRlyClickConsumer.setEnabled(false);
-    } else {
-      mRlyClickConsumer.setOnClickListener(mCountryCodeHolderClickListener);
-      mRlyClickConsumer.setClickable(true);
-      mRlyClickConsumer.setEnabled(true);
-    }
+    mIsClickable = isClickable;
+    mRlyClickConsumer.setOnClickListener(isClickable ? mCountryCodeHolderClickListener : null);
+    mRlyClickConsumer.setClickable(isClickable);
+    mRlyClickConsumer.setEnabled(isClickable);
   }
 
   public boolean isHidePhoneCode() {
@@ -1061,10 +1050,8 @@ public class CountryCodePicker extends RelativeLayout {
    * @param hintEnabled disable or enable hint.
    */
   @SuppressWarnings("unused") public void enableHint(boolean hintEnabled) {
-    this.mIsHintEnabled = hintEnabled;
-    if (mIsHintEnabled) {
-      setPhoneNumberHint();
-    }
+    mIsHintEnabled = hintEnabled;
+    if (mIsHintEnabled) setPhoneNumberHint();
   }
 
   /**
@@ -1074,46 +1061,59 @@ public class CountryCodePicker extends RelativeLayout {
    */
   //TODO: Check this
   @SuppressWarnings("unused") public void setHidePhoneCode(boolean hidePhoneCode) {
-    this.mHidePhoneCode = hidePhoneCode;
+    mHidePhoneCode = hidePhoneCode;
+
+    Context ctx = getContext();
+    String phoneCode = mSelectedCountry.getPhoneCode();
 
     // Reset the view
-    if (!mHideNameCode) {
-      if (mShowFullName) {
-        if (!mHidePhoneCode) {
-          mTvSelectedCountry.setText(getContext().getString(R.string.country_full_name_and_phone_code,
-              mSelectedCountry.getName().toUpperCase(), mSelectedCountry.getPhoneCode()));
-        } else {
-          mTvSelectedCountry.setText(mSelectedCountry.getName().toUpperCase());
-        }
+    if (mHideNameCode) {
+      mTvSelectedCountry.setText(ctx.getString(R.string.phone_code, phoneCode));
+      return;
+    }
+
+    if (mShowFullName) {
+      String name = mSelectedCountry.getName().toUpperCase();
+      if (mHidePhoneCode) {
+        mTvSelectedCountry.setText(name);
       } else {
-        if (!mHidePhoneCode) {
-          mTvSelectedCountry.setText(
-              getContext().getString(R.string.country_code_and_phone_code, mSelectedCountry.getIso().toUpperCase(),
-                  mSelectedCountry.getPhoneCode()));
-        } else {
-          mTvSelectedCountry.setText(mSelectedCountry.getIso().toUpperCase());
-        }
+        String country = ctx.getString(R.string.country_full_name_and_phone_code, name, phoneCode);
+        mTvSelectedCountry.setText(country);
       }
     } else {
-      mTvSelectedCountry.setText(getContext().getString(R.string.phone_code, mSelectedCountry.getPhoneCode()));
+      String iso = mSelectedCountry.getIso().toUpperCase();
+      if (mHidePhoneCode) {
+        mTvSelectedCountry.setText(iso);
+      } else {
+        mTvSelectedCountry.setText(ctx.getString(R.string.country_code_and_phone_code, iso, phoneCode));
+      }
     }
   }
 
   private void setPhoneNumberHint() {
-    if (mRegisteredPhoneNumberTextView != null && mSelectedCountry != null && mSelectedCountry.getIso() != null) {
-      Phonenumber.PhoneNumber phoneNumber = mPhoneUtil.getExampleNumberForType(mSelectedCountry.getIso().toUpperCase(),
-          PhoneNumberUtil.PhoneNumberType.MOBILE);
-      if (phoneNumber != null) {
+    // don't set phone number hint for null textView and country.
+    if (mRegisteredPhoneNumberTextView == null || mSelectedCountry == null
+        || mSelectedCountry.getIso() == null) {
+      return;
+    }
+
+    String iso = mSelectedCountry.getIso().toUpperCase();
+    PhoneNumberUtil.PhoneNumberType mobile = PhoneNumberUtil.PhoneNumberType.MOBILE;
+    Phonenumber.PhoneNumber phoneNumber = mPhoneUtil.getExampleNumberForType(iso, mobile);
+    if (phoneNumber == null) {
+      mRegisteredPhoneNumberTextView.setHint("");
+    } else {
+      if(BuildConfig.DEBUG) {
         Log.d(TAG, "setPhoneNumberHint called");
         Log.d(TAG, "mSelectedCountry.getIso() = " + mSelectedCountry.getIso());
         Log.d(TAG, "hint = " + mPhoneUtil.format(phoneNumber, PhoneNumberUtil.PhoneNumberFormat.NATIONAL));
-
-        String hint =mPhoneUtil.format(phoneNumber, PhoneNumberUtil.PhoneNumberFormat.NATIONAL);
-        if(mRegisteredPhoneNumberTextView.getHint() != null) {
-          mRegisteredPhoneNumberTextView.setHint("");
-        }
-        mRegisteredPhoneNumberTextView.setHint(hint);
       }
+
+      String hint = mPhoneUtil.format(phoneNumber, PhoneNumberUtil.PhoneNumberFormat.NATIONAL);
+      //if (mRegisteredPhoneNumberTextView.getHint() != null) {
+      //  mRegisteredPhoneNumberTextView.setHint("");
+      //}
+      mRegisteredPhoneNumberTextView.setHint(hint);
     }
   }
 
@@ -1130,7 +1130,8 @@ public class CountryCodePicker extends RelativeLayout {
     }
 
     //TODO solve it! support for android kitkat
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP) public PhoneNumberWatcher(String countryCode) {
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    public PhoneNumberWatcher(String countryCode) {
       super(countryCode);
       previousCountryCode = countryCode;
     }
@@ -1139,9 +1140,7 @@ public class CountryCodePicker extends RelativeLayout {
       super.onTextChanged(s, start, before, count);
       try {
         String iso = null;
-        if (mSelectedCountry != null) {
-          iso = mSelectedCountry.getPhoneCode().toUpperCase();
-        }
+        if (mSelectedCountry != null) iso = mSelectedCountry.getPhoneCode().toUpperCase();
         Phonenumber.PhoneNumber phoneNumber = mPhoneUtil.parse(s.toString(), iso);
         iso = mPhoneUtil.getRegionCodeForNumber(phoneNumber);
         if (iso != null) {
@@ -1189,9 +1188,7 @@ public class CountryCodePicker extends RelativeLayout {
   @SuppressWarnings("unused") public Phonenumber.PhoneNumber getPhoneNumber() {
     try {
       String iso = null;
-      if (mSelectedCountry != null) {
-        iso = mSelectedCountry.getIso().toUpperCase();
-      }
+      if (mSelectedCountry != null) iso = mSelectedCountry.getIso().toUpperCase();
       if (mRegisteredPhoneNumberTextView == null) {
         Log.w(TAG, getContext().getString(R.string.error_unregister_carrier_number));
         return null;
@@ -1213,7 +1210,7 @@ public class CountryCodePicker extends RelativeLayout {
   }
 
   public void setPhoneNumberInputValidityListener(PhoneNumberInputValidityListener listener) {
-    this.mPhoneNumberInputValidityListener = listener;
+    mPhoneNumberInputValidityListener = listener;
   }
 
   /**
@@ -1221,29 +1218,31 @@ public class CountryCodePicker extends RelativeLayout {
    * Will try to retrieve phone number from device
    */
   private void setDefaultCountryFlagAndCode() {
-    TelephonyManager telManager = (TelephonyManager) getContext().getSystemService(Context.TELEPHONY_SERVICE);
-    if (telManager == null) {
+    Context ctx = getContext();
+    TelephonyManager manager = (TelephonyManager) ctx.getSystemService(Context.TELEPHONY_SERVICE);
+    if (manager == null) {
       Log.e(TAG, "Can't access TelephonyManager. Using default county code");
       setEmptyDefault(getDefaultCountryCode());
-    } else {
-      try {
-        String simCountryIso = telManager.getSimCountryIso();
-        if (simCountryIso != null && !simCountryIso.isEmpty()) {
-          setEmptyDefault(simCountryIso);
-          Log.d(TAG, "simCountryIso = " + simCountryIso);
+      return;
+    }
+
+    try {
+      String simCountryIso = manager.getSimCountryIso();
+      if (simCountryIso == null || simCountryIso.isEmpty()) {
+        String iso = manager.getNetworkCountryIso();
+        if (iso == null || iso.isEmpty()) {
+          enableSetCountryByTimeZone(true);
         } else {
-          String iso = telManager.getNetworkCountryIso();
-          if (iso != null && !iso.isEmpty()) {
-            setEmptyDefault(iso);
-            Log.d(TAG, "isoNetwork = " + iso);
-          } else {
-            enableSetCountryByTimeZone(true);
-          }
+          setEmptyDefault(iso);
+          if (BuildConfig.DEBUG) Log.d(TAG, "isoNetwork = " + iso);
         }
-      } catch (Exception e) {
-        Log.e(TAG, "Error when getting sim country, error = " + e.toString());
-        setEmptyDefault(getDefaultCountryCode());
+      } else {
+        setEmptyDefault(simCountryIso);
+        if (BuildConfig.DEBUG) Log.d(TAG, "simCountryIso = " + simCountryIso);
       }
+    } catch (Exception e) {
+      Log.e(TAG, "Error when getting sim country, error = " + e.toString());
+      setEmptyDefault(getDefaultCountryCode());
     }
   }
 
@@ -1261,21 +1260,19 @@ public class CountryCodePicker extends RelativeLayout {
    */
   private void setEmptyDefault(String countryCode) {
     if (countryCode == null || countryCode.isEmpty()) {
-      if (mDefaultCountryNameCode != null && !mDefaultCountryNameCode.isEmpty()) {
-        countryCode = mDefaultCountryNameCode;
-      } else {
-        if (DEFAULT_COUNTRY != null && !DEFAULT_COUNTRY.isEmpty()) {
-          countryCode = DEFAULT_COUNTRY;
-        } else {
+      if (mDefaultCountryNameCode == null || mDefaultCountryNameCode.isEmpty()) {
+        if (DEFAULT_COUNTRY == null || DEFAULT_COUNTRY.isEmpty()) {
           countryCode = DEFAULT_ISO_COUNTRY;
+        } else {
+          countryCode = DEFAULT_COUNTRY;
         }
+      } else {
+        countryCode = mDefaultCountryNameCode;
       }
     }
 
-    if (mIsEnablePhoneNumberWatcher) {
-      if (mPhoneNumberWatcher == null) {
-        mPhoneNumberWatcher = new PhoneNumberWatcher(countryCode);
-      }
+    if (mIsEnablePhoneNumberWatcher && mPhoneNumberWatcher == null) {
+      mPhoneNumberWatcher = new PhoneNumberWatcher(countryCode);
     }
 
     setDefaultCountryUsingNameCode(countryCode);
@@ -1297,12 +1294,12 @@ public class CountryCodePicker extends RelativeLayout {
 
         Log.d(TAG, "tz.getID() = " + tz.getID());
         List<String> countryIsos = CountryUtils.getCountryIsoByTimeZone(getContext(), tz.getID());
-        if (countryIsos != null) {
-          setDefaultCountryUsingNameCode(countryIsos.get(0));
-          setSelectedCountry(getDefaultCountry());
-        } else {
+        if (countryIsos == null) {
           // If no iso country found, fallback to device locale.
           setEmptyDefault();
+        } else {
+          setDefaultCountryUsingNameCode(countryIsos.get(0));
+          setSelectedCountry(getDefaultCountry());
         }
       }
     }
@@ -1313,7 +1310,8 @@ public class CountryCodePicker extends RelativeLayout {
     return mDialogTextColor;
   }
 
+  @SuppressWarnings("unused")
   public void setDialogTextColor(int dialogTextColor) {
-    mDialogTextColor = mDialogTextColor;
+    mDialogTextColor = dialogTextColor;
   }
 }
