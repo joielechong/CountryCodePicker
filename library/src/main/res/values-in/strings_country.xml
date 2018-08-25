@@ -32,7 +32,6 @@
   <string name="country_brunei_darussalam_name">Brunei Darussalam</string>
   <string name="country_bulgaria_name">Bulgaria</string>
   <string name="country_burkina_faso_name">Burkina Faso</string>
-  <string name="country_myanmar_name">Myanmar</string>
   <string name="country_burundi_name">Burundi</string>
   <string name="country_cambodia_name">Kamboja</string>
   <string name="country_cameroon_name">Kamerun</string>
@@ -106,6 +105,7 @@
   <string name="country_kazakhstan_name">Kazakhstan</string>
   <string name="country_kenya_name">Kenya</string>
   <string name="country_kiribati_name">Kiribati</string>
+  <string name="country_kosovo_name">Kosovo</string>
   <string name="country_kuwait_name">Kuwait</string>
   <string name="country_kyrgyzstan_name">Kyrgyzstan</string>
   <string name="country_lao_peoples_democratic_republic_name">Republik Demokratik Rakyat Laos</string>
@@ -139,6 +139,7 @@
   <string name="country_montenegro_name">Montenegro</string>
   <string name="country_morocco_name">Maroko</string>
   <string name="country_mozambique_name">Mozambik</string>
+  <string name="country_myanmar_name">Myanmar</string>
   <string name="country_namibia_name">Namibia</string>
   <string name="country_nauru_name">Nauru</string>
   <string name="country_nepal_name">Nepal</string>
@@ -192,6 +193,7 @@
   <string name="country_sri_lanka_name">Sri Lanka</string>
   <string name="country_saint_helena_name">Saint Helena</string>
   <string name="country_saint_pierre_and_miquelon_name">Saint Pierre dan Miquelon</string>
+  <string name="country_south_sudan_name">Sudan Selatan</string>
   <string name="country_sudan_name">Sudan</string>
   <string name="country_suriname_name">Suriname</string>
   <string name="country_swaziland_name">Swaziland</string>

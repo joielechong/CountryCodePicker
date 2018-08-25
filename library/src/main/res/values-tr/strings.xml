@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="search_hint">Ara&#8230;</string>
+  <string name="no_result_found">Sonuç bulunamadı</string>
+  <string name="select_country">Ülke Seçiniz</string>
+</resources>
