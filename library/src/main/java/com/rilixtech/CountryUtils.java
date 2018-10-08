@@ -497,6 +497,8 @@ class CountryUtils {
         return R.drawable.flag_south_sudan;
       case "xk": // kosovo
         return R.drawable.flag_kosovo;
+      case "is": // iceland
+        return R.drawable.flag_iceland;
       default:
         return R.drawable.flag_transparent;
     }
@@ -874,6 +876,10 @@ class CountryUtils {
     countries.add(new Country(context.getString(R.string.country_hungary_code),
         context.getString(R.string.country_hungary_number),
         context.getString(R.string.country_hungary_name)));
+
+    countries.add(new Country(context.getString(R.string.country_iceland_code),
+          context.getString(R.string.country_iceland_number),
+          context.getString(R.string.country_iceland_name)));
 
     countries.add(new Country(context.getString(R.string.country_india_code),
         context.getString(R.string.country_india_number),
