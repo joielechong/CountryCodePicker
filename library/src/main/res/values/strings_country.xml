@@ -360,6 +360,10 @@
   <string name="country_hungary_code" translatable="false">hu</string>
   <string name="country_hungary_number" translatable="false">36</string>
 
+  <string name="country_iceland_name">Iceland</string>
+  <string name="country_iceland_code" translatable="false">is</string>
+  <string name="country_iceland_number" translatable="false">354</string>
+
   <string name="country_india_name">India</string>
   <string name="country_india_code" translatable="false">in</string>
   <string name="country_india_number" translatable="false">91</string>
