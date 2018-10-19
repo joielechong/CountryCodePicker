@@ -1,28 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-  <!-- START UNTRANSLATED -->
-  <string name="country_antigua_and_barbuda_name">Antigua and Barbuda</string>
+  <string name="country_antigua_and_barbuda_name">Antigua et Barbuda</string>
   <string name="country_bahamas_name">Bahamas</string>
-  <string name="country_barbados_name">Barbados</string>
-  <string name="country_bermuda_name">Bermuda</string>
-  <string name="country_british_virgin_islands_name">British Virgin Islands</string>
-  <string name="country_dominica_name">Dominica</string>
-  <string name="country_cayman_islands_name">Cayman Islands</string>
-  <string name="country_dominican_republic_name">Dominican Republic</string>
-  <string name="country_jamaica_name">Jamaica</string>
+  <string name="country_barbados_name">Barbade</string>
+  <string name="country_bermuda_name">Bermudes</string>
+  <string name="country_british_virgin_islands_name">Îles Vierges britanniques/string>
+  <string name="country_dominica_name">Dominique</string>
+  <string name="country_cayman_islands_name">Îles Caïmans</string>
+  <string name="country_dominican_republic_name">République dominicaine</string>
+  <string name="country_jamaica_name">Jamaïque</string>
   <string name="country_montserrat_name">Montserrat</string>
   <string name="country_saint_barthelemy_name">Saint Barthélemy</string>
-  <string name="country_saint_kitts_and_nevis_name">Saint Kitts and Nevis</string>
-  <string name="country_saint_lucia_name">Saint Lucia</string>
-  <string name="country_saint_vincent_the_grenadines_name">Saint Vincent &amp; The Grenadines</string>
-  <string name="country_sint_maarten_name">Sint Maarten</string>
-  <string name="country_us_virgin_islands_name">US Virgin Islands</string>
-  <string name="country_turks_and_caicos_islands_name">Turks and Caicos Islands</string>
-  <string name="country_trinidad_tobago_name">Trinidad &amp; Tobago</string>
-  <!-- END UNTRANSLATED -->
-
-
+  <string name="country_saint_kitts_and_nevis_name">Saint-Christophe-et-Niévès</string>
+  <string name="country_saint_lucia_name">Sainte-Lucie</string>
+  <string name="country_saint_vincent_the_grenadines_name">Saint-Vincent et les Grenadines</string>
+  <string name="country_sint_maarten_name">Saint-Martin</string>
+  <string name="country_us_virgin_islands_name">Îles Vierges des États-Unis</string>
+  <string name="country_turks_and_caicos_islands_name">Îles Turques-et-Caïques</string>
+  <string name="country_trinidad_tobago_name">Republique de Trinite et Tobago</string>
   <string name="country_afghanistan_name">Afghanistan</string>
   <string name="country_albania_name">Albanie</string>
   <string name="country_algeria_name">Algérie</string>
@@ -66,7 +62,7 @@
   <string name="country_comoros_name">Comores</string>
   <string name="country_congo_name">Congo</string>
   <string name="country_the_democratic_republic_of_congo_name">Congo, La République Démocratique Du</string>
-  <string name="country_cook_islands_name">les Îles Cook</string>
+  <string name="country_cook_islands_name">Les Îles Cook</string>
   <string name="country_costa_rica_name">Costa Rica</string>
   <string name="country_croatia_name">Croatie</string>
   <string name="country_cuba_name">Cuba</string>
@@ -77,7 +73,7 @@
   <string name="country_timor_leste_name">Timor-leste</string>
   <string name="country_ecuador_name">Equateur</string>
   <string name="country_egypt_name">Egypte</string>
-  <string name="country_el_salvador_name">Le Salvador</string>
+  <string name="country_el_salvador_name">Salvador</string>
   <string name="country_equatorial_guinea_name">Guinée Équatoriale</string>
   <string name="country_eritrea_name">Érythrée</string>
   <string name="country_estonia_name">Estonie</string>
@@ -122,7 +118,7 @@
   <string name="country_kiribati_name">Kiribati</string>
   <string name="country_kuwait_name">Koweit</string>
   <string name="country_kyrgyzstan_name">Kirghizistan</string>
-  <string name="country_lao_peoples_democratic_republic_name">République démocratique; Lao People &amp; apos</string>
+  <string name="country_lao_peoples_democratic_republic_name">Laos</string>
   <string name="country_latvia_name">Lettonie</string>
   <string name="country_lebanon_name">Liban</string>
   <string name="country_lesotho_name">Lesotho</string>
@@ -157,7 +153,7 @@
   <string name="country_nepal_name">Népal</string>
   <string name="country_netherlands_name">Pays-Bas</string>
   <string name="country_new_caledonia_name">Nouvelle Calédonie</string>
-  <string name="country_new_zealand_name">nouvelle Zélande</string>
+  <string name="country_new_zealand_name">Nouvelle Zélande</string>
   <string name="country_nicaragua_name">Nicaragua</string>
   <string name="country_niger_name">Niger</string>
   <string name="country_nigeria_name">Nigeria</string>
@@ -179,7 +175,7 @@
   <string name="country_qatar_name">Qatar</string>
   <string name="country_reunion_name">La Réunion</string>
   <string name="country_romania_name">Roumanie</string>
-  <string name="country_russian_federation_name">Fédération Russe</string>
+  <string name="country_russian_federation_name">Russie</string>
   <string name="country_rwanda_name">Rwanda</string>
   <string name="country_samoa_name">Samoa</string>
   <string name="country_san_marino_name">Saint Marin</string>
@@ -196,8 +192,8 @@
   <string name="country_somalia_name">Somalie</string>
   <string name="country_south_africa_name">Afrique du Sud</string>
   <string name="country_south_korea_name">Corée, République de</string>
-  <string name="country_spain_name">l\'Espagne</string>
-  <string name="country_sri_lanka_name">Sri Lanka"</string>
+  <string name="country_spain_name">Espagne</string>
+  <string name="country_sri_lanka_name">Sri Lanka</string>
   <string name="country_saint_helena_name">Sainte-Hélène, Ascension et Tristan da Cunha</string>
   <string name="country_saint_pierre_and_miquelon_name">Saint-Pierre-et-Miquelon</string>
   <string name="country_sudan_name">Soudan</string>
@@ -210,11 +206,11 @@
   <string name="country_tajikistan_name">Tadjikistan</string>
   <string name="country_tanzania_name">Tanzanie, République-Unie de</string>
   <string name="country_thailand_name">Thaïlande</string>
-  <string name="country_togo_name">Aller</string>
+  <string name="country_togo_name">Togo</string>
   <string name="country_tokelau_name">Tokelau</string>
   <string name="country_tonga_name">Tonga</string>
   <string name="country_tunisia_name">Tunisie</string>
-  <string name="country_turkey_name">dinde</string>
+  <string name="country_turkey_name">Turquie</string>
   <string name="country_turkmenistan_name">Turkménistan</string>
   <string name="country_tuvalu_name">Tuvalu</string>
   <string name="country_united_arab_emirates_name">Emirats Arabes Unis</string>
