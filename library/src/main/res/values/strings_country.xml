@@ -212,10 +212,6 @@
     <string name="country_costa_rica_code" translatable="false">cr</string>
     <string name="country_costa_rica_number" translatable="false">506</string>
 
-    <string name="country_cote_ivoire_name">Cote d\'Ivoire</string>
-    <string name="country_cote_ivoire_code" translatable="false">ci</string>
-    <string name="country_cote_ivoire_number" translatable="false">225</string>
-
     <string name="country_croatia_name">Croatia</string>
     <string name="country_croatia_code" translatable="false">hr</string>
     <string name="country_croatia_number" translatable="false">385</string>

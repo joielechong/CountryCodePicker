@@ -499,6 +499,30 @@ class CountryUtils {
         return R.drawable.flag_kosovo;
       case "is": // iceland
         return R.drawable.flag_iceland;
+      case "ax": //aland islands
+        return R.drawable.flag_aland_islands;
+      case "as": //american samoa
+        return R.drawable.flag_american_samoa;
+      case "io": //british indian ocean territory
+        return R.drawable.flag_british_indian_ocean_territory;
+      case "gp": //guadeloupe
+        return R.drawable.flag_guadeloupe;
+      case "gu": //guam
+        return R.drawable.flag_guam;
+      case "gg": //guernsey
+        return R.drawable.flag_guernsey;
+      case "je": //jersey
+        return R.drawable.flag_jersey;
+      case "nf": //norfolk island
+        return R.drawable.flag_norfolk_island;
+      case "mp": //northern mariana islands
+        return R.drawable.flag_northern_mariana_islands;
+      case "ps": //palestian territory
+        return R.drawable.flag_palestian_territory;
+      case "mf": //saint martin
+        return R.drawable.flag_saint_martin;
+      case "gs": //south georgia
+        return R.drawable.flag_south_georgia;
       default:
         return R.drawable.flag_transparent;
     }
@@ -1438,6 +1462,54 @@ class CountryUtils {
     countries.add(new Country(context.getString(R.string.country_zimbabwe_code),
         context.getString(R.string.country_zimbabwe_number),
         context.getString(R.string.country_zimbabwe_name)));
+
+    countries.add(new Country(context.getString(R.string.country_aland_islands_code),
+            context.getString(R.string.country_aland_islands_number),
+            context.getString(R.string.country_aland_islands_name)));
+
+    countries.add(new Country(context.getString(R.string.country_american_samoa_code),
+            context.getString(R.string.country_american_samoa_number),
+            context.getString(R.string.country_american_samoa_name)));
+
+    countries.add(new Country(context.getString(R.string.country_british_indian_ocean_territory_code),
+            context.getString(R.string.country_british_indian_ocean_territory_number),
+            context.getString(R.string.country_british_indian_ocean_territory_name)));
+
+    countries.add(new Country(context.getString(R.string.country_guadeloupe_code),
+            context.getString(R.string.country_guadeloupe_number),
+            context.getString(R.string.country_guadeloupe_name)));
+
+    countries.add(new Country(context.getString(R.string.country_guam_code),
+            context.getString(R.string.country_guam_number),
+            context.getString(R.string.country_guam_name)));
+
+    countries.add(new Country(context.getString(R.string.country_guernsey_code),
+            context.getString(R.string.country_guernsey_number),
+            context.getString(R.string.country_guernsey_name)));
+
+    countries.add(new Country(context.getString(R.string.country_jersey_code),
+            context.getString(R.string.country_jersey_number),
+            context.getString(R.string.country_jersey_name)));
+
+    countries.add(new Country(context.getString(R.string.country_norfolk_island_code),
+            context.getString(R.string.country_norfolk_island_number),
+            context.getString(R.string.country_norfolk_island_name)));
+
+    countries.add(new Country(context.getString(R.string.country_northern_mariana_islands_code),
+            context.getString(R.string.country_northern_mariana_islands_number),
+            context.getString(R.string.country_northern_mariana_islands_name)));
+
+    countries.add(new Country(context.getString(R.string.country_palestian_territory_code),
+            context.getString(R.string.country_palestian_territory_number),
+            context.getString(R.string.country_palestian_territory_name)));
+
+    countries.add(new Country(context.getString(R.string.country_saint_martin_code),
+            context.getString(R.string.country_saint_martin_number),
+            context.getString(R.string.country_saint_martin_name)));
+
+    countries.add(new Country(context.getString(R.string.country_south_georgia_code),
+            context.getString(R.string.country_south_georgia_number),
+            context.getString(R.string.country_south_africa_name)));
 
 
     Collections.sort(countries, new Comparator<Country>() {
