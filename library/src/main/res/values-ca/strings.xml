@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="search_hint">Buscar &#8230;</string>
+    <string name="no_result_found">No s\'han trobat resultats</string>
+    <string name="select_country">Seleccionar País</string>
+    <string name="country_kosovo_name">Kosovo</string>
+    <string name="country_south_sudan_name">Sudan del sud</string>
+    <string name="country_aland_islands_name">Illes Aland</string>
+    <string name="country_american_samoa_name">Samoa Nord-americana</string>
+    <string name="country_british_indian_ocean_territory_name">Territori Britànic de l\'Oceà Índic</string>
+    <string name="country_guadeloupe_name">Guadalupe (França)</string>
+    <string name="country_guam_name">Guam</string>
+    <string name="country_guernsey_name">Guernsey</string>
+    <string name="country_jersey_name">Jersey</string>
+    <string name="country_norfolk_island_name">Illa Norfolk</string>
+    <string name="country_northern_mariana_islands_name">Illes Mariannes Septentrionals</string>
+    <string name="country_palestian_territory_name">Palestina</string>
+    <string name="country_saint_martin_name">Saint-Martin (Antilles Franceses)</string>
+    <string name="country_south_georgia_name">Illes Geòrgia del Sud i Sandwitch del Sud</string>
+</resources>
