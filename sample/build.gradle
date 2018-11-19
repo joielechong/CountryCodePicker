@@ -22,13 +22,11 @@ android {
 dependencies {
   implementation fileTree(include: ['*.jar'], dir: 'libs')
   testImplementation 'junit:junit:4.12'
-  implementation project(':library')
-//    compile 'com.github.joielechong:countrycodepicker:2.1.6'
-//  implementation 'com.github.joielechong:countrycodepicker:2.1.8'
+//  implementation project(':countrycodepicker')
+  implementation 'com.github.joielechong:countrycodepicker:2.2.0'
 
   implementation "com.android.support:appcompat-v7:$supportLibVersion"
 //  implementation "com.android.support:support-v4:$supportLibVersion"
   implementation "com.android.support:cardview-v7:$supportLibVersion"
-  implementation 'io.michaelrocks:libphonenumber-android:8.8.5'
-
+//  implementation 'io.michaelrocks:libphonenumber-android:8.9.14'
 }

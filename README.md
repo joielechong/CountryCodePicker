@@ -89,11 +89,10 @@ How to add to your project
     dependencies {
 
         // dependencies for countrycodepicker
-        implementation 'com.android.support:recyclerview-v7:27.0.2'
-        implementation 'com.android.support:appcompat-v7:27.0.2'
-        implementation 'io.michaelrocks:libphonenumber-android:8.8.5'
+        implementation 'com.android.support:recyclerview-v7:27.1.1'
+        implementation 'com.android.support:appcompat-v7:27.1.1'
 
-        implementation 'com.github.joielechong:countrycodepicker:2.1.8'
+        implementation 'com.github.joielechong:countrycodepicker:2.2.0'
     }
     ````
 
