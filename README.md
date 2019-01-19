@@ -146,7 +146,7 @@ If you just want to read them, here you go:
 	      
    ##### Using phone code
      - add `app:ccp_defaultCode="81"` (replace 81 with your default country code) to xml layout.Refer <a href="https://goo.gl/FQjUjA">List of countries</a> for country codes.
-     - Setting default country using phone code is not recommended. There are few cases where more than one countries have same phone code. Say US and Canada have +1. Putting '1' will result in Canada even if you were intended  for US.  `Use app:cpp_defaultNameCode` or `app:cpp_CountryPreference` to overcome issue.
+     - Setting default country using phone code is not recommended. There are few cases where more than one countries have same phone code. Say US and Canada have +1. Putting '1' will result in Canada even if you were intended  for US.  `Use app:cpp_defaultNameCode` or `app:cpp_countryPreference` to overcome issue.
 	
 	   ````xml
 	   <com.rilixtech.CountryCodePicker
@@ -205,14 +205,14 @@ If you just want to read them, here you go:
   - Any number of countries can be set in preference.
    
   #### Set through xml
-  Add `app:ccp_CountryPreference="US,ID,NZ"` (replace "US,ID,NZ" with your preference) to xml layout. Refer <a href="https://goo.gl/FQjUjA">List of countries</a> for name codes.
+  Add `app:ccp_countryPreference="US,ID,NZ"` (replace "US,ID,NZ" with your preference) to xml layout. Refer <a href="https://goo.gl/FQjUjA">List of countries</a> for name codes.
 
    ````xml
    <com.rilixtech.CountryCodePicker
 	         android:id="@+id/ccp"
 	         android:layout_width="wrap_content"
 	         android:layout_height="wrap_content"
-	         app:ccp_CountryPreference="US,ID,NZ"  />
+	         app:ccp_countryPreference="US,ID,NZ"  />
    ````
    
   #### Programmatically
