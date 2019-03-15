@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="country_afghanistan_name">Афганистан</string>
+  <string name="country_aland_islands_name">Аландские острова</string>
   <string name="country_albania_name">Албания</string>
   <string name="country_algeria_name">Алжир</string>
+  <string name="country_american_samoa_name">американское Самоа</string>
   <string name="country_andorra_name">Андорра</string>
   <string name="country_angola_name">Ангола</string>
   <string name="country_anguilla_name">Ангилья</string>

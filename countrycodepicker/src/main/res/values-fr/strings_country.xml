@@ -2,6 +2,7 @@
 <resources>
 
   <string name="country_antigua_and_barbuda_name">Antigua et Barbuda</string>
+  <string name="country_aland_islands_name">Iles Aland</string>
   <string name="country_bahamas_name">Bahamas</string>
   <string name="country_barbados_name">Barbade</string>
   <string name="country_bermuda_name">Bermudes</string>
@@ -22,6 +23,7 @@
   <string name="country_afghanistan_name">Afghanistan</string>
   <string name="country_albania_name">Albanie</string>
   <string name="country_algeria_name">Algérie</string>
+  <string name="country_american_samoa_name">Samoa américaines</string>
   <string name="country_andorra_name">Andorre</string>
   <string name="country_angola_name">Angola</string>
   <string name="country_anguilla_name">Anguilla</string>

@@ -4,7 +4,7 @@
     <string name="country_afghanistan_code" translatable="false">af</string>
     <string name="country_afghanistan_number" translatable="false">93</string>
 
-    <string name="country_aland_islands_name">Aland Islands</string>
+    <string name="country_aland_islands_name">Åland Islands</string>
     <string name="country_aland_islands_code" translatable="false">ax</string>
     <string name="country_aland_islands_number" translatable="false">358</string>
 
@@ -16,7 +16,7 @@
     <string name="country_algeria_code" translatable="false">dz</string>
     <string name="country_algeria_number" translatable="false">213</string>
 
-    <string name="country_american_samoa_name">AmericanSamoa</string>
+    <string name="country_american_samoa_name">American Samoa</string>
     <string name="country_american_samoa_code" translatable="false">as</string>
     <string name="country_american_samoa_number" translatable="false">1684</string>
 
@@ -296,7 +296,7 @@
     <string name="country_france_code" translatable="false">fr</string>
     <string name="country_france_number" translatable="false">33</string>
 
-    <string name="country_french_guyana_name">French Guyana</string>
+    <string name="country_french_guyana_name">French Guiana</string>
     <string name="country_french_guyana_code" translatable="false">gf</string>
     <string name="country_french_guyana_number" translatable="false">594</string>
 
