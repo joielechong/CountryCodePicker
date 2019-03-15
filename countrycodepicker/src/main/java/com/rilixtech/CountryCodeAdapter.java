@@ -2,14 +2,14 @@ package com.rilixtech;
 
 import android.content.Context;
 import android.graphics.Typeface;
-import android.support.v7.widget.AppCompatImageView;
-import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import java.util.List;
 import com.rilixtech.CountryCodeDialog.ItemRecyclerViewClickListener;
 
@@ -24,7 +24,6 @@ import com.rilixtech.CountryCodeDialog.ItemRecyclerViewClickListener;
  * Updated by joielechong on 22 August 2018
  */
 class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.CountryCodeViewHolder> {
-
   private final List<Country> mCountries;
   private final CountryCodePicker mCountryCodePicker;
   private final ItemRecyclerViewClickListener mListener;
@@ -55,8 +54,8 @@ class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.Country
 
   class CountryCodeViewHolder extends RecyclerView.ViewHolder {
     RelativeLayout rlyMain;
-    AppCompatTextView tvName, tvCode;
-    AppCompatImageView imvFlag;
+    TextView tvName, tvCode;
+    ImageView imvFlag;
     LinearLayout llyFlagHolder;
     View viewDivider;
 

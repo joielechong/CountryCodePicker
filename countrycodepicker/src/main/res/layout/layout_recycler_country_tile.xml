@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="?attr/selectableItemBackground"
+    android:background="?android:attr/selectableItemBackground"
     android:clickable="true"
     >
 
@@ -15,7 +15,7 @@
       android:gravity="center"
       >
 
-    <android.support.v7.widget.AppCompatImageView
+    <ImageView
         android:id="@+id/flag_imv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -24,7 +24,7 @@
         />
   </LinearLayout>
 
-  <android.support.v7.widget.AppCompatTextView
+  <TextView
       android:id="@+id/country_name_tv"
       android:layout_width="match_parent"
       android:layout_height="50dp"
@@ -38,7 +38,7 @@
       android:textColor="@android:color/secondary_text_light"
       />
 
-  <android.support.v7.widget.AppCompatTextView
+  <TextView
       android:id="@+id/code_tv"
       android:layout_width="wrap_content"
       android:layout_height="50dp"

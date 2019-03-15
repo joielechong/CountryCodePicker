@@ -5,8 +5,6 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.v7.widget.AppCompatEditText;
-import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
@@ -14,7 +12,9 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,9 +25,9 @@ import java.util.List;
  */
 
 class CountryCodeDialog extends Dialog {
-  private AppCompatEditText mEdtSearch;
-  private AppCompatTextView mTvNoResult;
-  private AppCompatTextView mTvTitle;
+  private EditText mEdtSearch;
+  private TextView mTvNoResult;
+  private TextView mTvTitle;
   private RecyclerView mRvCountryDialog;
   private CountryCodePicker mCountryCodePicker;
   private RelativeLayout mRlyDialog;

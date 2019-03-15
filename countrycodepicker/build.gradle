@@ -29,7 +29,7 @@ dependencies {
   implementation fileTree(dir: 'libs', include: ['*.jar'])
   testImplementation 'junit:junit:4.12'
   implementation "com.android.support:recyclerview-v7:$supportLibVersion"
-  implementation "com.android.support:appcompat-v7:$supportLibVersion"
-  api 'io.michaelrocks:libphonenumber-android:8.9.14'
+//  implementation "com.android.support:appcompat-v7:$supportLibVersion"
+  api 'io.michaelrocks:libphonenumber-android:8.10.7'
 
 }

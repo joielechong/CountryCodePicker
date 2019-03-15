@@ -9,7 +9,7 @@
       android:id="@+id/click_consumer_rly"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:background="?attr/selectableItemBackground"
+      android:background="?android:attr/selectableItemBackground"
       android:gravity="center"
       >
     <!--    <LinearLayout
@@ -30,7 +30,7 @@
         android:layout_marginRight="@dimen/google_1x"
         >
 
-      <android.support.v7.widget.AppCompatImageView
+      <ImageView
           android:id="@+id/flag_imv"
           android:layout_width="wrap_content"
           android:layout_height="18dp"
@@ -40,7 +40,7 @@
     </LinearLayout>
 
     <!--</LinearLayout>-->
-    <android.support.v7.widget.AppCompatTextView
+    <TextView
         android:id="@+id/selected_country_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -54,7 +54,7 @@
         android:textSize="18sp"
         />
 
-    <android.support.v7.widget.AppCompatImageView
+    <ImageView
         android:id="@+id/arrow_imv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

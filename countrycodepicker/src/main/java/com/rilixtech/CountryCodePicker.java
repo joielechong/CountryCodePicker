@@ -8,8 +8,6 @@ import android.graphics.PorterDuff;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.AppCompatImageView;
-import android.support.v7.widget.AppCompatTextView;
 import android.telephony.PhoneNumberFormattingTextWatcher;
 import android.telephony.TelephonyManager;
 import android.util.AttributeSet;
@@ -17,6 +15,7 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
@@ -60,11 +59,11 @@ public class CountryCodePicker extends RelativeLayout {
   private PhoneNumberWatcher mPhoneNumberWatcher;
   PhoneNumberInputValidityListener mPhoneNumberInputValidityListener;
 
-  private AppCompatTextView mTvSelectedCountry;
+  private TextView mTvSelectedCountry;
   private TextView mRegisteredPhoneNumberTextView;
   private RelativeLayout mRlyHolder;
-  private AppCompatImageView mImvArrow;
-  private AppCompatImageView mImvFlag;
+  private ImageView mImvArrow;
+  private ImageView mImvFlag;
   private LinearLayout mLlyFlagHolder;
   private Country mSelectedCountry;
   private Country mDefaultCountry;
