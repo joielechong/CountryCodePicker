@@ -2,16 +2,16 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 
 group = 'com.github.joielechong'
-version = rootProject.ext.libraryVersion
+version = "2.3.0"
 
 android {
-  compileSdkVersion rootProject.ext.sdkVersion
-  buildToolsVersion rootProject.ext.buildToolsVersion
+  compileSdkVersion 28
+  buildToolsVersion "28.0.3"
 
   defaultConfig {
-    minSdkVersion rootProject.ext.minSdkVersion
-    targetSdkVersion rootProject.ext.sdkVersion
-    versionCode rootProject.ext.libraryVersionCode
+    minSdkVersion 14
+    targetSdkVersion 28
+    versionCode 230
     versionName version
 
     consumerProguardFiles 'proguard-rules.pro'
@@ -28,8 +28,6 @@ android {
 dependencies {
   implementation fileTree(dir: 'libs', include: ['*.jar'])
   testImplementation 'junit:junit:4.12'
-  implementation "com.android.support:recyclerview-v7:$supportLibVersion"
-//  implementation "com.android.support:appcompat-v7:$supportLibVersion"
   api 'io.michaelrocks:libphonenumber-android:8.10.7'
 
 }

@@ -87,12 +87,7 @@ How to add to your project
 
     ````groovy
     dependencies {
-
-        // dependencies for countrycodepicker
-        implementation 'com.android.support:recyclerview-v7:27.1.1'
-        implementation 'com.android.support:appcompat-v7:27.1.1'
-
-        implementation 'com.github.joielechong:countrycodepicker:2.2.0'
+        implementation 'com.github.joielechong:countrycodepicker:2.3.0'
     }
     ````
 

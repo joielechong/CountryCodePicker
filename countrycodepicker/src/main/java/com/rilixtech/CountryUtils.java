@@ -2,7 +2,6 @@ package com.rilixtech;
 
 import android.content.Context;
 
-import android.support.annotation.DrawableRes;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -23,8 +22,6 @@ import java.util.Map;
  */
 
 class CountryUtils {
-  private static final String TAG = CountryUtils.class.getSimpleName();
-
   private static List<Country> countries;
   private static Map<String, List<String>> timeZoneAndCountryISOs;
 
@@ -33,7 +30,6 @@ class CountryUtils {
    * @param country selected country
    * @return drawable resource id of country flag.
    */
-  @DrawableRes
   static int getFlagDrawableResId(Country country) {
     switch (country.getIso()) {
       case "af": //afghanistan
@@ -534,9 +530,7 @@ class CountryUtils {
    * @return List of Country
    */
   static List<Country> getAllCountries(Context context) {
-    if(countries != null) {
-      return countries;
-    }
+    if(countries != null) return countries;
 
     countries = new ArrayList<>();
     countries.add(new Country(context.getString(R.string.country_afghanistan_code),
@@ -1548,9 +1542,7 @@ class CountryUtils {
       for (int i = firstDigit; i < firstDigit + 4; i++) {
         String code = fullNumber.substring(firstDigit, i);
         country = getByCode(context, preferredCountries, code);
-        if (country != null) {
-          return country;
-        }
+        if (country != null) return country;
       }
     }
     return null;
@@ -1644,7 +1636,7 @@ class CountryUtils {
 
   /**
    * Return list of Map for timezone and iso country.
-   * @param context
+   * @param context Caller context
    * @return List of timezone and country.
    */
   private static Map<String, List<String>> getTimeZoneAndCountryISOs(Context context) {

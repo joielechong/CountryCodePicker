@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="?android:attr/selectableItemBackground"
-    android:clickable="true"
+    android:id="@+id/item_country_rly"
     >
 
   <LinearLayout
@@ -52,7 +52,6 @@
       android:paddingStart="10dp"
       android:text="+91"
       android:textColor="@android:color/secondary_text_light"
-      android:textDirection="ltr"
       />
 
   <View
