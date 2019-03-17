@@ -13,8 +13,6 @@ android {
     targetSdkVersion 28
     versionCode 230
     versionName version
-
-    consumerProguardFiles 'proguard-rules.pro'
   }
 
   buildTypes {
