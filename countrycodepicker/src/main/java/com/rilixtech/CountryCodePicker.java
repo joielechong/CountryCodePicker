@@ -131,6 +131,7 @@ public class CountryCodePicker extends RelativeLayout {
     if (!isInEditMode()) init(attrs);
   }
 
+  @SuppressWarnings("unused")
   @TargetApi(Build.VERSION_CODES.LOLLIPOP)
   public CountryCodePicker(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
     super(context, attrs, defStyleAttr, defStyleRes);
@@ -262,24 +263,23 @@ public class CountryCodePicker extends RelativeLayout {
     setSelectedCountry(mDefaultCountry);
   }
 
-  private void applyCustomPropertyOfColor(TypedArray typedArray) {
+  private void applyCustomPropertyOfColor(TypedArray arr) {
     //text color
     int textColor;
     if (isInEditMode()) {
-      textColor =
-          typedArray.getColor(R.styleable.CountryCodePicker_ccp_textColor, DEFAULT_TEXT_COLOR);
+      textColor = arr.getColor(R.styleable.CountryCodePicker_ccp_textColor, DEFAULT_TEXT_COLOR);
     } else {
-      textColor = typedArray.getColor(R.styleable.CountryCodePicker_ccp_textColor,
+      textColor = arr.getColor(R.styleable.CountryCodePicker_ccp_textColor,
           getColor(getContext(), R.color.defaultTextColor));
     }
     if (textColor != 0) setTextColor(textColor);
 
     mDialogTextColor =
-        typedArray.getColor(R.styleable.CountryCodePicker_ccp_dialogTextColor, DEFAULT_TEXT_COLOR);
+        arr.getColor(R.styleable.CountryCodePicker_ccp_dialogTextColor, DEFAULT_TEXT_COLOR);
 
     // background color of view.
     mBackgroundColor =
-        typedArray.getColor(R.styleable.CountryCodePicker_ccp_backgroundColor, Color.TRANSPARENT);
+        arr.getColor(R.styleable.CountryCodePicker_ccp_backgroundColor, Color.TRANSPARENT);
 
     if (mBackgroundColor != Color.TRANSPARENT) mRlyHolder.setBackgroundColor(mBackgroundColor);
   }
@@ -298,10 +298,12 @@ public class CountryCodePicker extends RelativeLayout {
 
   protected void setSelectedCountry(Country selectedCountry) {
     mSelectedCountry = selectedCountry;
+
+    Context ctx = getContext();
+
     //as soon as country is selected, textView should be updated
     if (selectedCountry == null) {
-      selectedCountry =
-          CountryUtils.getByCode(getContext(), mPreferredCountries, mDefaultCountryCode);
+      selectedCountry = CountryUtils.getByCode(ctx, mPreferredCountries, mDefaultCountryCode);
     }
 
     if (mRegisteredPhoneNumberTextView != null) {
@@ -311,7 +313,7 @@ public class CountryCodePicker extends RelativeLayout {
 
     String phoneCode = selectedCountry.getPhoneCode();
     if (mHideNameCode) {
-      mTvSelectedCountry.setText(getContext().getString(R.string.phone_code, phoneCode));
+      mTvSelectedCountry.setText(ctx.getString(R.string.phone_code, phoneCode));
     } else {
       if (mShowFullName) {
         String countryName = selectedCountry.getName().toUpperCase();
@@ -319,7 +321,7 @@ public class CountryCodePicker extends RelativeLayout {
           mTvSelectedCountry.setText(countryName);
         } else {
           mTvSelectedCountry.setText(
-              getContext().getString(R.string.country_full_name_and_phone_code, countryName,
+              ctx.getString(R.string.country_full_name_and_phone_code, countryName,
                   phoneCode));
         }
       } else {
@@ -328,7 +330,7 @@ public class CountryCodePicker extends RelativeLayout {
           mTvSelectedCountry.setText(iso);
         } else {
           mTvSelectedCountry.setText(
-              getContext().getString(R.string.country_code_and_phone_code, iso, phoneCode));
+              ctx.getString(R.string.country_code_and_phone_code, iso, phoneCode));
         }
       }
     }
@@ -486,6 +488,7 @@ public class CountryCodePicker extends RelativeLayout {
    * @param customMasterCountries is country name codes separated by comma. e.g. "us,in,nz"
    * if null or "" , will remove custom countries and library default will be used.
    */
+  @SuppressWarnings("unused")
   public void setCustomMasterCountries(String customMasterCountries) {
     mCustomMasterCountries = customMasterCountries;
   }
@@ -625,6 +628,7 @@ public class CountryCodePicker extends RelativeLayout {
    * i.e if default country is IN +91(India)  returns: "India"
    * if default country is JP +81(Japan) returns: "Japan"
    */
+  @SuppressWarnings("unused")
   public String getDefaultCountryName() {
     return mDefaultCountry.getName();
   }
@@ -665,6 +669,7 @@ public class CountryCodePicker extends RelativeLayout {
    * i.e if selected country is IN +91(India)  returns: "+91"
    * if selected country is JP +81(Japan) returns: "+81"
    */
+  @SuppressWarnings("unused")
   public String getSelectedCountryCodeWithPlus() {
     return getContext().getString(R.string.phone_code, getSelectedCountryCode());
   }
@@ -693,6 +698,7 @@ public class CountryCodePicker extends RelativeLayout {
    * i.e if selected country is IN +91(India)  returns: "India"
    * if selected country is JP +81(Japan) returns: "Japan"
    */
+  @SuppressWarnings("unused")
   public String getSelectedCountryName() {
     return mSelectedCountry.getName();
   }
@@ -715,12 +721,13 @@ public class CountryCodePicker extends RelativeLayout {
    * If you want to set IN +91(India), countryCode= 91
    * If you want to set JP +81(Japan), countryCode= 81
    */
+  @SuppressWarnings("unused")
   public void setCountryForPhoneCode(int countryCode) {
-    Country country = CountryUtils.getByCode(getContext(), mPreferredCountries, countryCode);
+    Context ctx = getContext();
+    Country country = CountryUtils.getByCode(ctx, mPreferredCountries, countryCode);
     if (country == null) {
       if (mDefaultCountry == null) {
-        mDefaultCountry =
-            CountryUtils.getByCode(getContext(), mPreferredCountries, mDefaultCountryCode);
+        mDefaultCountry = CountryUtils.getByCode(ctx, mPreferredCountries, mDefaultCountryCode);
       }
       setSelectedCountry(mDefaultCountry);
     } else {
@@ -735,12 +742,13 @@ public class CountryCodePicker extends RelativeLayout {
    * If you want to set IN +91(India), countryCode= IN
    * If you want to set JP +81(Japan), countryCode= JP
    */
+  @SuppressWarnings("unused")
   public void setCountryForNameCode(String countryNameCode) {
-    Country country = CountryUtils.getByNameCodeFromAllCountries(getContext(), countryNameCode);
+    Context ctx = getContext();
+    Country country = CountryUtils.getByNameCodeFromAllCountries(ctx, countryNameCode);
     if (country == null) {
       if (mDefaultCountry == null) {
-        mDefaultCountry =
-            CountryUtils.getByCode(getContext(), mPreferredCountries, mDefaultCountryCode);
+        mDefaultCountry = CountryUtils.getByCode(ctx, mPreferredCountries, mDefaultCountryCode);
       }
       setSelectedCountry(mDefaultCountry);
     } else {
@@ -757,6 +765,7 @@ public class CountryCodePicker extends RelativeLayout {
    * @param textView - an editText where user types carrier number ( the part of full
    * number other than country code).
    */
+  @SuppressWarnings("unused")
   public void registerPhoneNumberTextView(TextView textView) {
     setRegisteredPhoneNumberTextView(textView);
     if (mIsHintEnabled) setPhoneNumberHint();
@@ -818,6 +827,7 @@ public class CountryCodePicker extends RelativeLayout {
    * is 8866667722 then full number will be 9188666667722 or +918866667722. "+" in starting of
    * number is optional.
    */
+  @SuppressWarnings("unused")
   public void setFullNumber(String fullNumber) {
     Country country = CountryUtils.getByNumber(getContext(), mPreferredCountries, fullNumber);
     setSelectedCountry(country);
@@ -836,6 +846,7 @@ public class CountryCodePicker extends RelativeLayout {
    * @return Full number is countryCode + carrierNumber i.e countryCode= 91 and carrier number=
    * 8866667722, this will return "+918866667722"
    */
+  @SuppressWarnings("unused")
   public String getFullNumberWithPlus() {
     return getContext().getString(R.string.phone_code, getFullNumber());
   }
@@ -843,6 +854,7 @@ public class CountryCodePicker extends RelativeLayout {
   /**
    * @return content color of CCP's text and small downward arrow.
    */
+  @SuppressWarnings("unused")
   public int getTextColor() {
     return mTextColor;
   }
@@ -925,6 +937,7 @@ public class CountryCodePicker extends RelativeLayout {
    *
    * @param countryPreference is country name codes separated by comma. e.g. "us,in,nz"
    */
+  @SuppressWarnings("unused")
   public void setCountryPreference(String countryPreference) {
     mCountryPreference = countryPreference;
   }
@@ -976,6 +989,7 @@ public class CountryCodePicker extends RelativeLayout {
   /**
    * To get call back on country selection a mOnCountryChangeListener must be registered.
    */
+  @SuppressWarnings("unused")
   public void setOnCountryChangeListener(OnCountryChangeListener onCountryChangeListener) {
     mOnCountryChangeListener = onCountryChangeListener;
   }
@@ -1110,20 +1124,21 @@ public class CountryCodePicker extends RelativeLayout {
     Phonenumber.PhoneNumber phoneNumber = mPhoneUtil.getExampleNumberForType(iso, mobile);
     if (phoneNumber == null) {
       mRegisteredPhoneNumberTextView.setHint("");
-    } else {
-      if (BuildConfig.DEBUG) {
-        Log.d(TAG, "setPhoneNumberHint called");
-        Log.d(TAG, "mSelectedCountry.getIso() = " + mSelectedCountry.getIso());
-        Log.d(TAG,
-            "hint = " + mPhoneUtil.format(phoneNumber, PhoneNumberUtil.PhoneNumberFormat.NATIONAL));
-      }
-
-      String hint = mPhoneUtil.format(phoneNumber, PhoneNumberUtil.PhoneNumberFormat.NATIONAL);
-      //if (mRegisteredPhoneNumberTextView.getHint() != null) {
-      //  mRegisteredPhoneNumberTextView.setHint("");
-      //}
-      mRegisteredPhoneNumberTextView.setHint(hint);
+      return;
     }
+
+    if (BuildConfig.DEBUG) {
+      Log.d(TAG, "setPhoneNumberHint called");
+      Log.d(TAG, "mSelectedCountry.getIso() = " + mSelectedCountry.getIso());
+      Log.d(TAG,
+          "hint = " + mPhoneUtil.format(phoneNumber, PhoneNumberUtil.PhoneNumberFormat.NATIONAL));
+    }
+
+    String hint = mPhoneUtil.format(phoneNumber, PhoneNumberUtil.PhoneNumberFormat.NATIONAL);
+    //if (mRegisteredPhoneNumberTextView.getHint() != null) {
+    //  mRegisteredPhoneNumberTextView.setHint("");
+    //}
+    mRegisteredPhoneNumberTextView.setHint(hint);
   }
 
   private class PhoneNumberWatcher extends PhoneNumberFormattingTextWatcher {
@@ -1216,6 +1231,7 @@ public class CountryCodePicker extends RelativeLayout {
     return phoneNumber != null && mPhoneUtil.isValidNumber(phoneNumber);
   }
 
+  @SuppressWarnings("unused")
   public void setPhoneNumberInputValidityListener(PhoneNumberInputValidityListener listener) {
     mPhoneNumberInputValidityListener = listener;
   }
@@ -1323,7 +1339,7 @@ public class CountryCodePicker extends RelativeLayout {
     mDialogTextColor = dialogTextColor;
   }
 
-  public static final int getColor(Context context, int id) {
+  public static int getColor(Context context, int id) {
     final int version = Build.VERSION.SDK_INT;
     if (version >= 23) {
       return context.getColor(id);

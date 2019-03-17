@@ -29,7 +29,6 @@ class CountryCodeDialog extends Dialog {
   private EditText mEdtSearch;
   private TextView mTvNoResult;
   private TextView mTvTitle;
-  //private RecyclerView mRvCountryDialog;
   private ListView mLvCountryDialog;
   private CountryCodePicker mCountryCodePicker;
   private RelativeLayout mRlyDialog;
@@ -37,7 +36,6 @@ class CountryCodeDialog extends Dialog {
   private List<Country> masterCountries;
   private List<Country> mFilteredCountries;
   private InputMethodManager mInputMethodManager;
-  //private CountryCodeAdapter mAdapter;
   private CountryCodeArrayAdapter mArrayAdapter;
   private List<Country> mTempCountries;
 
@@ -56,7 +54,6 @@ class CountryCodeDialog extends Dialog {
 
   private void setupUI() {
     mRlyDialog = findViewById(R.id.dialog_rly);
-    //mRvCountryDialog = findViewById(R.id.country_dialog_rv);
     mLvCountryDialog = findViewById(R.id.country_dialog_lv);
     mTvTitle = findViewById(R.id.title_tv);
     mEdtSearch = findViewById(R.id.search_edt);
@@ -87,7 +84,7 @@ class CountryCodeDialog extends Dialog {
     mCountryCodePicker.refreshPreferredCountries();
     masterCountries = mCountryCodePicker.getCustomCountries(mCountryCodePicker);
 
-    this.mFilteredCountries = getFilteredCountries();
+    mFilteredCountries = getFilteredCountries();
     setupListView(mLvCountryDialog);
 
     mInputMethodManager = (InputMethodManager) mCountryCodePicker.getContext()
@@ -96,8 +93,6 @@ class CountryCodeDialog extends Dialog {
   }
 
   private void setupListView(ListView listView) {
-    //final ItemRecyclerViewClickListener listener = new ItemRecyclerViewClickListener();
-    //mAdapter = new CountryCodeAdapter(mFilteredCountries, mCountryCodePicker, listener);
     mArrayAdapter = new CountryCodeArrayAdapter(getContext(), mFilteredCountries, mCountryCodePicker);
 
     if (!mCountryCodePicker.isSelectionDialogShowSearch()) {
@@ -105,8 +100,6 @@ class CountryCodeDialog extends Dialog {
       params.height = ListView.LayoutParams.WRAP_CONTENT;
       listView.setLayoutParams(params);
     }
-    //mRvCountryDialog.setLayoutManager(new LinearLayoutManager(getContext()));
-    //mRvCountryDialog.setAdapter(mAdapter);
     listView.setOnItemClickListener(new ItemRecyclerViewClickListener());
     listView.setAdapter(mArrayAdapter);
   }
@@ -174,7 +167,6 @@ class CountryCodeDialog extends Dialog {
       mTvNoResult.setVisibility(View.VISIBLE);
     }
 
-    //mAdapter.notifyDataSetChanged();
     mArrayAdapter.notifyDataSetChanged();
   }
 
