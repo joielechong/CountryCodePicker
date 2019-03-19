@@ -7,6 +7,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
@@ -26,6 +27,8 @@ import java.util.List;
  */
 
 class CountryCodeDialog extends Dialog {
+  private static final String TAG = "CountryCodeDialog";
+
   private EditText mEdtSearch;
   private TextView mTvNoResult;
   private TextView mTvTitle;
@@ -204,7 +207,16 @@ class CountryCodeDialog extends Dialog {
 
   public class ItemRecyclerViewClickListener implements OnItemClickListener {
     @Override public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-     mCountryCodePicker.setSelectedCountry(mFilteredCountries.get(position));
+      if(mFilteredCountries == null) {
+        Log.e(TAG, "no filtered countries found! This should not be happened, Please report!");
+        return;
+      }
+      if(mFilteredCountries.size() < position) {
+        Log.e(TAG, "Something wrong with the ListView. Please report this!");
+        return;
+      }
+
+      mCountryCodePicker.setSelectedCountry(mFilteredCountries.get(position));
       mInputMethodManager.hideSoftInputFromWindow(mEdtSearch.getWindowToken(), 0);
       CountryCodeDialog.this.dismiss();
     }

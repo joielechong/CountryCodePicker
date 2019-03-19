@@ -2,7 +2,8 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 
 group = 'com.github.joielechong'
-version = "2.3.0"
+version = "2.3.1"
+def verCode = 231
 
 android {
   compileSdkVersion 28
@@ -11,7 +12,7 @@ android {
   defaultConfig {
     minSdkVersion 14
     targetSdkVersion 28
-    versionCode 230
+    versionCode verCode
     versionName version
   }
 
@@ -27,5 +28,4 @@ dependencies {
   implementation fileTree(dir: 'libs', include: ['*.jar'])
   testImplementation 'junit:junit:4.12'
   api 'io.michaelrocks:libphonenumber-android:8.10.7'
-
 }
