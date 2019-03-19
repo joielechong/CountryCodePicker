@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?android:attr/selectableItemBackground"
+    android:id="@+id/item_country_rly"
+    >
+
+  <LinearLayout
+      android:id="@+id/flag_holder_lly"
+      android:layout_width="40dp"
+      android:layout_height="50dp"
+      android:layout_marginLeft="@dimen/google_1x"
+      android:layout_marginRight="@dimen/google_1x"
+      android:gravity="center"
+      >
+
+    <ImageView
+        android:id="@+id/flag_imv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:src="@drawable/flag_indonesia"
+        />
+  </LinearLayout>
+
+  <TextView
+      android:id="@+id/country_name_tv"
+      android:layout_width="match_parent"
+      android:layout_height="50dp"
+      android:layout_centerVertical="true"
+      android:layout_toEndOf="@+id/flag_holder_lly"
+      android:layout_toLeftOf="@+id/code_tv"
+      android:layout_toRightOf="@+id/flag_holder_lly"
+      android:layout_toStartOf="@+id/code_tv"
+      android:gravity="center_vertical"
+      android:text="Indonesia (ID)"
+      android:textColor="@android:color/secondary_text_light"
+      />
+
+  <TextView
+      android:id="@+id/code_tv"
+      android:layout_width="wrap_content"
+      android:layout_height="50dp"
+      android:layout_alignParentEnd="true"
+      android:layout_alignParentRight="true"
+      android:layout_centerVertical="true"
+      android:gravity="center_vertical"
+      android:paddingEnd="10dp"
+      android:paddingLeft="10dp"
+      android:paddingRight="10dp"
+      android:paddingStart="10dp"
+      android:text="+91"
+      android:textColor="@android:color/secondary_text_light"
+      />
+
+  <View
+      android:id="@+id/preference_divider_view"
+      android:layout_width="match_parent"
+      android:layout_height="2dp"
+      android:layout_alignParentTop="true"
+      android:layout_marginLeft="5dp"
+      android:layout_marginRight="5dp"
+      android:background="#898989"
+      />
+</RelativeLayout>

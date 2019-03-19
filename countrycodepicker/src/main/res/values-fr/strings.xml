@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="search_hint">Rechercher &#8230;</string>
+  <string name="no_result_found">Aucun résultat trouvé</string>
+  <string name="select_country">Sélectionner le pays</string>
+</resources>
