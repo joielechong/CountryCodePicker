@@ -21,7 +21,7 @@ import java.util.Map;
  * Updated by joielechong 16 May 2017.
  */
 
-class CountryUtils {
+public class CountryUtils {
   private static List<Country> countries;
   private static Map<String, List<String>> timeZoneAndCountryISOs;
 
