@@ -30,7 +30,7 @@ public class CountryUtils {
    * @param country selected country
    * @return drawable resource id of country flag.
    */
-  static int getFlagDrawableResId(Country country) {
+  public static int getFlagDrawableResId(Country country) {
     switch (country.getIso()) {
       case "af": //afghanistan
         return R.drawable.flag_afghanistan;
