@@ -81,7 +81,7 @@
   <string name="country_ghana_name">Ghana</string>
   <string name="country_gibraltar_name">Gibraltar</string>
   <string name="country_greece_name">Grecia</string>
-  <string name="country_greenland_name">Tierra Verde</string>
+  <string name="country_greenland_name">Groenlandia</string>
   <string name="country_grenada_name">Granada</string>
   <string name="country_guatemala_name">Guatemala</string>
   <string name="country_guinea_name">Guinea</string>
@@ -228,4 +228,19 @@
   <string name="country_yemen_name">Yemen</string>
   <string name="country_zambia_name">Zambia</string>
   <string name="country_zimbabwe_name">Zimbabue</string>
+
+  <string name="country_kosovo_name">Kosovo</string>
+  <string name="country_south_sudan_name">Sudan del sud</string>
+  <string name="country_aland_islands_name">Islas Aland</string>
+  <string name="country_american_samoa_name">Samoa Americana</string>
+  <string name="country_british_indian_ocean_territory_name">Territorio Británico del Océano Índico</string>
+  <string name="country_guadeloupe_name">Guadalupe (Francia)</string>
+  <string name="country_guam_name">Guam</string>
+  <string name="country_guernsey_name">Bailía de Guernsey</string>
+  <string name="country_jersey_name">Jersey</string>
+  <string name="country_norfolk_island_name">Isla Norfolk</string>
+  <string name="country_northern_mariana_islands_name">Islas Marianas del Norte</string>
+  <string name="country_palestian_territory_name">Palestina</string>
+  <string name="country_saint_martin_name">San Martín (Francia)</string>
+  <string name="country_south_georgia_name">Islas Georgias del Sur y Sandwich del Sur</string>
 </resources>
