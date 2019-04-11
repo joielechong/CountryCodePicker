@@ -25,7 +25,6 @@ import java.util.List;
  *
  * Created by Joielechong on 11 May 2017.
  */
-
 class CountryCodeDialog extends Dialog {
   private static final String TAG = "CountryCodeDialog";
 
@@ -211,7 +210,8 @@ class CountryCodeDialog extends Dialog {
         Log.e(TAG, "no filtered countries found! This should not be happened, Please report!");
         return;
       }
-      if(mFilteredCountries.size() < position) {
+
+      if(mFilteredCountries.size() < position || position == -1) {
         Log.e(TAG, "Something wrong with the ListView. Please report this!");
         return;
       }

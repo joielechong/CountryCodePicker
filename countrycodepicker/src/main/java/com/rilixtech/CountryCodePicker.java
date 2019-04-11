@@ -40,11 +40,9 @@ import java.util.TimeZone;
  * Updated by Joielechong 4 June 2017
  */
 public class CountryCodePicker extends RelativeLayout {
-
   private static String TAG = CountryCodePicker.class.getSimpleName();
 
   private final String DEFAULT_COUNTRY = Locale.getDefault().getCountry();
-  private static final int DEFAULT_COUNTRY_CODE = 62; // Indonesia
   private static final String DEFAULT_ISO_COUNTRY = "ID";
   private static final int DEFAULT_TEXT_COLOR = 0;
   private static final int DEFAULT_BACKGROUND_COLOR = Color.TRANSPARENT;

@@ -53,7 +53,6 @@ public class CountryCodeArrayAdapter extends ArrayAdapter<Country> {
   }
 
   private void setData(Country country, ViewHolder viewHolder) {
-    // set data
     if (country == null) {
       viewHolder.viewDivider.setVisibility(View.VISIBLE);
       viewHolder.tvName.setVisibility(View.GONE);
