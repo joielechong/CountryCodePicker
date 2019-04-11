@@ -95,14 +95,38 @@ class CountryCodeDialog extends Dialog {
   }
 
   private void setupListView(ListView listView) {
-    mArrayAdapter = new CountryCodeArrayAdapter(getContext(), mFilteredCountries, mCountryCodePicker);
+    mArrayAdapter =
+        new CountryCodeArrayAdapter(getContext(), mFilteredCountries, mCountryCodePicker);
 
     if (!mCountryCodePicker.isSelectionDialogShowSearch()) {
       RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) listView.getLayoutParams();
       params.height = ListView.LayoutParams.WRAP_CONTENT;
       listView.setLayoutParams(params);
     }
-    listView.setOnItemClickListener(new ItemRecyclerViewClickListener());
+
+    OnItemClickListener listener = new OnItemClickListener() {
+      @Override public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        if (mFilteredCountries == null) {
+          Log.e(TAG, "no filtered countries found! This should not be happened, Please report!");
+          return;
+        }
+
+        if (mFilteredCountries.size() < position || position < 0) {
+          Log.e(TAG, "Something wrong with the ListView. Please report this!");
+          return;
+        }
+
+        Country country = mFilteredCountries.get(position);
+        /* view is only a separator, so the country is null and we ignore it.
+         see {@link #getFilteredCountries(String)} */
+        if (country == null) return;
+
+        mCountryCodePicker.setSelectedCountry(country);
+        mInputMethodManager.hideSoftInputFromWindow(mEdtSearch.getWindowToken(), 0);
+        dismiss();
+      }
+    };
+    listView.setOnItemClickListener(listener);
     listView.setAdapter(mArrayAdapter);
   }
 
@@ -202,23 +226,5 @@ class CountryCodeDialog extends Dialog {
       }
     }
     return mTempCountries;
-  }
-
-  public class ItemRecyclerViewClickListener implements OnItemClickListener {
-    @Override public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-      if(mFilteredCountries == null) {
-        Log.e(TAG, "no filtered countries found! This should not be happened, Please report!");
-        return;
-      }
-
-      if(mFilteredCountries.size() < position || position < 0) {
-        Log.e(TAG, "Something wrong with the ListView. Please report this!");
-        return;
-      }
-
-      mCountryCodePicker.setSelectedCountry(mFilteredCountries.get(position));
-      mInputMethodManager.hideSoftInputFromWindow(mEdtSearch.getWindowToken(), 0);
-      CountryCodeDialog.this.dismiss();
-    }
   }
 }
