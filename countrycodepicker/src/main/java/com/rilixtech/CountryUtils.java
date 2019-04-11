@@ -21,7 +21,7 @@ import java.util.Map;
  * Updated by joielechong 16 May 2017.
  */
 
-class CountryUtils {
+public class CountryUtils {
   private static List<Country> countries;
   private static Map<String, List<String>> timeZoneAndCountryISOs;
 
@@ -31,7 +31,7 @@ class CountryUtils {
    * @param country selected country
    * @return drawable resource id of country flag.
    */
-  static int getFlagDrawableResId(Country country) {
+  public static int getFlagDrawableResId(Country country) {
     switch (country.getIso()) {
       case "af": //afghanistan
         return R.drawable.flag_afghanistan;
