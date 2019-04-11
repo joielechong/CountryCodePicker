@@ -1112,7 +1112,8 @@ public class CountryCodePicker extends RelativeLayout {
 
   private void setPhoneNumberHint() {
     // don't set phone number hint for null textView and country.
-    if (mRegisteredPhoneNumberTextView == null || mSelectedCountry == null
+    if (mRegisteredPhoneNumberTextView == null
+        || mSelectedCountry == null
         || mSelectedCountry.getIso() == null) {
       return;
     }

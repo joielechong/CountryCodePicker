@@ -43,7 +43,7 @@ class CountryCodeDialog extends Dialog {
 
   CountryCodeDialog(CountryCodePicker countryCodePicker) {
     super(countryCodePicker.getContext());
-    this.mCountryCodePicker = countryCodePicker;
+    mCountryCodePicker = countryCodePicker;
   }
 
   @Override protected void onCreate(Bundle savedInstanceState) {
@@ -89,8 +89,8 @@ class CountryCodeDialog extends Dialog {
     mFilteredCountries = getFilteredCountries();
     setupListView(mLvCountryDialog);
 
-    mInputMethodManager = (InputMethodManager) mCountryCodePicker.getContext()
-        .getSystemService(Context.INPUT_METHOD_SERVICE);
+    Context ctx = mCountryCodePicker.getContext();
+    mInputMethodManager = (InputMethodManager) ctx.getSystemService(Context.INPUT_METHOD_SERVICE);
     setSearchBar();
   }
 
@@ -211,7 +211,7 @@ class CountryCodeDialog extends Dialog {
         return;
       }
 
-      if(mFilteredCountries.size() < position || position == -1) {
+      if(mFilteredCountries.size() < position || position < 0) {
         Log.e(TAG, "Something wrong with the ListView. Please report this!");
         return;
       }
