@@ -1,4 +1,5 @@
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Country%20Code%20Picker%20Library-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/5753)
+[![](https://jitpack.io/v/joielechong/CountryCodePicker.svg)](https://jitpack.io/#joielechong/CountryCodePicker)
 
 Country Code Picker Library
 ===========================
@@ -87,7 +88,7 @@ How to add to your project
 
     ````groovy
     dependencies {
-        implementation 'com.github.joielechong:countrycodepicker:2.3.0'
+        implementation 'com.github.joielechong:countrycodepicker:2.3.3'
     }
     ````
 
