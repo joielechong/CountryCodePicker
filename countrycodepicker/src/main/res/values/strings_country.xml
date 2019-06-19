@@ -78,7 +78,7 @@
 
     <string name="country_barbados_name">Barbados</string>
     <string name="country_barbados_code" translatable="false">bb</string>
-    <string name="country_barbados_number" translatable="false">1242</string>
+    <string name="country_barbados_number" translatable="false">1246</string>
 
     <string name="country_belarus_name">Belarus</string>
     <string name="country_belarus_code" translatable="false">by</string>
@@ -162,7 +162,7 @@
 
     <string name="country_cayman_islands_name">Cayman Islands</string>
     <string name="country_cayman_islands_code" translatable="false">ky</string>
-    <string name="country_cayman_islands_number" translatable="false">345</string>
+    <string name="country_cayman_islands_number" translatable="false">1345</string>
 
     <string name="country_central_african_republic_name">Central African Republic</string>
     <string name="country_central_african_republic_code" translatable="false">cf</string>
@@ -638,11 +638,11 @@
 
     <string name="country_norfolk_island_name">Norfolk Island</string>
     <string name="country_norfolk_island_code" translatable="false">nf</string>
-    <string name="country_norfolk_island_number" translatable="false">1670</string>
+    <string name="country_norfolk_island_number" translatable="false">672</string>
 
     <string name="country_northern_mariana_islands_name">Northern Mariana Islands</string>
     <string name="country_northern_mariana_islands_code" translatable="false">mp</string>
-    <string name="country_northern_mariana_islands_number" translatable="false">850</string>
+    <string name="country_northern_mariana_islands_number" translatable="false">1670</string>
 
     <string name="country_norway_name">Norway</string>
     <string name="country_norway_code" translatable="false">no</string>
@@ -686,7 +686,7 @@
 
     <string name="country_pitcairn_name">Pitcairn</string>
     <string name="country_pitcairn_code" translatable="false">pn</string>
-    <string name="country_pitcairn_number" translatable="false">870</string>
+    <string name="country_pitcairn_number" translatable="false">64</string>
 
     <string name="country_poland_name">Poland</string>
     <string name="country_poland_code" translatable="false">pl</string>
