@@ -464,6 +464,10 @@
     <string name="country_kyrgyzstan_code" translatable="false">kg</string>
     <string name="country_kyrgyzstan_number" translatable="false">996</string>
 
+    <string name="country_laos_name">Laos</string>
+    <string name="country_laos_code" translatable="false">la</string>
+    <string name="country_load_number" translatable="false">856</string>
+
     <string name="country_lao_peoples_democratic_republic_name">Lao People\'s Democratic Republic</string>
     <string name="country_lao_peoples_democratic_republic_code" translatable="false">la</string>
     <string name="country_lao_peoples_democratic_republic_number" translatable="false">856</string>
