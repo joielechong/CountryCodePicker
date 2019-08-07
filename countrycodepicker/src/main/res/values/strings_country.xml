@@ -804,10 +804,6 @@
     <string name="country_south_korea_code" translatable="false">kr</string>
     <string name="country_south_korea_number" translatable="false">82</string>
 
-    <string name="country_south_georgia_name">South Georgia and the South Sandwich Islands</string>
-    <string name="country_south_georgia_code" translatable="false">gs</string>
-    <string name="country_south_georgia_number" translatable="false">500</string>
-
     <string name="country_spain_name">Spain</string>
     <string name="country_spain_code" translatable="false">es</string>
     <string name="country_spain_number" translatable="false">34</string>
