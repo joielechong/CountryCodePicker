@@ -566,11 +566,11 @@ public class CountryCodePicker extends RelativeLayout {
    * default country.
    * This function will not set default country as selected in CCP. To set default country in CCP
    * call resetToDefaultCountry() right after this call.
-   * If invalid mDefaultCountryCode is applied, it won't be changed.
+   * If invalid countryIso is applied, it won't be changed.
    *
    * @param countryIso code of your default country
-   * if you want to set IN +91(India) as default country, mDefaultCountryCode =  "IN" or "in"
-   * if you want to set JP +81(Japan) as default country, mDefaultCountryCode =  "JP" or "jp"
+   * if you want to set IN +91(India) as default country, countryIso =  "IN" or "in"
+   * if you want to set JP +81(Japan) as default country, countryIso =  "JP" or "jp"
    */
   public void setDefaultCountryUsingNameCode(String countryIso) {
     Country defaultCountry = CountryUtils.getByNameCodeFromAllCountries(getContext(), countryIso);
@@ -580,6 +580,29 @@ public class CountryCodePicker extends RelativeLayout {
     //if correct country is found, set the country
     mDefaultCountryNameCode = defaultCountry.getIso();
     setDefaultCountry(defaultCountry);
+  }
+
+  /**
+   * Set default country as selected in CountryCodePicker.
+   *
+   * There is no change applied if invalid countryIso is given.
+   *
+   * @param countryIso code of your default country
+   * if you want to set IN +91(India) as default country, countryIso =  "IN" or "in"
+   * if you want to set JP +81(Japan) as default country, countryIso =  "JP" or "jp"
+   */
+  public void setDefaultCountryUsingNameCodeAndApply(String countryIso) {
+    Country defaultCountry = CountryUtils.getByNameCodeFromAllCountries(getContext(), countryIso);
+
+    if (defaultCountry == null) return;
+
+    //if correct country is found, set the country
+    mDefaultCountryNameCode = defaultCountry.getIso();
+    setDefaultCountry(defaultCountry);
+
+    //TODO: This part of code need to be optimized!!.
+
+    setEmptyDefault(null);
   }
 
   /**
