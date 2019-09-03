@@ -5,20 +5,22 @@ Country Code Picker Library
 ===========================
 
 
-Country Code Picker (CCP) <img src="https://farm6.staticflickr.com/5726/30960801342_6e65c7ddd5_m.jpg" width="80">  is an android library which provides an easy way to search and select country phone code for the telephone number.
+Country Code Picker (CCP) <img src="release/color.png" width="80">  is an android library which provides an easy way to search and select country phone code for the telephone number.
 
 Introduction
 ------------
 * CCP gives professional touch to your well designed form like login screen, sign up screen, edit profile screen.
 CCP removes confusion about how to add number and thus make view more understandable. Finally reduces mistakes in user input.
  * Phone number screen without CCP
-     - <img src="https://raw.githubusercontent.com/hbb20/CountryCodePickerProject/master/app/src/main/res/drawable/img_c.png" width="300"> 
+     - <img src="release/img_c.png" width="300">
+
 	  
 * Above view can be transformed by using CCP
-    - <img src="https://farm6.staticflickr.com/5625/30296514763_e3af239e2c_z.jpg" width="300">
+    - <img src="release/image_d.jpeg" width="300">
     
 * Tapping on CCP will open a dialog to search and select country
-    - <img src="https://farm6.staticflickr.com/5686/30982885732_294ee950d7_z.jpg" width="300">
+    - <img src="release/dialog_color.png" width="300">
+
 
 
  The most recommended usage for CCP is using the default setting so the library will auto check the all the value.
