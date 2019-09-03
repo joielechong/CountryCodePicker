@@ -784,14 +784,16 @@ public class CountryCodePicker extends RelativeLayout {
   }
 
   private void setPhoneNumberWatcherToTextView(TextView textView, String countryNameCode) {
-    if (mIsEnablePhoneNumberWatcher) {
-      if (mPhoneNumberWatcher == null) {
+    if (!mIsEnablePhoneNumberWatcher) return;
+
+    if (mPhoneNumberWatcher == null) {
+      mPhoneNumberWatcher = new PhoneNumberWatcher(countryNameCode);
+      textView.addTextChangedListener(mPhoneNumberWatcher);
+    } else {
+      if (!mPhoneNumberWatcher.getPreviousCountryCode().equalsIgnoreCase(countryNameCode)) {
+        textView.removeTextChangedListener(mPhoneNumberWatcher);
         mPhoneNumberWatcher = new PhoneNumberWatcher(countryNameCode);
         textView.addTextChangedListener(mPhoneNumberWatcher);
-      } else {
-        if (!mPhoneNumberWatcher.getPreviousCountryCode().equalsIgnoreCase(countryNameCode)) {
-          mPhoneNumberWatcher = new PhoneNumberWatcher(countryNameCode);
-        }
       }
     }
   }
