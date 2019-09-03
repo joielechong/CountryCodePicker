@@ -1,4 +1,4 @@
-package com.rilixtech;
+package com.rilixtech.widget.countrycodepicker;
 
 import android.content.Context;
 import android.graphics.Typeface;
@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.rilixtech.R;
 import java.util.List;
 
 public class CountryCodeArrayAdapter extends ArrayAdapter<Country> {
@@ -36,7 +37,7 @@ public class CountryCodeArrayAdapter extends ArrayAdapter<Country> {
     if (convertView == null) {
       viewHolder = new ViewHolder();
       LayoutInflater inflater = LayoutInflater.from(getContext());
-      convertView = inflater.inflate(R.layout.item_country, parent, false);
+      convertView = inflater.inflate(R.layout.country_code_picker_item_country, parent, false);
 
       viewHolder.rlyMain = convertView.findViewById(R.id.item_country_rly);
       viewHolder.tvName = convertView.findViewById(R.id.country_name_tv);

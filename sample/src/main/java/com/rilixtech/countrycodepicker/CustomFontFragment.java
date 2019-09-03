@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.rilixtech.CountryCodePicker;
+import com.rilixtech.widget.countrycodepicker.CountryCodePicker;
 
 
 /**

@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.rilixtech.CountryCodePicker;
+import com.rilixtech.widget.countrycodepicker.CountryCodePicker;
 
 
 /**

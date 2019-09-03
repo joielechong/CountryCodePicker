@@ -107,7 +107,7 @@
                             android:layout_height="wrap_content"
                             android:gravity="right">
 
-                            <com.rilixtech.CountryCodePicker
+                            <com.rilixtech.widget.countrycodepicker.CountryCodePicker
                                 android:padding="10dp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"

@@ -5,7 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import com.rilixtech.CountryCodePicker;
+import com.rilixtech.widget.countrycodepicker.CountryCodePicker;
 
 public class PerformClickActivity extends AppCompatActivity {
 

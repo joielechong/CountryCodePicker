@@ -1,4 +1,4 @@
-package com.rilixtech;
+package com.rilixtech.widget.countrycodepicker;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -20,6 +20,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import android.widget.TextView;
+import com.rilixtech.BuildConfig;
+import com.rilixtech.R;
 import io.michaelrocks.libphonenumber.android.NumberParseException;
 import io.michaelrocks.libphonenumber.android.PhoneNumberUtil;
 import io.michaelrocks.libphonenumber.android.Phonenumber;
@@ -137,7 +139,7 @@ public class CountryCodePicker extends RelativeLayout {
   }
 
   private void init(AttributeSet attrs) {
-    inflate(getContext(), R.layout.layout_code_picker, this);
+    inflate(getContext(), R.layout.country_code_picker_layout_code_picker, this);
 
     mTvSelectedCountry = findViewById(R.id.selected_country_tv);
     mRlyHolder = findViewById(R.id.country_code_holder_rly);
