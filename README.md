@@ -24,14 +24,16 @@ CCP removes confusion about how to add number and thus make view more understand
 
 
  The most recommended usage for CCP is using the default setting so the library will auto check the all the value.
- To do that, you need to follow the following step:
+ To do that, you need to follow the following steps:
+ 
  1. Add CCP view to layout
- 2. Add AppCompatEditText view to layout
- 3. register the AppCompatEditText using `registerPhoneNumberTextView(AppCompatEditText)`
-    we can use TextView instead of AppCompatEditText also.
+ 2. Add EditText view to layout
+ 3. register the EditText using `registerPhoneNumberTextView(editText)`
+    we can also use TextView instead of editText.
  4. Let the magic happens ;)
 
- Here the more details step:
+ Here the more details steps:
+ 
  1. Add CCP to layout using the following:
 
      ````xml
