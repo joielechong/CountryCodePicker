@@ -526,11 +526,12 @@ Michael Rozumyanskiy for [libphonenumber-android](https://github.com/MichaelRock
 Harsh Bhakta for the original project at [CountryCodePickerProject](https://github.com/hbb20/CountryCodePickerProject)
 
 [egek92](https://github.com/egek92) for Turkish translation.
+
 ## License
 
 [Apache Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html)
 
-    Copyright (C) 2018 Joielechong
+    Copyright (C) 2019 Joielechong
 
     Copyright (C) 2016 Harsh Bhakta
 
