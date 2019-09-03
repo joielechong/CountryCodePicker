@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     tools:context="com.rilixtech.countrycodepicker.FullNumberFragment">
 
-    <android.support.v7.widget.CardView style="@style/parentCard">
+    <androidx.cardview.widget.CardView style="@style/parentCard">
 
         <ScrollView style="@style/parentScrollView">
 
@@ -50,7 +50,7 @@
                     style="@style/pointText"
                     android:text="\u2022 To load full number, use setFullNumber() method. In this method you need to pass the full number. " />
 
-                <android.support.v7.widget.AppCompatEditText
+                <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/editText_loadFullNumber"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -94,7 +94,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 />
-                            <android.support.v7.widget.AppCompatEditText
+                            <androidx.appcompat.widget.AppCompatEditText
                                 android:id="@+id/editText_loadCarrierNumber"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -161,7 +161,7 @@
                                 app:ccp_defaultNameCode="  "
                                 android:layout_height="wrap_content" />
 
-                            <android.support.v7.widget.AppCompatEditText
+                            <androidx.appcompat.widget.AppCompatEditText
                                 android:id="@+id/editText_getCarrierNumber"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -198,7 +198,7 @@
                         android:text="Get full number with + from CCP" />
                 </LinearLayout>
 
-                <android.support.v7.widget.AppCompatEditText
+                <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/editText_getFullNumber"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -230,5 +230,5 @@
                     android:text="Next feature >"/>
             </LinearLayout>
         </ScrollView>
-    </android.support.v7.widget.CardView>
+    </androidx.cardview.widget.CardView>
 </FrameLayout>

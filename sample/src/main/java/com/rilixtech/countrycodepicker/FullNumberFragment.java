@@ -2,8 +2,8 @@ package com.rilixtech.countrycodepicker;
 
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.AppCompatEditText;
+import androidx.fragment.app.Fragment;
+import androidx.appcompat.widget.AppCompatEditText;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;

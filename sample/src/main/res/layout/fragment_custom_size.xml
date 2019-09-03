@@ -6,7 +6,7 @@
     tools:context="com.rilixtech.countrycodepicker.CustomSizeFragment"
     >
 
-  <android.support.v7.widget.CardView style="@style/parentCard">
+  <androidx.cardview.widget.CardView style="@style/parentCard">
 
     <ScrollView style="@style/parentScrollView">
 
@@ -252,6 +252,6 @@
             />
       </LinearLayout>
     </ScrollView>
-  </android.support.v7.widget.CardView>
+  </androidx.cardview.widget.CardView>
 
 </FrameLayout>
