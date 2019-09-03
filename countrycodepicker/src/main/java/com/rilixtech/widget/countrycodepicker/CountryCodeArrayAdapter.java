@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.rilixtech.R;
 import java.util.List;
 
 public class CountryCodeArrayAdapter extends ArrayAdapter<Country> {

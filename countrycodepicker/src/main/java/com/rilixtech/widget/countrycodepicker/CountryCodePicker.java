@@ -20,8 +20,6 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import android.widget.TextView;
-import com.rilixtech.BuildConfig;
-import com.rilixtech.R;
 import io.michaelrocks.libphonenumber.android.NumberParseException;
 import io.michaelrocks.libphonenumber.android.PhoneNumberUtil;
 import io.michaelrocks.libphonenumber.android.Phonenumber;

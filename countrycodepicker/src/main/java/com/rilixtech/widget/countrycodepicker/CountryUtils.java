@@ -2,7 +2,6 @@ package com.rilixtech.widget.countrycodepicker;
 
 import android.content.Context;
 
-import com.rilixtech.R;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;

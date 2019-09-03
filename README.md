@@ -94,7 +94,7 @@ How to add to your project
     }
     ````
 
- 3. Add ccp view to xml layout
+3. Add ccp view to xml layout
    
     ````xml
     <com.rilixtech.widget.countrycodepicker.CountryCodePicker
@@ -103,19 +103,26 @@ How to add to your project
           android:layout_height="wrap_content" />
     ````
 
- 4. Add ccp object in Activity / Fragment
+4. Add ccp object in Activity / Fragment
     ````
     CountryCodePicker ccp;
     ````
 
- 5. Bind ccp from layout
+5. Bind ccp from layout
    
     ````
     ccp = (CountryCodePicker) findViewById(R.id.ccp);
     ````
 
-  6. That's it. Run the project and see the results.
+6. That's it. Run the project and see the results.
   
+### For DexGuard users
+If your project is obfuscated with DexGuard you may need to add the following line to the DexGuard configuration:
+
+      -keepresourcefiles assets/io/michaelrocks/libphonenumber/android/**
+
+This is because this library use [libphonenumber-android](https://github.com/MichaelRocks/libphonenumber-android)
+
   
   Features
 --------
