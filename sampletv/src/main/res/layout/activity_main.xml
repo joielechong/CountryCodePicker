@@ -26,6 +26,7 @@
       android:layout_height="wrap_content"
       android:layout_centerInParent="true"
       app:ccp_keyboardAutoPopOnSearch="false"
+      app:ccp_hideNameCode="true"
       />
 
 </RelativeLayout>

@@ -171,12 +171,8 @@ public class CountryCodePicker extends RelativeLayout {
     try {
       mHidePhoneCode = a.getBoolean(R.styleable.CountryCodePicker_ccp_hidePhoneCode, false);
       mShowFullName = a.getBoolean(R.styleable.CountryCodePicker_ccp_showFullName, false);
-
-      //hide nameCode. If someone wants only phone code to avoid name collision for same
-      // country phone code.
       mHideNameCode = a.getBoolean(R.styleable.CountryCodePicker_ccp_hideNameCode, false);
 
-      // show hint for phone number
       mIsHintEnabled = a.getBoolean(R.styleable.CountryCodePicker_ccp_enableHint, true);
 
       // enable auto formatter for phone number input
@@ -1077,6 +1073,10 @@ public class CountryCodePicker extends RelativeLayout {
 
   public boolean isHidePhoneCode() {
     return mHidePhoneCode;
+  }
+
+  public boolean isHideNameCode() {
+    return mHideNameCode;
   }
 
   /**

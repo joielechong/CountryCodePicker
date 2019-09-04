@@ -58,32 +58,41 @@ public class CountryCodeArrayAdapter extends ArrayAdapter<Country> {
       viewHolder.tvName.setVisibility(View.GONE);
       viewHolder.tvCode.setVisibility(View.GONE);
       viewHolder.llyFlagHolder.setVisibility(View.GONE);
+      return;
+    }
+
+    viewHolder.viewDivider.setVisibility(View.GONE);
+    viewHolder.tvName.setVisibility(View.VISIBLE);
+    viewHolder.tvCode.setVisibility(View.VISIBLE);
+    viewHolder.llyFlagHolder.setVisibility(View.VISIBLE);
+    Context ctx = viewHolder.tvName.getContext();
+    String name = country.getName();
+    String iso = country.getIso().toUpperCase();
+    String countryNameAndCode;
+
+    if (mCountryCodePicker.isHideNameCode()) {
+      countryNameAndCode = name;
     } else {
-      viewHolder.viewDivider.setVisibility(View.GONE);
-      viewHolder.tvName.setVisibility(View.VISIBLE);
-      viewHolder.tvCode.setVisibility(View.VISIBLE);
-      viewHolder.llyFlagHolder.setVisibility(View.VISIBLE);
-      Context ctx = viewHolder.tvName.getContext();
-      String name = country.getName();
-      String iso = country.getIso().toUpperCase();
-      String countryNameAndCode = ctx.getString(R.string.country_name_and_code, name, iso);
-      viewHolder.tvName.setText(countryNameAndCode);
-      if (mCountryCodePicker.isHidePhoneCode()) {
-        viewHolder.tvCode.setVisibility(View.GONE);
-      } else {
-        viewHolder.tvCode.setText(ctx.getString(R.string.phone_code, country.getPhoneCode()));
-      }
-      Typeface typeface = mCountryCodePicker.getTypeFace();
-      if (typeface != null) {
-        viewHolder.tvCode.setTypeface(typeface);
-        viewHolder.tvName.setTypeface(typeface);
-      }
-      viewHolder.imvFlag.setImageResource(CountryUtils.getFlagDrawableResId(country));
-      int color = mCountryCodePicker.getDialogTextColor();
-      if (color != mCountryCodePicker.getDefaultContentColor()) {
-        viewHolder.tvCode.setTextColor(color);
-        viewHolder.tvName.setTextColor(color);
-      }
+      countryNameAndCode = ctx.getString(R.string.country_name_and_code, name, iso);
+    }
+    viewHolder.tvName.setText(countryNameAndCode);
+
+    if (mCountryCodePicker.isHidePhoneCode()) {
+      viewHolder.tvCode.setVisibility(View.GONE);
+    } else {
+      viewHolder.tvCode.setText(ctx.getString(R.string.phone_code, country.getPhoneCode()));
+    }
+
+    Typeface typeface = mCountryCodePicker.getTypeFace();
+    if (typeface != null) {
+      viewHolder.tvCode.setTypeface(typeface);
+      viewHolder.tvName.setTypeface(typeface);
+    }
+    viewHolder.imvFlag.setImageResource(CountryUtils.getFlagDrawableResId(country));
+    int color = mCountryCodePicker.getDialogTextColor();
+    if (color != mCountryCodePicker.getDefaultContentColor()) {
+      viewHolder.tvCode.setTextColor(color);
+      viewHolder.tvName.setTextColor(color);
     }
   }
 }

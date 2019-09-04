@@ -95,8 +95,7 @@ class CountryCodeDialog extends Dialog {
   }
 
   private void setupListView(ListView listView) {
-    mArrayAdapter =
-        new CountryCodeArrayAdapter(getContext(), mFilteredCountries, mCountryCodePicker);
+    mArrayAdapter = new CountryCodeArrayAdapter(getContext(), mFilteredCountries, mCountryCodePicker);
 
     if (!mCountryCodePicker.isSelectionDialogShowSearch()) {
       RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) listView.getLayoutParams();
