@@ -22,6 +22,7 @@ android {
 
 dependencies {
   implementation fileTree(dir: 'libs', include: ['*.jar'])
-  implementation project(':countrycodepicker')
+//  implementation project(':countrycodepicker')
+  implementation 'com.github.joielechong:countrycodepicker:2.4.1'
   implementation 'androidx.leanback:leanback:1.0.0'
 }
