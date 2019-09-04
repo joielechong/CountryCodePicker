@@ -19,14 +19,15 @@
       android:inputType="phone"
       />
 
-
   <com.rilixtech.widget.countrycodepicker.CountryCodePicker
       android:id="@+id/ccp"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_centerInParent="true"
+      app:ccp_hideNameCode="false"
+      app:ccp_hidePhoneCode="false"
       app:ccp_keyboardAutoPopOnSearch="false"
-      app:ccp_hideNameCode="true"
+      app:ccp_showFullName="false"
       />
 
 </RelativeLayout>

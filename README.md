@@ -125,8 +125,22 @@ If your project is obfuscated with DexGuard you may need to add the following li
 
 This is because this library use [libphonenumber-android](https://github.com/MichaelRocks/libphonenumber-android)
 
-  
-  Features
+
+Attributes
+---------
+
+Here the attributes that can be used in CountryCodePicker layout:
+
+|   Attribute    |   method                        | Description
+|---------------|---------------------------------|-------------------------------
+|ccp_defaultCode | setDefaultCountryUsingPhoneCodeAndApply(int defaultCode) |  set selected Flag and phone in CCP by phone code.
+|ccp_showFullName| showFullName(boolean show) | Show full name of country in CCP. Default is false|
+|ccp_hideNameCode| hideNameCode(boolean hide) | Hide the country name code. Default is false|
+|ccp_hidePhoneCode| hidePhoneCode(boolean hide)| Hide the phone code. Default is false|
+
+TBD.
+
+Features
 --------
 
 If you prefer experience along with only reads, an demo android app is available that demonstrates all the features of this library. Click below button to download from Playstore.

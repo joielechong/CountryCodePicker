@@ -301,32 +301,8 @@ public class CountryCodePicker extends RelativeLayout {
     }
 
     if (mRegisteredPhoneNumberTextView != null) {
-      setPhoneNumberWatcherToTextView(mRegisteredPhoneNumberTextView,
-          selectedCountry.getIso().toUpperCase());
-    }
-
-    String phoneCode = selectedCountry.getPhoneCode();
-    if (mHideNameCode) {
-      mTvSelectedCountry.setText(ctx.getString(R.string.phone_code, phoneCode));
-    } else {
-      if (mShowFullName) {
-        String countryName = selectedCountry.getName().toUpperCase();
-        if (mHidePhoneCode) {
-          mTvSelectedCountry.setText(countryName);
-        } else {
-          mTvSelectedCountry.setText(
-              ctx.getString(R.string.country_full_name_and_phone_code, countryName,
-                  phoneCode));
-        }
-      } else {
-        String iso = selectedCountry.getIso().toUpperCase();
-        if (mHidePhoneCode) {
-          mTvSelectedCountry.setText(iso);
-        } else {
-          mTvSelectedCountry.setText(
-              ctx.getString(R.string.country_code_and_phone_code, iso, phoneCode));
-        }
-      }
+      String ISO = selectedCountry.getIso().toUpperCase();
+      setPhoneNumberWatcherToTextView(mRegisteredPhoneNumberTextView, ISO);
     }
 
     if (mOnCountryChangeListener != null) {
@@ -336,6 +312,63 @@ public class CountryCodePicker extends RelativeLayout {
     mImvFlag.setImageResource(CountryUtils.getFlagDrawableResId(selectedCountry));
 
     if (mIsHintEnabled) setPhoneNumberHint();
+
+    setSelectedCountryText(ctx, selectedCountry);
+  }
+
+  private void setSelectedCountryText(Context ctx, Country selectedCountry) {
+    if (mHideNameCode && mHidePhoneCode && !mShowFullName) {
+      mTvSelectedCountry.setText("");
+      return;
+    }
+
+    String phoneCode = selectedCountry.getPhoneCode();
+    if (mShowFullName) {
+      String countryName = selectedCountry.getName().toUpperCase();
+
+      if (mHidePhoneCode && mHideNameCode) {
+        mTvSelectedCountry.setText(countryName);
+        return;
+      }
+
+      if (mHideNameCode) {
+        mTvSelectedCountry.setText(ctx.getString(R.string.country_full_name_and_phone_code,
+            countryName, phoneCode));
+        return;
+      }
+
+      String ISO = selectedCountry.getIso().toUpperCase();
+      if (mHidePhoneCode) {
+        mTvSelectedCountry.setText(ctx.getString(R.string.country_full_name_and_name_code,
+            countryName, ISO));
+        return;
+      }
+
+      mTvSelectedCountry.setText(ctx.getString(R.string.country_full_name_name_code_and_phone_code,
+          countryName, ISO, phoneCode));
+
+      return;
+    }
+
+    if (mHideNameCode && mHidePhoneCode) {
+      String countryName = selectedCountry.getName().toUpperCase();
+      mTvSelectedCountry.setText(countryName);
+      return;
+    }
+
+    if (mHideNameCode) {
+      mTvSelectedCountry.setText(ctx.getString(R.string.phone_code, phoneCode));
+      return;
+    }
+
+    if (mHidePhoneCode) {
+      String iso = selectedCountry.getIso().toUpperCase();
+      mTvSelectedCountry.setText(iso);
+      return;
+    }
+
+    String iso = selectedCountry.getIso().toUpperCase();
+    mTvSelectedCountry.setText(ctx.getString(R.string.country_code_and_phone_code, iso, phoneCode));
   }
 
   boolean isKeyboardAutoPopOnSearch() {
@@ -554,6 +587,19 @@ public class CountryCodePicker extends RelativeLayout {
     //if correct country is found, set the country
     mDefaultCountryCode = defaultCountryCode;
     setDefaultCountry(defaultCountry);
+  }
+
+  public void setDefaultCountryUsingPhoneCodeAndApply(int defaultCountryCode) {
+    Country defaultCountry =
+        CountryUtils.getByCode(getContext(), mPreferredCountries, defaultCountryCode);
+
+    if (defaultCountry == null) return;
+
+    //if correct country is found, set the country
+    mDefaultCountryCode = defaultCountryCode;
+    setDefaultCountry(defaultCountry);
+
+    resetToDefaultCountry();
   }
 
   /**
@@ -937,11 +983,11 @@ public class CountryCodePicker extends RelativeLayout {
    * If nameCode of country in CCP view is not required use this to show/hide country name code of
    * ccp view.
    *
-   * @param hideNameCode true will remove country name code from ccp view, it will result  " +91 "
+   * @param hide true will remove country name code from ccp view, it will result  " +91 "
    * false will show country name code in ccp view, it will result " (IN) +91 "
    */
-  @SuppressWarnings("unused") public void hideNameCode(boolean hideNameCode) {
-    mHideNameCode = hideNameCode;
+  @SuppressWarnings("unused") public void hideNameCode(boolean hide) {
+    mHideNameCode = hide;
     setSelectedCountry(mSelectedCountry);
   }
 
@@ -1031,10 +1077,10 @@ public class CountryCodePicker extends RelativeLayout {
   /**
    * Show full country name instead only iso name.
    *
-   * @param showFullName show or not.
+   * @param show show or not.
    */
-  @SuppressWarnings("unused") public void showFullName(boolean showFullName) {
-    mShowFullName = showFullName;
+  @SuppressWarnings("unused") public void showFullName(boolean show) {
+    mShowFullName = show;
     setSelectedCountry(mSelectedCountry);
   }
 
@@ -1101,38 +1147,11 @@ public class CountryCodePicker extends RelativeLayout {
   /**
    * Hide or show phone code
    *
-   * @param hidePhoneCode show or not show the phone code.
+   * @param hide show or not show the phone code.
    */
-  //TODO: Check this
-  @SuppressWarnings("unused") public void setHidePhoneCode(boolean hidePhoneCode) {
-    mHidePhoneCode = hidePhoneCode;
-
-    Context ctx = getContext();
-    String phoneCode = mSelectedCountry.getPhoneCode();
-
-    // Reset the view
-    if (mHideNameCode) {
-      mTvSelectedCountry.setText(ctx.getString(R.string.phone_code, phoneCode));
-      return;
-    }
-
-    if (mShowFullName) {
-      String name = mSelectedCountry.getName().toUpperCase();
-      if (mHidePhoneCode) {
-        mTvSelectedCountry.setText(name);
-      } else {
-        String country = ctx.getString(R.string.country_full_name_and_phone_code, name, phoneCode);
-        mTvSelectedCountry.setText(country);
-      }
-    } else {
-      String iso = mSelectedCountry.getIso().toUpperCase();
-      if (mHidePhoneCode) {
-        mTvSelectedCountry.setText(iso);
-      } else {
-        mTvSelectedCountry.setText(
-            ctx.getString(R.string.country_code_and_phone_code, iso, phoneCode));
-      }
-    }
+  @SuppressWarnings("unused") public void hidePhoneCode(boolean hide) {
+    mHidePhoneCode = hide;
+    setSelectedCountry(mSelectedCountry);
   }
 
   private void setPhoneNumberHint() {
