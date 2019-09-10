@@ -155,11 +155,7 @@ public class CountryCodePicker extends RelativeLayout {
     mCountryCodeHolderClickListener = new View.OnClickListener() {
       @Override public void onClick(View v) {
         if (isClickable()) {
-          if (mCountryCodeDialog == null) {
-            mCountryCodeDialog = new CountryCodeDialog(CountryCodePicker.this);
-          }
-
-          mCountryCodeDialog.show();
+          showCountryCodePickerDialog();
         }
       }
     };
@@ -1393,5 +1389,10 @@ public class CountryCodePicker extends RelativeLayout {
     } else {
       return context.getResources().getColor(id);
     }
+  }
+
+  public void showCountryCodePickerDialog() {
+    if (mCountryCodeDialog == null) mCountryCodeDialog = new CountryCodeDialog(this);
+    mCountryCodeDialog.show();
   }
 }
