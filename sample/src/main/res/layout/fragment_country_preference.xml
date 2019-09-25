@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     tools:context="com.rilixtech.countrycodepicker.CountryPreferenceFragment">
 
-    <android.support.v7.widget.CardView style="@style/parentCard">
+    <androidx.cardview.widget.CardView style="@style/parentCard">
 
         <ScrollView style="@style/parentScrollView">
 
@@ -117,7 +117,7 @@
                                     android:layout_height="wrap_content"
                                     android:gravity="center_vertical">
 
-                                    <com.rilixtech.CountryCodePicker
+                                    <com.rilixtech.widget.countrycodepicker.CountryCodePicker
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         app:ccp_countryPreference="US,IN,NZ"
@@ -203,7 +203,7 @@
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical">
 
-                            <com.rilixtech.CountryCodePicker
+                            <com.rilixtech.widget.countrycodepicker.CountryCodePicker
                                 android:id="@+id/ccp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content" />
@@ -231,5 +231,5 @@
                     android:text="Next feature >" />
             </LinearLayout>
         </ScrollView>
-    </android.support.v7.widget.CardView>
+    </androidx.cardview.widget.CardView>
 </FrameLayout>

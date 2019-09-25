@@ -1,4 +1,4 @@
-package com.rilixtech;
+package com.rilixtech.widget.countrycodepicker;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -49,7 +49,7 @@ class CountryCodeDialog extends Dialog {
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     requestWindowFeature(Window.FEATURE_NO_TITLE);
-    setContentView(R.layout.layout_picker_dialog);
+    setContentView(R.layout.country_code_picker_layout_picker_dialog);
     setupUI();
     setupData();
   }
@@ -95,8 +95,7 @@ class CountryCodeDialog extends Dialog {
   }
 
   private void setupListView(ListView listView) {
-    mArrayAdapter =
-        new CountryCodeArrayAdapter(getContext(), mFilteredCountries, mCountryCodePicker);
+    mArrayAdapter = new CountryCodeArrayAdapter(getContext(), mFilteredCountries, mCountryCodePicker);
 
     if (!mCountryCodePicker.isSelectionDialogShowSearch()) {
       RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) listView.getLayoutParams();

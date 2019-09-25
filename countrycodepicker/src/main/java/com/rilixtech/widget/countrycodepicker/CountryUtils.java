@@ -1,4 +1,4 @@
-package com.rilixtech;
+package com.rilixtech.widget.countrycodepicker;
 
 import android.content.Context;
 
@@ -1504,7 +1504,7 @@ public class CountryUtils {
 
     countries.add(new Country(context.getString(R.string.country_south_georgia_code),
         context.getString(R.string.country_south_georgia_number),
-        context.getString(R.string.country_south_africa_name)));
+        context.getString(R.string.country_south_georgia_name)));
 
     Collections.sort(countries, new Comparator<Country>() {
       @Override public int compare(Country country1, Country country2) {

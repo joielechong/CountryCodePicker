@@ -1,4 +1,4 @@
-package com.rilixtech;
+package com.rilixtech.widget.countrycodepicker;
 
 /**
  * Created by hbb20 on 11/1/16.

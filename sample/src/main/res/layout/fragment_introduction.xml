@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     tools:context="com.rilixtech.countrycodepicker.IntroductionFragment">
 
-    <android.support.v7.widget.CardView style="@style/parentCard">
+    <androidx.cardview.widget.CardView style="@style/parentCard">
 
         <ScrollView style="@style/parentScrollView">
 
@@ -107,7 +107,7 @@
                             android:layout_height="wrap_content"
                             android:gravity="right">
 
-                            <com.rilixtech.CountryCodePicker
+                            <com.rilixtech.widget.countrycodepicker.CountryCodePicker
                                 android:padding="10dp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -157,5 +157,5 @@
                     android:text="Let's see features" />
             </LinearLayout>
         </ScrollView>
-    </android.support.v7.widget.CardView>
+    </androidx.cardview.widget.CardView>
 </FrameLayout>
