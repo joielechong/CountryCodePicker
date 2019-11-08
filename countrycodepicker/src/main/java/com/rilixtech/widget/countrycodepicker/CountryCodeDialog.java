@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -63,6 +64,10 @@ class CountryCodeDialog extends Dialog {
   }
 
   private void setupData() {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+      mLvCountryDialog.setLayoutDirection(mCountryCodePicker.getLayoutDirection());
+    }
+
     if (mCountryCodePicker.getTypeFace() != null) {
       Typeface typeface = mCountryCodePicker.getTypeFace();
       mTvTitle.setTypeface(typeface);
