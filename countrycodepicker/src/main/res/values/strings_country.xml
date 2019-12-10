@@ -608,6 +608,10 @@
     <string name="country_netherlands_code" translatable="false">nl</string>
     <string name="country_netherlands_number" translatable="false">31</string>
 
+    <string name="country_netherlands_antilles_name">Netherlands Antilles</string>
+    <string name="country_netherlands_antilles_code" translatable="false">an</string>
+    <string name="country_netherlands_antilles_number" translatable="false">599</string>
+
     <string name="country_new_caledonia_name">New Caledonia</string>
     <string name="country_new_caledonia_code" translatable="false">nc</string>
     <string name="country_new_caledonia_number" translatable="false">687</string>
