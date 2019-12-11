@@ -299,6 +299,8 @@ public class CountryUtils {
         return R.drawable.flag_nepal;
       case "nl": //netherlands
         return R.drawable.flag_netherlands;
+      case "an":
+        return R.drawable.flag_netherlands_antilles;
       case "nc": //new caledonia
         return R.drawable.flag_new_caledonia;// custom
       case "nz": //new zealand
@@ -1116,6 +1118,10 @@ public class CountryUtils {
     countries.add(new Country(context.getString(R.string.country_netherlands_code),
         context.getString(R.string.country_netherlands_number),
         context.getString(R.string.country_netherlands_name)));
+
+    countries.add(new Country(context.getString(R.string.country_netherlands_antilles_code),
+        context.getString(R.string.country_netherlands_antilles_number),
+        context.getString(R.string.country_netherlands_antilles_name)));
 
     countries.add(new Country(context.getString(R.string.country_new_caledonia_code),
         context.getString(R.string.country_new_caledonia_number),

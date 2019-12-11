@@ -242,7 +242,7 @@
 
     <string name="country_dominican_republic_name">Dominican Republic</string>
     <string name="country_dominican_republic_code" translatable="false">do</string>
-    <string name="country_dominican_republic_number" translatable="false">1849</string>
+    <string name="country_dominican_republic_number" translatable="false">1</string>
 
     <string name="country_timor_leste_name">Timor-leste</string>
     <string name="country_timor_leste_code" translatable="false">tl</string>
@@ -608,6 +608,10 @@
     <string name="country_netherlands_code" translatable="false">nl</string>
     <string name="country_netherlands_number" translatable="false">31</string>
 
+    <string name="country_netherlands_antilles_name">Netherlands Antilles</string>
+    <string name="country_netherlands_antilles_code" translatable="false">an</string>
+    <string name="country_netherlands_antilles_number" translatable="false">599</string>
+
     <string name="country_new_caledonia_name">New Caledonia</string>
     <string name="country_new_caledonia_code" translatable="false">nc</string>
     <string name="country_new_caledonia_number" translatable="false">687</string>
@@ -698,7 +702,7 @@
 
     <string name="country_puerto_rico_name">Puerto Rico</string>
     <string name="country_puerto_rico_code" translatable="false">pr</string>
-    <string name="country_puerto_rico_number" translatable="false">1939</string>
+    <string name="country_puerto_rico_number" translatable="false">1</string>
 
     <string name="country_qatar_name">Qatar</string>
     <string name="country_qatar_code" translatable="false">qa</string>
