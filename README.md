@@ -561,6 +561,9 @@ You need to set an EditText for phone number with `registerPhoneNumberTextView()
 
    To check for it, use `isPhoneAutoFormatterEnabled()`
 
+## Thanks for the Contributors
+[Tejas N A](https://github.com/tejasna) for the PR.
+[sadegh] (https://github.com/sadeghpro) for the PR.
 
 ## Credits
 
