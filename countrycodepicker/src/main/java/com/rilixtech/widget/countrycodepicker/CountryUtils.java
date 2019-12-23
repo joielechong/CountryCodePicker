@@ -370,8 +370,7 @@ public class CountryUtils {
       case "sg": //singapore
         return R.drawable.flag_singapore;
       case "sx": // Sint Maarten
-        //TODO: Add Flag.
-        return 0;
+        return R.drawable.flag_sint_marteen;
       case "sk": //slovakia
         return R.drawable.flag_slovakia;
       case "si": //slovenia
