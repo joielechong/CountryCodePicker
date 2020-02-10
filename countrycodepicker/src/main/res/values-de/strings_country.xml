@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="country_switzerland_name">Schweiz</string>
+    <string name="country_germany_name">Deutschland</string>
+    <string name="country_united_kingdom_name">Vereinigtes Königreich</string>
+    <string name="country_france_name">France</string>
+</resources>
