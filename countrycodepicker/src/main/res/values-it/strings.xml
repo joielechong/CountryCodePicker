@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="select_country">Seleccionar País</string>
+
+    <!-- not used strings -->
+    <string name="no_result_found"> </string>
+    <string name="search_hint"> </string>
 </resources>
