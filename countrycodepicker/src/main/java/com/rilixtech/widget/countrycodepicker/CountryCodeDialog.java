@@ -59,6 +59,7 @@ class CountryCodeDialog extends Dialog {
     mRlyDialog = findViewById(R.id.dialog_rly);
     mLvCountryDialog = findViewById(R.id.country_dialog_lv);
     mTvTitle = findViewById(R.id.title_tv);
+    mTvTitle.setVisibility(View.GONE);
     mEdtSearch = findViewById(R.id.search_edt);
     mTvNoResult = findViewById(R.id.no_result_tv);
   }
