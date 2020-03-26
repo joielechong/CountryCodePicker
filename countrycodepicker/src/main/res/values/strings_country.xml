@@ -220,6 +220,10 @@
     <string name="country_cuba_code" translatable="false">cu</string>
     <string name="country_cuba_number" translatable="false">53</string>
 
+    <string name="country_curacao_name">Curacao</string>
+    <string name="country_curacao_code" translatable="false">cw</string>
+    <string name="country_curacao_number" translatable="false">599</string>
+
     <string name="country_cyprus_name">Cyprus</string>
     <string name="country_cyprus_code" translatable="false">cy</string>
     <string name="country_cyprus_number" translatable="false">357</string>
