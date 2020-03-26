@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import java.util.List;
+import java.util.Locale;
 
 public class CountryCodeArrayAdapter extends ArrayAdapter<Country> {
   private final CountryCodePicker mCountryCodePicker;
@@ -66,14 +67,13 @@ public class CountryCodeArrayAdapter extends ArrayAdapter<Country> {
     viewHolder.tvCode.setVisibility(View.VISIBLE);
     viewHolder.llyFlagHolder.setVisibility(View.VISIBLE);
     Context ctx = viewHolder.tvName.getContext();
-    String name = country.getName();
     String iso = country.getIso().toUpperCase();
     String countryNameAndCode;
 
     if (mCountryCodePicker.isHideNameCode()) {
-      countryNameAndCode = name;
+      countryNameAndCode = new Locale(Locale.getDefault().getLanguage(), iso).getDisplayCountry();
     } else {
-      countryNameAndCode = ctx.getString(R.string.country_name_and_code, name, iso);
+      countryNameAndCode = ctx.getString(R.string.country_name_and_code, new Locale(Locale.getDefault().getLanguage(), iso).getDisplayCountry(), iso);
     }
     viewHolder.tvName.setText(countryNameAndCode);
 
