@@ -220,6 +220,10 @@
     <string name="country_cuba_code" translatable="false">cu</string>
     <string name="country_cuba_number" translatable="false">53</string>
 
+    <string name="country_curacao_name">Curacao</string>
+    <string name="country_curacao_code" translatable="false">cw</string>
+    <string name="country_curacao_number" translatable="false">599</string>
+
     <string name="country_cyprus_name">Cyprus</string>
     <string name="country_cyprus_code" translatable="false">cy</string>
     <string name="country_cyprus_number" translatable="false">357</string>
@@ -782,7 +786,7 @@
 
     <string name="country_sint_maarten_name">Sint Maarten</string>
     <string name="country_sint_maarten_code" translatable="false">sx</string>
-    <string name="country_sint_maarten_number" translatable="false">1</string>
+    <string name="country_sint_maarten_number" translatable="false">1721</string>
 
     <string name="country_slovakia_name">Slovakia</string>
     <string name="country_slovakia_code" translatable="false">sk</string>

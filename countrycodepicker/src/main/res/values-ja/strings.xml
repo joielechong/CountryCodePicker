@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="search_hint">検索</string>
+    <string name="no_result_found">見つかりませんでした</string>
+    <string name="select_country">国を選ぶy</string>
+
+</resources>

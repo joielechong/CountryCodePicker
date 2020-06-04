@@ -10,14 +10,18 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
 import java.util.List;
+import java.util.Locale;
 
 public class CountryCodeArrayAdapter extends ArrayAdapter<Country> {
   private final CountryCodePicker mCountryCodePicker;
+  private String mDefaultLocaleLanguage;
 
   CountryCodeArrayAdapter(Context ctx, List<Country> countries, CountryCodePicker picker) {
     super(ctx, 0, countries);
     mCountryCodePicker = picker;
+    mDefaultLocaleLanguage = Locale.getDefault().getLanguage();
   }
 
   private static class ViewHolder {
@@ -68,12 +72,17 @@ public class CountryCodeArrayAdapter extends ArrayAdapter<Country> {
     Context ctx = viewHolder.tvName.getContext();
     String name = country.getName();
     String iso = country.getIso().toUpperCase();
+    String countryName;
     String countryNameAndCode;
-
+    try {
+      countryName = getLocale(iso).getDisplayCountry();
+    } catch (NullPointerException exception) {
+      countryName = name;
+    }
     if (mCountryCodePicker.isHideNameCode()) {
-      countryNameAndCode = name;
+      countryNameAndCode = countryName;
     } else {
-      countryNameAndCode = ctx.getString(R.string.country_name_and_code, name, iso);
+      countryNameAndCode = ctx.getString(R.string.country_name_and_code, countryName, iso);
     }
     viewHolder.tvName.setText(countryNameAndCode);
 
@@ -94,5 +103,9 @@ public class CountryCodeArrayAdapter extends ArrayAdapter<Country> {
       viewHolder.tvCode.setTextColor(color);
       viewHolder.tvName.setTextColor(color);
     }
+  }
+
+  private Locale getLocale(String iso) throws NullPointerException {
+    return new Locale(mDefaultLocaleLanguage, iso);
   }
 }
