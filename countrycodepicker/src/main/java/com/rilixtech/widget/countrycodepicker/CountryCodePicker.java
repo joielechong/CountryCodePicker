@@ -959,13 +959,13 @@ public class CountryCodePicker extends RelativeLayout {
   /**
    * Modifies size of downArrow in CCP view
    *
-   * @param arrowSize size in pixels
+   * @param arrowSizeInDp size in dimension pixels
    */
-  private void setArrowSize(int arrowSize) {
-    if (arrowSize > 0) {
+  public void setArrowSize(int arrowSizeInDp) {
+    if (arrowSizeInDp > 0) {
       LayoutParams params = (LayoutParams) mImvArrow.getLayoutParams();
-      params.width = arrowSize;
-      params.height = arrowSize;
+      params.width = arrowSizeInDp;
+      params.height = arrowSizeInDp;
       mImvArrow.setLayoutParams(params);
     }
   }
