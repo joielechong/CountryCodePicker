@@ -20,6 +20,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import io.michaelrocks.libphonenumber.android.NumberParseException;
 import io.michaelrocks.libphonenumber.android.PhoneNumberUtil;
 import io.michaelrocks.libphonenumber.android.Phonenumber;
@@ -28,17 +30,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
 
-/**
- * Created by hbb20 on 11/1/16.
- *
- * Updated code style and remove unused code
- *
- * Updated by Joielechong 13 May 2017
- *
- * Add libphonenumber for hint and phone number
- * Add checker for device network country code
- * Updated by Joielechong 4 June 2017
- */
 public class CountryCodePicker extends RelativeLayout {
   private static String TAG = CountryCodePicker.class.getSimpleName();
 
@@ -481,7 +472,7 @@ public class CountryCodePicker extends RelativeLayout {
    * @param codePicker picker for the source of country
    * @return List of country
    */
-  List<Country> getCustomCountries(CountryCodePicker codePicker) {
+  List<Country> getCustomCountries(@NonNull CountryCodePicker codePicker) {
     codePicker.refreshCustomMasterList();
     if (codePicker.getCustomCountries() == null || codePicker.getCustomCountries().size() <= 0) {
       return CountryUtils.getAllCountries(codePicker.getContext());
@@ -491,7 +482,7 @@ public class CountryCodePicker extends RelativeLayout {
   }
 
   @SuppressWarnings("unused")
-  public void setCustomMasterCountriesList(List<Country> customMasterCountriesList) {
+  public void setCustomMasterCountriesList(@Nullable List<Country> customMasterCountriesList) {
     mCustomMasterCountriesList = customMasterCountriesList;
   }
 
@@ -516,7 +507,7 @@ public class CountryCodePicker extends RelativeLayout {
    * if null or "" , will remove custom countries and library default will be used.
    */
   @SuppressWarnings("unused")
-  public void setCustomMasterCountries(String customMasterCountries) {
+  public void setCustomMasterCountries(@Nullable String customMasterCountries) {
     mCustomMasterCountries = customMasterCountries;
   }
 
@@ -614,7 +605,7 @@ public class CountryCodePicker extends RelativeLayout {
    * if you want to set IN +91(India) as default country, countryIso =  "IN" or "in"
    * if you want to set JP +81(Japan) as default country, countryIso =  "JP" or "jp"
    */
-  public void setDefaultCountryUsingNameCode(String countryIso) {
+  public void setDefaultCountryUsingNameCode(@NonNull String countryIso) {
     Country defaultCountry = CountryUtils.getByNameCodeFromAllCountries(getContext(), countryIso);
 
     if (defaultCountry == null) return;
@@ -633,7 +624,7 @@ public class CountryCodePicker extends RelativeLayout {
    * if you want to set IN +91(India) as default country, countryIso =  "IN" or "in"
    * if you want to set JP +81(Japan) as default country, countryIso =  "JP" or "jp"
    */
-  public void setDefaultCountryUsingNameCodeAndApply(String countryIso) {
+  public void setDefaultCountryUsingNameCodeAndApply(@NonNull String countryIso) {
     Country defaultCountry = CountryUtils.getByNameCodeFromAllCountries(getContext(), countryIso);
 
     if (defaultCountry == null) return;
@@ -806,7 +797,7 @@ public class CountryCodePicker extends RelativeLayout {
    * If you want to set JP +81(Japan), countryCode= JP
    */
   @SuppressWarnings("unused")
-  public void setCountryForNameCode(String countryNameCode) {
+  public void setCountryForNameCode(@NonNull String countryNameCode) {
     Context ctx = getContext();
     Country country = CountryUtils.getByNameCodeFromAllCountries(ctx, countryNameCode);
     if (country == null) {
@@ -829,7 +820,7 @@ public class CountryCodePicker extends RelativeLayout {
    * number other than country code).
    */
   @SuppressWarnings("unused")
-  public void registerPhoneNumberTextView(TextView textView) {
+  public void registerPhoneNumberTextView(@NonNull TextView textView) {
     setRegisteredPhoneNumberTextView(textView);
     if (mIsHintEnabled) setPhoneNumberHint();
   }
@@ -838,7 +829,7 @@ public class CountryCodePicker extends RelativeLayout {
     return mRegisteredPhoneNumberTextView;
   }
 
-  void setRegisteredPhoneNumberTextView(TextView phoneNumberTextView) {
+  void setRegisteredPhoneNumberTextView(@NonNull TextView phoneNumberTextView) {
     mRegisteredPhoneNumberTextView = phoneNumberTextView;
     if (mIsEnablePhoneNumberWatcher) {
       if (mPhoneNumberWatcher == null) {
@@ -893,7 +884,7 @@ public class CountryCodePicker extends RelativeLayout {
    * number is optional.
    */
   @SuppressWarnings("unused")
-  public void setFullNumber(String fullNumber) {
+  public void setFullNumber(@NonNull String fullNumber) {
     Country country = CountryUtils.getByNumber(getContext(), mPreferredCountries, fullNumber);
     setSelectedCountry(country);
     String carrierNumber = detectCarrierNumber(fullNumber, country);
@@ -1003,7 +994,7 @@ public class CountryCodePicker extends RelativeLayout {
    * @param countryPreference is country name codes separated by comma. e.g. "us,in,nz"
    */
   @SuppressWarnings("unused")
-  public void setCountryPreference(String countryPreference) {
+  public void setCountryPreference(@NonNull String countryPreference) {
     mCountryPreference = countryPreference;
   }
 
@@ -1012,7 +1003,7 @@ public class CountryCodePicker extends RelativeLayout {
    *
    * @param typeFace TypeFace generated from assets.
    */
-  @SuppressWarnings("unused") public void setTypeFace(Typeface typeFace) {
+  @SuppressWarnings("unused") public void setTypeFace(@NonNull Typeface typeFace) {
     mTypeFace = typeFace;
     try {
       mTvSelectedCountry.setTypeface(typeFace);
@@ -1026,7 +1017,7 @@ public class CountryCodePicker extends RelativeLayout {
    *
    * @param fontAssetPath font path in asset folder.
    */
-  public void setTypeFace(String fontAssetPath) {
+  public void setTypeFace(@NonNull String fontAssetPath) {
     try {
       Typeface typeFace = Typeface.createFromAsset(getContext().getAssets(), fontAssetPath);
       mTypeFace = typeFace;
@@ -1039,7 +1030,7 @@ public class CountryCodePicker extends RelativeLayout {
   /**
    * To change font of ccp views along with style.
    */
-  @SuppressWarnings("unused") public void setTypeFace(Typeface typeFace, int style) {
+  @SuppressWarnings("unused") public void setTypeFace(@NonNull Typeface typeFace, int style) {
     try {
       mTvSelectedCountry.setTypeface(typeFace, style);
     } catch (Exception e) {
@@ -1055,7 +1046,7 @@ public class CountryCodePicker extends RelativeLayout {
    * To get call back on country selection a mOnCountryChangeListener must be registered.
    */
   @SuppressWarnings("unused")
-  public void setOnCountryChangeListener(OnCountryChangeListener onCountryChangeListener) {
+  public void setOnCountryChangeListener(@NonNull OnCountryChangeListener onCountryChangeListener) {
     mOnCountryChangeListener = onCountryChangeListener;
   }
 

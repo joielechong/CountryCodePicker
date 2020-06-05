@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
   compileSdkVersion 29
-  buildToolsVersion "29.0.2"
+  buildToolsVersion "29.0.3"
 
   defaultConfig {
     applicationId "com.example.simplesample"
@@ -28,6 +28,6 @@ dependencies {
   implementation 'androidx.appcompat:appcompat:1.1.0'
   implementation project(':countrycodepicker')
   testImplementation 'junit:junit:4.12'
-  androidTestImplementation 'androidx.test:runner:1.1.1'
-  androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+  androidTestImplementation 'androidx.test:runner:1.2.0'
+  androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }

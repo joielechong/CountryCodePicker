@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import java.util.List;
 import java.util.Locale;
 
@@ -33,7 +34,8 @@ public class CountryCodeArrayAdapter extends ArrayAdapter<Country> {
   }
 
   @Override
-  public View getView(int position, View convertView, ViewGroup parent) {
+  @NonNull
+  public View getView(int position, View convertView, @NonNull ViewGroup parent) {
     Country country = getItem(position);
 
     ViewHolder viewHolder;
