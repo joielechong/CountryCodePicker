@@ -125,6 +125,8 @@ public class CountryUtils {
         return R.drawable.flag_croatia;
       case "cu": //cuba
         return R.drawable.flag_cuba;
+      case "cw":
+        return R.drawable.flag_curacao;
       case "cy": //cyprus
         return R.drawable.flag_cyprus;
       case "cz": //czech republic
@@ -370,8 +372,7 @@ public class CountryUtils {
       case "sg": //singapore
         return R.drawable.flag_singapore;
       case "sx": // Sint Maarten
-        //TODO: Add Flag.
-        return 0;
+        return R.drawable.flag_sint_marteen;
       case "sk": //slovakia
         return R.drawable.flag_slovakia;
       case "si": //slovenia
@@ -745,6 +746,10 @@ public class CountryUtils {
     countries.add(new Country(context.getString(R.string.country_cuba_code),
         context.getString(R.string.country_cuba_number),
         context.getString(R.string.country_cuba_name)));
+
+    countries.add(new Country(context.getString(R.string.country_curacao_code),
+        context.getString(R.string.country_curacao_number),
+        context.getString(R.string.country_curacao_name)));
 
     countries.add(new Country(context.getString(R.string.country_cyprus_code),
         context.getString(R.string.country_cyprus_number),

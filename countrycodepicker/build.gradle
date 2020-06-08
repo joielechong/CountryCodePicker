@@ -2,12 +2,12 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 
 group = 'com.github.joielechong'
-version = "2.4.1"
-def verCode = 241
+version = "2.4.2"
+def verCode = 242
 
 android {
   compileSdkVersion 29
-  buildToolsVersion "29.0.2"
+  buildToolsVersion "29.0.3"
 
   defaultConfig {
     minSdkVersion 14
@@ -28,6 +28,7 @@ dependencies {
 //  implementation fileTree(dir: 'libs', include: ['*.jar'])
 //  testImplementation 'junit:junit:4.12'
 //  api 'io.michaelrocks:libphonenumber-android:8.10.7'
-  api 'io.michaelrocks:libphonenumber-android:8.10.16'
-
+//  api 'io.michaelrocks:libphonenumber-android:8.10.16'
+  api 'io.michaelrocks:libphonenumber-android:8.12.5'
+  implementation 'androidx.annotation:annotation:1.1.0'
 }

@@ -2,14 +2,14 @@ apply plugin: 'com.android.application'
 
 android {
   compileSdkVersion 29
-  buildToolsVersion "29.0.2"
+  buildToolsVersion "29.0.3"
 
   defaultConfig {
     applicationId "com.rilixtech.countrycodepicker"
     minSdkVersion 14
     targetSdkVersion 29
-    versionCode 241
-    versionName '2.4.1'
+    versionCode 242
+    versionName '2.4.2'
   }
   buildTypes {
     release {
@@ -25,7 +25,7 @@ dependencies {
   implementation project(':countrycodepicker')
 //  implementation 'com.github.joielechong:countrycodepicker:2.4.1'
 
-  implementation 'androidx.appcompat:appcompat:1.0.2'
+  implementation 'androidx.appcompat:appcompat:1.1.0'
   implementation 'androidx.cardview:cardview:1.0.0'
 //  implementation 'io.michaelrocks:libphonenumber-android:8.9.14'
 }
