@@ -91,6 +91,8 @@ public class CountryCodePicker extends RelativeLayout {
 
   private OnCountryChangeListener mOnCountryChangeListener;
 
+  private boolean mIsArrowHidden = false;
+
   /**
    * interface to set change listener
    */
@@ -165,6 +167,9 @@ public class CountryCodePicker extends RelativeLayout {
       mHideNameCode = a.getBoolean(R.styleable.CountryCodePicker_ccp_hideNameCode, false);
 
       mIsHintEnabled = a.getBoolean(R.styleable.CountryCodePicker_ccp_enableHint, true);
+
+      mIsArrowHidden = a.getBoolean(R.styleable.CountryCodePicker_ccp_hideArrow, false);
+      hideArrow(mIsArrowHidden);
 
       // enable auto formatter for phone number input
       mIsEnablePhoneNumberWatcher =
@@ -967,6 +972,14 @@ public class CountryCodePicker extends RelativeLayout {
       params.width = arrowSizeInDp;
       params.height = arrowSizeInDp;
       mImvArrow.setLayoutParams(params);
+    }
+  }
+
+  public void hideArrow(boolean isHidden) {
+    if (isHidden) {
+      mImvArrow.setVisibility(View.GONE);
+    } else {
+      mImvArrow.setVisibility(View.VISIBLE);
     }
   }
 
