@@ -337,10 +337,7 @@ public class CountryCodePicker extends RelativeLayout {
         long phoneleng = phoneNumber.getNationalNumber();
         String phonelengStr = Long.toString(phoneleng);
         Integer leng = phonelengStr.length();
-        this.getRegisteredPhoneNumberTextView().setFilters(new InputFilter[]{filter, new InputFilter.LengthFilter(leng)});
-
-//        val hint = mPhoneUtil !!.format(phoneNumber, PhoneNumberUtil.PhoneNumberFormat.NATIONAL)
-
+        this.getRegisteredPhoneNumberTextView().setFilters(new InputFilter[]{new InputFilter.LengthFilter(leng)});
         setSelectedCountryText(ctx, selectedCountry);
     }
 
