@@ -1,9 +1,9 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 
-group = 'com.github.konciergeMD'
-version = "2.4.3"
-def verCode = 243
+group = 'com.github.joielechong'
+version = "2.4.2"
+def verCode = 242
 
 android {
   compileSdkVersion 29
