@@ -11,4 +11,5 @@
   <string name="country_full_name_and_name_code" translatable="false">%1$s (%2$s)</string>
   <string name="country_full_name_name_code_and_phone_code" translatable="false">%1$s (%2$s) +%3$s</string>
   <string name="error_unregister_carrier_number" translatable="false">EditText for carrier number is not registered. Register it using registerPhoneNumberTextView() before getFullNumber() or setFullNumber().</string>
+  <string name="country_preference_divider" translatable="false">country preference divider</string>
 </resources>

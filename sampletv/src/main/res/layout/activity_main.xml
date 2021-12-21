@@ -28,6 +28,8 @@
       app:ccp_hidePhoneCode="false"
       app:ccp_keyboardAutoPopOnSearch="false"
       app:ccp_showFullName="false"
+      app:ccp_countryPreference="US"
+      app:ccp_defaultNameCode="US"
       />
 
 </RelativeLayout>
