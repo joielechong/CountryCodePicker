@@ -55,6 +55,7 @@
       />
 
   <View
+      android:importantForAccessibility="no"
       android:id="@+id/preference_divider_view"
       android:layout_width="match_parent"
       android:layout_height="2dp"
