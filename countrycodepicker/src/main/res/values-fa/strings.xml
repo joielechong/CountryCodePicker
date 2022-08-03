@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="search_hint">جست و جو…</string>
+    <string name="no_result_found">کشوری یافت نشد</string>
+    <string name="select_country">کشور خود را انتخاب کنید</string>
+</resources>
