@@ -1,7 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'maven-publish'
 
-group = 'com.github.joielechong'
 version = "2.4.3rt"
 def verCode = 243
 
@@ -26,4 +25,21 @@ android {
 dependencies {
   api 'com.github.MichaelRocks:libphonenumber-android:v8.12.5'
   implementation 'androidx.annotation:annotation:1.1.0'
+}
+
+task androidSourcesJar(type: Jar) {
+  archiveClassifier.set('sources')
+  from android.sourceSets.main.java.srcDirs }
+
+project.afterEvaluate {
+  publishing {
+    publications {
+      release(MavenPublication) {
+        version = project.property("version")
+        artifactId = 'CountryCodePicker'
+        artifact androidSourcesJar
+        from components.release
+      }
+    }
+  }
 }
