@@ -35,8 +35,6 @@ project.afterEvaluate {
   publishing {
     publications {
       release(MavenPublication) {
-        version = project.property("version")
-        artifactId = 'CountryCodePicker'
         artifact androidSourcesJar
         from components.release
       }
