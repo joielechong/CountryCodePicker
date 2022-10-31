@@ -25,10 +25,6 @@ android {
 }
 
 dependencies {
-//  implementation fileTree(dir: 'libs', include: ['*.jar'])
-//  testImplementation 'junit:junit:4.12'
-//  api 'io.michaelrocks:libphonenumber-android:8.10.7'
-//  api 'io.michaelrocks:libphonenumber-android:8.10.16'
-  api 'io.michaelrocks:libphonenumber-android:8.12.5'
+  api 'com.github.MichaelRocks:libphonenumber-android:v8.12.5'
   implementation 'androidx.annotation:annotation:1.1.0'
 }
