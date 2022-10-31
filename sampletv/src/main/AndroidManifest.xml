@@ -19,6 +19,7 @@
       android:theme="@style/AppTheme"
       tools:ignore="GoogleAppIndexingWarning">
     <activity
+        android:exported="true"
         android:name=".MainActivity"
         android:banner="@drawable/app_icon_your_company"
         android:icon="@drawable/app_icon_your_company"
