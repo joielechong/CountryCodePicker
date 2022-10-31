@@ -2,12 +2,11 @@ apply plugin: 'com.android.library'
 apply plugin: 'maven-publish'
 
 group = 'com.github.joielechong'
-version = "2.4.2"
-def verCode = 242
+version = "2.4.3rt"
+def verCode = 243
 
 android {
   compileSdkVersion 33
-  buildToolsVersion "29.0.3"
 
   defaultConfig {
     minSdkVersion 14
