@@ -19,12 +19,11 @@ android {
 }
 
 dependencies {
-  implementation fileTree(include: ['*.jar'], dir: 'libs')
-  testImplementation 'junit:junit:4.12'
   implementation project(':countrycodepicker')
-//  implementation 'com.github.joielechong:countrycodepicker:2.4.1'
-
-  implementation 'androidx.appcompat:appcompat:1.1.0'
+  implementation fileTree(include: ['*.jar'], dir: 'libs')
+  implementation 'io.michaelrocks:libphonenumber-android:8.13.2'
+  implementation 'androidx.appcompat:appcompat:1.5.1'
   implementation 'androidx.cardview:cardview:1.0.0'
-//  implementation 'io.michaelrocks:libphonenumber-android:8.9.14'
+
+  testImplementation 'junit:junit:4.13.2'
 }

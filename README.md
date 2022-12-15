@@ -92,7 +92,8 @@ How to add to your project
 
     ````groovy
     dependencies {
-        implementation 'com.github.joielechong:countrycodepicker:2.4.2'
+        implementation 'io.michaelrocks:libphonenumber-android:8.13.2'
+        implementation 'com.github.rtsketo:CountryCodePicker:2.4.4rt'
     }
     ````
 

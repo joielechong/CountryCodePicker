@@ -2,8 +2,6 @@ package com.rilixtech.countrycodepicker;
 
 
 import android.os.Bundle;
-import androidx.fragment.app.Fragment;
-import androidx.appcompat.widget.AppCompatEditText;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -12,7 +10,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import androidx.appcompat.widget.AppCompatEditText;
+import androidx.fragment.app.Fragment;
+
 import com.rilixtech.widget.countrycodepicker.CountryCodePicker;
+
 import io.michaelrocks.libphonenumber.android.PhoneNumberUtil;
 
 /**

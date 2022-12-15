@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'maven-publish'
 
-version = "2.4.3rt"
+version = "2.4.4rt"
 def verCode = 243
 
 android {
@@ -23,7 +23,7 @@ android {
 }
 
 dependencies {
-  api 'com.github.MichaelRocks:libphonenumber-android:v8.12.5'
+  implementation 'io.michaelrocks:libphonenumber-android:8.13.2'
   implementation 'androidx.annotation:annotation:1.1.0'
 }
 
