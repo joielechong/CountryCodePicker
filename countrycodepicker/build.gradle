@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'maven-publish'
 
-version = "2.4.4rt"
+version = "2.4.5rt"
 def verCode = 243
 
 android {
