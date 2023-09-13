@@ -1,19 +1,15 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'maven-publish'
 
-group = 'com.github.joielechong'
-version = "2.4.2"
-def verCode = 242
+version = "2.4.5rt"
+def verCode = 243
 
 android {
-  compileSdkVersion 29
-  buildToolsVersion "29.0.3"
+  compileSdkVersion 33
 
   defaultConfig {
     minSdkVersion 14
-    targetSdkVersion 29
-    versionCode verCode
-    versionName version
+    targetSdkVersion 33
   }
 
   buildTypes {
@@ -25,10 +21,21 @@ android {
 }
 
 dependencies {
-//  implementation fileTree(dir: 'libs', include: ['*.jar'])
-//  testImplementation 'junit:junit:4.12'
-//  api 'io.michaelrocks:libphonenumber-android:8.10.7'
-//  api 'io.michaelrocks:libphonenumber-android:8.10.16'
-  api 'io.michaelrocks:libphonenumber-android:8.12.5'
-  implementation 'androidx.annotation:annotation:1.1.0'
+  implementation 'io.michaelrocks:libphonenumber-android:8.13.2'
+  implementation 'androidx.annotation:annotation:1.5.0'
+}
+
+task androidSourcesJar(type: Jar) {
+  archiveClassifier.set('sources')
+  from android.sourceSets.main.java.srcDirs }
+
+project.afterEvaluate {
+  publishing {
+    publications {
+      release(MavenPublication) {
+        artifact androidSourcesJar
+        from components.release
+      }
+    }
+  }
 }

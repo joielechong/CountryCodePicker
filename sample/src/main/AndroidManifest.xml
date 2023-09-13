@@ -10,8 +10,10 @@
       android:theme="@style/AppTheme">
     <activity
         android:name="com.rilixtech.countrycodepicker.ExampleActivity"
-        android:windowSoftInputMode="stateHidden"/>
-    <activity android:name="com.rilixtech.countrycodepicker.HomeActivity">
+        android:windowSoftInputMode="stateHidden"
+        android:exported="true"/>
+    <activity android:name="com.rilixtech.countrycodepicker.HomeActivity"
+        android:exported="true">
       <intent-filter>
         <action android:name="android.intent.action.MAIN"/>
         <action android:name="android.intent.action.VIEW"/>

@@ -18,20 +18,23 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import io.michaelrocks.libphonenumber.android.NumberParseException;
-import io.michaelrocks.libphonenumber.android.PhoneNumberUtil;
-import io.michaelrocks.libphonenumber.android.Phonenumber;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
 
+import io.michaelrocks.libphonenumber.android.BuildConfig;
+import io.michaelrocks.libphonenumber.android.NumberParseException;
+import io.michaelrocks.libphonenumber.android.PhoneNumberUtil;
+import io.michaelrocks.libphonenumber.android.Phonenumber;
+
 public class CountryCodePicker extends RelativeLayout {
-  private static String TAG = CountryCodePicker.class.getSimpleName();
+  private static final String TAG = CountryCodePicker.class.getSimpleName();
 
   private final String DEFAULT_COUNTRY = Locale.getDefault().getCountry();
   private static final String DEFAULT_ISO_COUNTRY = "ID";
@@ -62,7 +65,7 @@ public class CountryCodePicker extends RelativeLayout {
   private boolean mHideNameCode = false;
   private boolean mShowFlag = true;
   private boolean mShowFullName = false;
-  private boolean mUseFullName = false;
+  private final boolean mUseFullName = false;
   private boolean mSelectionDialogShowSearch = true;
 
   private List<Country> mPreferredCountries;
@@ -217,7 +220,7 @@ public class CountryCodePicker extends RelativeLayout {
         setDefaultCountryFlagAndCode();
       }
     } catch (Exception e) {
-      Log.d(TAG, "exception = " + e.toString());
+      Log.d(TAG, "exception = " + e);
       if (isInEditMode()) {
         mTvSelectedCountry.setText(
             getContext().getString(R.string.phone_code,
@@ -939,6 +942,14 @@ public class CountryCodePicker extends RelativeLayout {
     mRlyHolder.setBackgroundColor(backgroundColor);
   }
 
+  public void setDialogBackgroundColor(int backgroundColor) {
+    mBackgroundColor = backgroundColor;
+  }
+
+  public void setButtonBackgroundColor(int backgroundColor) {
+    mRlyHolder.setBackgroundColor(backgroundColor);
+  }
+
   public int getDefaultBackgroundColor() {
     return DEFAULT_BACKGROUND_COLOR;
   }
@@ -1023,7 +1034,7 @@ public class CountryCodePicker extends RelativeLayout {
       mTypeFace = typeFace;
       mTvSelectedCountry.setTypeface(typeFace);
     } catch (Exception e) {
-      Log.d(TAG, "Invalid fontPath. " + e.toString());
+      Log.d(TAG, "Invalid fontPath. " + e);
     }
   }
 
@@ -1298,7 +1309,7 @@ public class CountryCodePicker extends RelativeLayout {
         if (BuildConfig.DEBUG) Log.d(TAG, "simCountryIso = " + simCountryIso);
       }
     } catch (Exception e) {
-      Log.e(TAG, "Error when getting sim country, error = " + e.toString());
+      Log.e(TAG, "Error when getting sim country, error = " + e);
       setEmptyDefault(getDefaultCountryCode());
     }
   }
